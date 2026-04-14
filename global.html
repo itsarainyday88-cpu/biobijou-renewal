@@ -3,42 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global — BIOBIJOU</title>
+  <title>Global Network — BIOBIJOU</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
-    .global-section { padding:100px 0; background:var(--bg-light); }
-    .stats-bar { background:var(--dark); padding:60px 0; }
-    .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-    .stat-item { padding:32px 40px; border-right:1px solid rgba(255,255,255,.07); text-align:center; }
-    .stat-item:last-child { border-right:none; }
-    .stat-num { font-family:var(--font-en); font-size:48px; font-weight:900; color:var(--white); line-height:1; }
-    .stat-num span { color:var(--orange); }
-    .stat-label { font-size:13px; color:var(--silver-dk); margin-top:10px; }
+    /* ── SUB HERO (Global) ── */
+    .sub-hero {
+      position: relative; height: 50vh; min-height: 450px;
+      background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding-top: 50px; overflow: hidden;
+    }
+    /* Simple CSS World Map Dot Pattern Placeholder */
+    .hero-map-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(rgba(17, 176, 184, 0.05) 2px, transparent 2px);
+      background-size: 30px 30px; opacity: 0.5;
+    }
 
-    .region-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:56px; }
-    .region-card { background:var(--white); padding:40px 44px; }
-    .region-card-header { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
-    .region-flag { font-size:36px; }
-    .region-name { font-family:var(--font-en); font-size:22px; font-weight:800; color:var(--text); }
-    .region-status { display:inline-block; margin-left:auto; padding:4px 12px; border-radius:20px; font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
-    .rs-active { background:rgba(242,101,34,.1); color:var(--orange); }
-    .rs-focus  { background:#D1FAE5; color:#065F46; }
-    .region-desc { font-size:14px; line-height:1.85; color:var(--text-sub); margin-bottom:20px; }
-    .region-details { display:flex; flex-direction:column; gap:8px; }
-    .region-detail { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text-sub); }
-    .region-detail::before { content:''; width:14px; height:1px; background:var(--orange); flex-shrink:0; }
+    #header { position: absolute; background: transparent; }
+    #header .logo-img { visibility: visible; pointer-events: auto; }
+    #header .logo-img img { filter: brightness(0); opacity: 0.8; }
+    #header .gnb a { color: var(--dark); }
+    #header .gnb a.active { color: var(--orange); font-weight: 700; }
+    #header .header-inner { justify-content: space-between; }
+
+    .sub-hero-content { position: relative; z-index: 10; }
+    .page-title { font-family: var(--font-en); font-size: clamp(40px, 8vw, 72px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
+
+    /* ── GLOBAL SECTIONS ── */
+    .stats-section { padding: 80px 0; background: var(--dark); color: var(--white); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .stat-box { text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .stat-box:last-child { border-right: none; }
+    .stat-num { font-family: var(--font-en); font-size: 56px; font-weight: 900; color: var(--orange); margin-bottom: 8px; }
+    .stat-num span { font-size: 0.5em; opacity: 0.8; }
+    .stat-text { font-size: 14px; color: var(--silver); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .regions-section { padding: 120px 0; background: var(--bg-light); }
+    .region-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    
+    .region-card { 
+      background: var(--white); border-radius: 24px; padding: 48px; 
+      box-shadow: var(--shadow-sm); transition: all 0.4s ease;
+      display: flex; flex-direction: column;
+    }
+    .region-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+    
+    .rc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+    .rc-flag { font-size: 40px; }
+    .rc-status { 
+      padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; 
+      background: var(--bg-light); color: var(--text-muted); text-transform: uppercase;
+    }
+    .rc-status.active { background: rgba(242,101,34,0.1); color: var(--orange); }
+
+    .rc-name { font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
+    .rc-desc { font-size: 16px; line-height: 1.8; color: var(--text-sub); margin-bottom: 32px; }
+    
+    .rc-list { border-top: 1px solid var(--border); padding-top: 24px; }
+    .rc-item { font-size: 14px; margin-bottom: 12px; display: flex; gap: 10px; align-items: center; }
+    .rc-item::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; opacity: 0.5; }
+
+    /* Reveal Animation */
+    [data-show] { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+    [data-show].visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
-<body>
+<body class="sub-page">
 
   <!-- HEADER -->
-  <header id="header" class="solid">
+  <header id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+      <a href="index.html" class="logo-img">
+        <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 44px;">
+      </a>
       <nav class="gnb">
         <a href="company.html" class="en">Company</a>
         <a href="technology.html" class="en">Technology</a>
@@ -47,95 +89,110 @@
         <a href="news.html" class="en">News</a>
       </nav>
       <div class="header-right">
-        <span class="lang-toggle en">KR · EN · CN</span>
-        <a href="contact.html" class="btn-contact en">Contact</a>
+        <a href="contact.html" class="btn-primary en">Contact Us</a>
       </div>
     </div>
   </header>
 
-  <!-- PAGE BANNER -->
-  <div class="page-banner">
-    <div class="page-banner-bg"></div>
-    <div class="container page-banner-inner">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="sep">›</span>
-        <span class="current">Global</span>
-      </div>
-      <div class="label mb16">Global Presence</div>
-      <h1 class="page-banner-title en">Expanding<br/><span>Worldwide</span></h1>
-      <p class="page-banner-desc">25개국 이상 수출, 미국 지사 운영 — 바이오비쥬의 글로벌 유통 네트워크.</p>
+  <!-- SUB HERO -->
+  <section class="sub-hero">
+    <div class="hero-map-overlay"></div>
+    <div class="sub-hero-content">
+      <div class="label" style="justify-content: center; color: var(--teal);">Global Presence</div>
+      <h1 class="page-title en">Global Network</h1>
     </div>
-  </div>
+  </section>
 
   <!-- STATS -->
-  <div class="stats-bar">
+  <section class="stats-section">
     <div class="container">
-      <div class="stats-row">
-        <div class="stat-item"><div class="stat-num en">25<span>+</span></div><div class="stat-label">수출 국가</div></div>
-        <div class="stat-item"><div class="stat-num en">1</div><div class="stat-label">해외 지사 (미국)</div></div>
-        <div class="stat-item"><div class="stat-num en">2</div><div class="stat-label">2026 신규 전략 시장</div></div>
-        <div class="stat-item"><div class="stat-num en">KR<span>/</span>EN<span>/</span>CN</div><div class="stat-label">다국어 지원</div></div>
+      <div class="stats-grid">
+        <div class="stat-box" data-show>
+          <div class="stat-num">25<span>+</span></div>
+          <div class="stat-text">Export Countries</div>
+        </div>
+        <div class="stat-box" data-show>
+          <div class="stat-num">150<span>B+</span></div>
+          <div class="stat-text">Valuation (KRW)</div>
+        </div>
+        <div class="stat-box" data-show>
+          <div class="stat-num">12<span>+</span></div>
+          <div class="stat-text">Global Patents</div>
+        </div>
+        <div class="stat-box" data-show>
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-text">Global Branches</div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- REGIONS -->
-  <section class="global-section">
+  <section class="regions-section">
     <div class="container">
-      <div class="label mb16">Markets</div>
-      <h2 class="section-title mb8">글로벌 시장</h2>
+      <div class="section-header" style="text-align: center; margin-bottom: 80px;">
+        <span class="section-label">Expanding Boundaries</span>
+        <h2 class="section-title">Strategic Market Presence</h2>
+      </div>
+
       <div class="region-grid">
-        <div class="region-card">
-          <div class="region-card-header">
-            <div class="region-flag">🇺🇸</div>
-            <div class="region-name en">USA</div>
-            <span class="region-status rs-active">Active · Branch</span>
+        <!-- SOUTH KOREA -->
+        <div class="region-card" data-show>
+          <div class="rc-header">
+            <span class="rc-flag">🇰🇷</span>
+            <span class="rc-status active">Global HQ</span>
           </div>
-          <p class="region-desc">미국 현지 지사를 통해 북미 에스테틱 시장에 직접 진출. 클리닉 및 의료기관 중심의 B2B 공급망을 구축하고 있습니다.</p>
-          <div class="region-details">
-            <div class="region-detail">미국 현지 지사 직접 운영</div>
-            <div class="region-detail">클리닉·의료기관 B2B 공급</div>
-            <div class="region-detail">북미 시장 확장 거점</div>
-          </div>
-        </div>
-        <div class="region-card">
-          <div class="region-card-header">
-            <div class="region-flag">🇹🇭</div>
-            <div class="region-name en">Thailand</div>
-            <span class="region-status rs-focus">2026 Focus</span>
-          </div>
-          <p class="region-desc">동남아시아 에스테틱 시장의 핵심 거점. 태국을 중심으로 동남아 전반의 유통망 구축을 2026년 전략 목표로 설정.</p>
-          <div class="region-details">
-            <div class="region-detail">에스테틱 클리닉 중심 B2B 채널</div>
-            <div class="region-detail">현지 파트너십 구축 진행 중</div>
-            <div class="region-detail">HA 필러·스킨 부스터 중심 공략</div>
+          <h3 class="rc-name">South Korea</h3>
+          <p class="rc-desc">대한민국 하남시에 본사 및 생산 기지를 두고 글로벌 에스테틱 시장을 선도합니다. 2025년 코스닥 상장을 통해 투명한 경영 체계를 확립했습니다.</p>
+          <div class="rc-list">
+            <div class="rc-item">Global Headquarters & R&D Center</div>
+            <div class="rc-item">Automated Manufacturing Facility</div>
+            <div class="rc-item">KOSDAQ Listed Company</div>
           </div>
         </div>
-        <div class="region-card">
-          <div class="region-card-header">
-            <div class="region-flag">🌐</div>
-            <div class="region-name en">CIS</div>
-            <span class="region-status rs-focus">2026 Focus</span>
+
+        <!-- USA -->
+        <div class="region-card" data-show>
+          <div class="rc-header">
+            <span class="rc-flag">🇺🇸</span>
+            <span class="rc-status active">Global Branch</span>
           </div>
-          <p class="region-desc">러시아·카자흐스탄 등 CIS(독립국가연합) 국가들은 고성장 에스테틱 시장으로 2026년 진출 강화 예정. 아랍헬스 참가를 통해 네트워크 구축 중.</p>
-          <div class="region-details">
-            <div class="region-detail">아랍헬스 2024 참가 — 파트너 발굴</div>
-            <div class="region-detail">전문 의료기관 및 유통 파트너 협의</div>
-            <div class="region-detail">러시아어 자료 및 CE 인증 활용</div>
+          <h3 class="rc-name">North America</h3>
+          <p class="rc-desc">미국 현지 지사를 직접 운영하며 북미 에스테틱 시장의 거점을 확보하고 있습니다. 로컬 파트너와의 협력을 통해 맞춤형 솔루션을 공급합니다.</p>
+          <div class="rc-list">
+            <div class="rc-item">Direct Branch Operation (USA)</div>
+            <div class="rc-item">B2B Clinical Network</div>
+            <div class="rc-item">Strategic Logistic Center</div>
           </div>
         </div>
-        <div class="region-card">
-          <div class="region-card-header">
-            <div class="region-flag">🇰🇷</div>
-            <div class="region-name en">Korea (HQ)</div>
-            <span class="region-status rs-active">HQ · Listed</span>
+
+        <!-- SE ASIA -->
+        <div class="region-card" data-show>
+          <div class="rc-header">
+            <span class="rc-flag">🇹🇭</span>
+            <span class="rc-status">Focus Market</span>
           </div>
-          <p class="region-desc">경기도 하남에 본사 및 생산 공장 운영. 코스닥 상장(2025년)으로 투명한 경영 체계 확립 및 국내 에스테틱 시장 선도.</p>
-          <div class="region-details">
-            <div class="region-detail">KOSDAQ 상장 (2025.05)</div>
-            <div class="region-detail">하남테크노밸리 생산 공장 직영</div>
-            <div class="region-detail">국내 의료기관 및 클리닉 공급</div>
+          <h3 class="rc-name">Southeast Asia</h3>
+          <p class="rc-desc">태국을 필두로 동남아시아 시장에 대한 영향력을 확대하고 있습니다. 글로벌 에스테틱 트렌드의 중심지인 동남아시아에 최적화된 라인업을 제공합니다.</p>
+          <div class="rc-list">
+            <div class="rc-item">Main Hub: Thailand</div>
+            <div class="rc-item">Expanding Partner Network</div>
+            <div class="rc-item">LNP Technology Focus</div>
+          </div>
+        </div>
+
+        <!-- CIS -->
+        <div class="region-card" data-show>
+          <div class="rc-header">
+            <span class="rc-flag">🌐</span>
+            <span class="rc-status">Emerging Market</span>
+          </div>
+          <h3 class="rc-name">CIS & Europe</h3>
+          <p class="rc-desc">독립국가연합(CIS) 및 유럽 시장 진출을 강화하고 있습니다. CE 인증과 풍부한 임상 데이터를 바탕으로 글로벌 스탠다드를 제시합니다.</p>
+          <div class="rc-list">
+            <div class="rc-item">CE Certified Products</div>
+            <div class="rc-item">Clinical Data Compliance</div>
+            <div class="rc-item">Global Partnership Support</div>
           </div>
         </div>
       </div>
@@ -147,41 +204,51 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
-          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
-          <div class="footer-sns">
-            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
-            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
+          <a href="index.html" class="logo-img footer-logo">
+            <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
+          </a>
+          <p class="f-desc">글로벌 에스테틱 이노베이터.<br/>LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
+        </div>
+        <div>
+          <div class="f-title">Company</div>
+          <div class="f-links">
+            <a href="company.html">인사말</a>
+            <a href="company.html">기업개요</a>
+            <a href="company.html#history">연혁</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Company</div>
-          <div class="footer-links">
-            <a href="company.html">인사말</a><a href="company.html">기업개요</a>
-            <a href="company.html">연혁</a><a href="global.html">글로벌 네트워크</a>
-            <a href="contact.html">오시는길</a>
+          <div class="f-title">Products</div>
+          <div class="f-links">
+            <a href="products.html">HA Filler</a>
+            <a href="products.html">Skin Booster</a>
+            <a href="products.html">New Launch</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Products</div>
-          <div class="footer-links">
-            <a href="products.html">HA Filler</a><a href="products.html">Skin Booster</a>
-            <a href="products.html">2026 New Launch</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title en">Support</div>
-          <div class="footer-links">
-            <a href="contact.html">문의하기</a><a href="news.html">공지사항</a>
-            <a href="contact.html">이용약관</a>
+          <div class="f-title">Support</div>
+          <div class="f-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="news.html">News & Press</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div class="footer-info">대표 : 양준호 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
+        <div>대표 : 양준호 | 경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

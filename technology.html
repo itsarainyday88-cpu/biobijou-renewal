@@ -6,211 +6,283 @@
   <title>Technology — BIOBIJOU</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
-    .tech-section { padding:100px 0; }
-    .tech-section:nth-child(odd) { background:var(--dark); }
-    .tech-section:nth-child(even) { background:var(--bg-light); }
+    /* ── SUB HERO (Technology) ── */
+    .sub-hero {
+      position: relative; height: 50vh; min-height: 450px;
+      /* Using a premium CSS gradient as placeholder until image gen is back */
+      background: linear-gradient(135deg, #eef9fa 0%, #ffffff 50%, #effafb 100%);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding-top: 50px; overflow: hidden;
+    }
+    /* Abstract Biotech Circles */
+    .hero-orb {
+      position: absolute; border-radius: 50%; border: 1px solid rgba(17,176,184,0.1);
+      background: radial-gradient(circle, rgba(17,176,184,0.05) 0%, transparent 70%);
+      z-index: 1; pointer-events: none;
+    }
+    .orb-1 { width: 600px; height: 600px; top: -100px; right: -100px; }
+    .orb-2 { width: 400px; height: 400px; bottom: -50px; left: -100px; }
 
-    /* 메인 기술 카드 */
-    .tech-main-card {
-      display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
-    }
-    .tech-main-card.reverse { direction:rtl; }
-    .tech-main-card.reverse > * { direction:ltr; }
-    .tech-visual {
-      aspect-ratio:1/1; border-radius:4px; position:relative; overflow:hidden;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .tech-visual-dark { background:var(--dark-2); }
-    .tech-visual-light { background:linear-gradient(135deg,#EEF0F3,#E0E4EA); }
-    /* 시각화 요소 */
-    .tv-orb {
-      position:absolute; border-radius:50%;
-      animation:orb-float 6s ease-in-out infinite;
-    }
-    @keyframes orb-float {
-      0%,100%{transform:translate(-50%,-50%) scale(1);}
-      50%{transform:translate(-50%,-50%) scale(1.08);}
-    }
-    .tv-orb-1 { width:60%; height:60%; top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle,rgba(242,101,34,.22) 0%,transparent 70%); border:1px solid rgba(242,101,34,.2); }
-    .tv-orb-2 { width:40%; height:40%; top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle,rgba(242,101,34,.3) 0%,transparent 70%); border:1px solid rgba(242,101,34,.3); animation-delay:-2s; }
-    .tv-orb-3 { width:20%; height:20%; top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle,rgba(242,101,34,.5) 0%,transparent 70%); animation-delay:-1s; }
-    .tv-label { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.25); position:relative; z-index:1; }
-    .tv-label-dark { color:rgba(0,0,0,.18); }
+    #header { position: absolute; background: transparent; }
+    #header .logo-img { visibility: visible; pointer-events: auto; }
+    #header .logo-img img { filter: brightness(0); opacity: 0.8; } /* Dark Logo for light tech bg */
+    #header .gnb a { color: var(--dark-2); }
+    #header .gnb a.active { color: var(--orange); font-weight: 700; }
+    #header .header-inner { justify-content: space-between; }
 
-    .tech-content .label { margin-bottom:14px; }
-    .tech-num-bg {
-      font-family:var(--font-en); font-size:120px; font-weight:900;
-      color:transparent; -webkit-text-stroke:2px rgba(242,101,34,.5);
-      line-height:1; letter-spacing:-.05em; user-select:none; margin-bottom:-16px;
-    }
-    .tech-num-bg-lt { -webkit-text-stroke:2px rgba(242,101,34,.4); }
-    .tech-name {
-      font-family:var(--font-en); font-size:clamp(28px,4vw,48px); font-weight:900;
-      line-height:1.1; letter-spacing:-.03em; margin-bottom:8px;
-    }
-    .tech-name-dark { color:var(--white); }
-    .tech-name-light { color:var(--text); }
-    .tech-subtitle { font-size:16px; font-weight:600; color:var(--orange); margin-bottom:24px; }
-    .tech-desc-dark  { font-size:16px; line-height:1.9; color:var(--silver); margin-bottom:36px; }
-    .tech-desc-light { font-size:16px; line-height:1.9; color:var(--text-sub); margin-bottom:36px; }
-    .tech-spec-list { display:flex; flex-direction:column; gap:14px; margin-bottom:36px; }
-    .tech-spec-item { display:flex; align-items:flex-start; gap:14px; }
-    .tech-spec-dot { width:8px; height:8px; border-radius:50%; background:var(--orange); flex-shrink:0; margin-top:7px; }
-    .tech-spec-text-dark  { font-size:14px; line-height:1.7; color:rgba(255,255,255,.7); }
-    .tech-spec-text-light { font-size:14px; line-height:1.7; color:var(--text); }
-    .tech-new-badge {
-      display:inline-flex; align-items:center; gap:6px;
-      padding:5px 14px; background:rgba(242,101,34,.15); border:1px solid rgba(242,101,34,.3); border-radius:20px;
-      font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--orange); margin-bottom:20px;
-    }
+    .sub-hero-content { position: relative; z-index: 10; }
+    .page-title { font-family: var(--font-en); font-size: clamp(40px, 8vw, 72px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
 
-    /* 비교표 */
-    .compare-section { padding:100px 0; background:var(--white); }
-    .compare-table { width:100%; border-collapse:collapse; margin-top:48px; }
-    .compare-table th, .compare-table td { padding:18px 24px; text-align:center; border-bottom:1px solid var(--silver-lt); font-size:14px; }
-    .compare-table th { font-family:var(--font-en); font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; background:var(--dark); color:rgba(255,255,255,.7); }
-    .compare-table th:first-child { text-align:left; }
-    .compare-table th.highlight { color:var(--orange); }
-    .compare-table td:first-child { text-align:left; font-weight:600; color:var(--text); }
-    .compare-table tr:hover td { background:var(--bg-light); }
-    .check { color:var(--orange); font-size:18px; font-weight:700; }
-    .partial { color:var(--silver-dk); }
-    .none { color:var(--silver-lt); }
+    /* ── SUB TABS (Sticky to top:0) ── */
+    .sub-tabs { 
+      background: var(--white); 
+      border-bottom: 1px solid var(--border); 
+      position: sticky; top: 0; z-index: 100; 
+      transition: box-shadow 0.3s ease;
+    }
+    .sub-tabs.scrolled { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .sub-tabs-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: center; }
+    .sub-tab { 
+      padding: 24px 32px; font-family: var(--font-en); font-size: 13px; font-weight: 700; 
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;
+      border-bottom: 3px solid transparent; transition: all 0.3s ease;
+    }
+    .sub-tab:hover { color: var(--teal); }
+    .sub-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+    /* ── SECTIONS ── */
+    .section { padding: 120px 0; }
+    .bg-dark { background: var(--dark); color: var(--white); }
+    .bg-light { background: var(--bg-light); }
+
+    /* Tech Block */
+    .tech-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .tech-block.reverse { direction: rtl; }
+    .tech-block.reverse > * { direction: ltr; }
+
+    .tech-visual { 
+      position: relative; aspect-ratio: 1/1; 
+      background: rgba(255,255,255,0.03); border-radius: 30px; 
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
+    }
+    .bg-light .tech-visual { background: var(--white); border-color: var(--border); box-shadow: var(--shadow); }
+
+    .tech-bubble {
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+      opacity: 0.2; filter: blur(40px); animation: pulse 6s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.2; } 50% { transform: scale(1.2); opacity: 0.3; } }
+
+    .tech-text .label { color: var(--orange); margin-bottom: 24px; font-weight: 700; }
+    .tech-title { font-size: 48px; font-weight: 900; margin-bottom: 24px; line-height: 1.1; }
+    .tech-desc { font-size: 18px; line-height: 1.8; color: var(--silver-dk); margin-bottom: 40px; }
+    .bg-light .tech-desc { color: var(--dark-3); }
+
+    .tech-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 12px; }
+    .feature-icon { width: 24px; height: 24px; color: var(--orange); flex-shrink: 0; }
+    .feature-name { font-weight: 700; font-size: 15px; }
+
+    /* Compare Table */
+    .compare-card { background: var(--white); border-radius: 24px; padding: 60px; box-shadow: var(--shadow-lg); }
+    .compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+    .compare-table th, .compare-table td { padding: 24px; text-align: center; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-family: var(--font-en); font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .compare-table td:first-child { text-align: left; font-weight: 700; color: var(--dark); width: 30%; }
+    .compare-table .highlight { color: var(--orange); font-weight: 800; }
+
+    /* Reveal Animation */
+    [data-show] { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    [data-show].visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
-<body>
+<body class="sub-page">
 
   <!-- HEADER -->
-  <header id="header" class="solid">
+  <header id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
-      <nav class="gnb">
-        <a href="company.html" class="en">Company</a>
-        <a href="technology.html" class="en active">Technology</a>
-        <a href="products.html" class="en">Products</a>
-        <a href="global.html" class="en">Global</a>
-        <a href="news.html" class="en">News</a>
-      </nav>
+      <a href="index.html" class="logo-img">
+        <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 44px;">
+      </a>
+      <ul class="gnb">
+        <li><a href="company.html" class="en">Company</a></li>
+        <li><a href="technology.html" class="en active">Technology</a></li>
+        <li><a href="products.html" class="en">Products</a></li>
+        <li><a href="global.html" class="en">Global</a></li>
+        <li><a href="news.html" class="en">News</a></li>
+      </ul>
       <div class="header-right">
-        <span class="lang-toggle en">KR · EN · CN</span>
-        <a href="contact.html" class="btn-contact en">Contact</a>
+        <a href="contact.html" class="btn-primary en">Contact Us</a>
+      </div>
+    </div>
+    <div class="header-drop">
+      <div class="drop-inner">
+        <div class="drop-col">
+          <div class="drop-col-title">Company</div>
+          <div class="drop-list">
+            <a href="company.html#ceo" class="drop-link">인사말</a>
+            <a href="company.html#overview" class="drop-link">기업개요</a>
+            <a href="company.html#history" class="drop-link">연혁</a>
+            <a href="company.html#location" class="drop-link">오시는길</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Technology</div>
+          <div class="drop-list">
+            <a href="technology.html#lnp" class="drop-link">LNP 기술</a>
+            <a href="technology.html#hadm" class="drop-link">hADM 기술</a>
+            <a href="technology.html#comparison" class="drop-link">기술 비교</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Products</div>
+          <div class="drop-list">
+            <a href="products.html" class="drop-link">HA 필러</a>
+            <a href="products.html" class="drop-link">스킨 부스터</a>
+            <a href="products.html" class="drop-link">2026 신제품</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Global</div>
+          <div class="drop-list">
+            <a href="global.html" class="drop-link">글로벌 네트워크</a>
+            <a href="global.html" class="drop-link">USA 지사</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Media</div>
+          <div class="drop-list">
+            <a href="news.html" class="drop-link">보도자료</a>
+            <a href="news.html" class="drop-link">공지사항</a>
+            <a href="contact.html" class="drop-link">문의하기</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- PAGE BANNER -->
-  <div class="page-banner">
-    <div class="page-banner-bg"></div>
-    <div class="container page-banner-inner">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="sep">›</span>
-        <span class="current">Technology</span>
-      </div>
-      <div class="label mb16">Core Technology</div>
-      <h1 class="page-banner-title en">Science<br/>Behind the <span>Beauty</span></h1>
-      <p class="page-banner-desc">독자적인 핵심 기술을 바탕으로 에스테틱 의약품의 새로운 기준을 제시합니다.</p>
+  <!-- SUB HERO -->
+  <section class="sub-hero">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="sub-hero-content">
+      <div class="label" style="justify-content: center; color: var(--teal);">Scientific Excellence</div>
+      <h1 class="page-title en">Technology</h1>
     </div>
-  </div>
+  </section>
 
-  <!-- LNP Technology -->
-  <section class="tech-section">
+  <!-- SUB TABS -->
+  <nav class="sub-tabs">
+    <div class="sub-tabs-inner">
+      <a href="#lnp" class="sub-tab active">LNP Technology</a>
+      <a href="#hadm" class="sub-tab"><span style="text-transform: lowercase;">h</span>ADM Matrix</a>
+      <a href="#comparison" class="sub-tab">Comparison</a>
+    </div>
+  </nav>
+
+  <!-- LNP SECTION -->
+  <section id="lnp" class="section bg-dark">
     <div class="container">
-      <div class="tech-main-card">
-        <div class="tech-visual tech-visual-dark">
-          <div class="tv-orb tv-orb-1"></div>
-          <div class="tv-orb tv-orb-2"></div>
-          <div class="tv-orb tv-orb-3"></div>
-          <span class="tv-label en">LNP Visualization</span>
+      <div class="tech-block">
+        <div class="tech-visual" data-show>
+          <div class="tech-bubble"></div>
+          <img src="images/main/hero_slide_03.png" alt="LNP Structure" style="width: 70%; height: 70%; object-fit: contain; z-index: 10;">
         </div>
-        <div class="tech-content">
-          <div class="label mb16">Flagship Technology</div>
-          <div class="tech-num-bg en">01</div>
-          <h2 class="tech-name tech-name-dark en">LNP Technology</h2>
-          <div class="tech-subtitle">Lipid Nano Particle</div>
-          <p class="tech-desc-dark">지질나노입자(Lipid Nano Particle) 기술을 활용하여 유효성분의 피부 투과율을 극대화합니다. 기존 HA 제품 대비 탁월한 흡수성과 지속력을 구현하는 바이오비쥬의 핵심 적용 기술입니다.</p>
-          <div class="tech-spec-list">
-            <div class="tech-spec-item">
-              <div class="tech-spec-dot"></div>
-              <div class="tech-spec-text-dark">나노 크기(100~200nm)의 지질 입자에 유효성분 캡슐화, 피부 장벽 투과율 극대화</div>
+        <div class="tech-text" data-show>
+          <div class="label">Proprietary Delivery System</div>
+          <h2 class="tech-title en">LNP<br/>Technology</h2>
+          <p class="tech-desc">
+            지질나노입자(Lipid Nano Particle) 기술은 고분자 지질을 활용하여 유효 성분을 안정적으로 캡슐화합니다. 바이오비쥬만의 독자적인 LNP 포뮬러는 피부 장벽 투과율을 극대화하여 스킨부스터의 효능을 세포 수준까지 전달합니다.
+          </p>
+          <div class="tech-features">
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Nano-Encapsulation</div>
             </div>
-            <div class="tech-spec-item">
-              <div class="tech-spec-dot"></div>
-              <div class="tech-spec-text-dark">기존 대비 흡수 속도 및 생체이용률 향상, 더 적은 용량으로 높은 효과</div>
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">High Skin Penetration</div>
             </div>
-            <div class="tech-spec-item">
-              <div class="tech-spec-dot"></div>
-              <div class="tech-spec-text-dark">ASCENART 시리즈, SPEETIQUEL 등 스킨 부스터 전 제품 적용</div>
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Enhanced Stability</div>
+            </div>
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Long-lasting Effects</div>
             </div>
           </div>
-          <a href="products.html" class="btn-primary en">LNP 적용 제품 보기</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ADM -->
-  <section class="tech-section">
+  <!-- hADM SECTION -->
+  <section id="hadm" class="section bg-light">
     <div class="container">
-      <div class="tech-main-card">
-        <div class="tech-visual" style="background:#ffffff;overflow:hidden;">
-          <img src="images/brand/Skin_white.png" alt="hADM Skin Structure" style="width:100%;height:100%;object-fit:contain;" />
+      <div class="tech-block reverse">
+        <div class="tech-visual" data-show>
+          <img src="images/brand/Skin_white.png" alt="hADM Matrix" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
-        <div class="tech-content">
-          <div class="tech-new-badge en">2026 New Technology</div>
-          <div class="label mb16">2026 Pipeline</div>
-          <div class="tech-num-bg tech-num-bg-lt en">02</div>
-          <h2 class="tech-name tech-name-light en">hADM</h2>
-          <div class="tech-subtitle">human Allogeneic Dermal Matrix</div>
-          <p class="tech-desc-light">입자형 무세포 인체 유래 동종 진피 매트릭스(human Acellular Dermal Matrix) 기술을 적용하여 피부의 구조와 기능 복원을 목적으로 합니다.</p>
-          <div class="tech-spec-list">
-            <div class="tech-spec-item">
-              <div class="tech-spec-dot"></div>
-              <div class="tech-spec-text-light">입자형 무세포 동종진피 소재</div>
+        <div class="tech-text" data-show>
+          <div class="label">Advanced Regenerative Matrix</div>
+          <h2 class="tech-title en">hADM<br/>Matrix</h2>
+          <p class="tech-desc">
+            human Allogeneic Dermal Matrix (hADM)은 인체 유래 동종 진피를 무세포화하여 가공한 혁신적인 매트릭스입니다. 피부 조직의 구조를 복원하고 자가 재생을 유도하여 에스테틱 치료의 한계를 뛰어넘는 결과를 제공합니다.
+          </p>
+          <div class="tech-features">
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Biocompatibility</div>
             </div>
-            <div class="tech-spec-item">
-              <div class="tech-spec-dot"></div>
-              <div class="tech-spec-text-light">우수한 생체 적합성</div>
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Tissue Restoration</div>
             </div>
-            <div class="tech-spec-item">
-              <div class="tech-spec-dot"></div>
-              <div class="tech-spec-text-light">피부의 구조와 기능 복원 목적</div>
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Natural Integration</div>
+            </div>
+            <div class="feature-item">
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div class="feature-name">Premium Material</div>
             </div>
           </div>
-          <a href="products.html" class="btn-primary en">CELIVION 제품 보기</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 비교표 -->
-  <section class="compare-section">
+  <!-- COMPARISON -->
+  <section id="comparison" class="section bg-alt">
     <div class="container">
-      <div class="label mb16 tac">Technology Comparison</div>
-      <h2 class="section-title tac mb16">기술 비교</h2>
-      <p class="section-sub tac" style="max-width:560px;margin:0 auto;">스킨 부스터 핵심 전달체 기술 비교 — LNP vs 엑소좀</p>
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>항목</th>
-            <th class="highlight">LNP Technology</th>
-            <th>Exosome</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>전달체 유형</td><td>지질나노입자 (합성)</td><td>세포 유래 나노소포</td></tr>
-          <tr><td>활성물질 탑재 효율</td><td class="check">●●●</td><td class="check">●●</td></tr>
-          <tr><td>피부 투과율</td><td class="check">●●●</td><td class="check">●●</td></tr>
-          <tr><td>제조 안정성</td><td class="check">●●●</td><td class="partial">●</td></tr>
-          <tr><td>대량 생산 가능성</td><td class="check">●●●</td><td class="partial">●</td></tr>
-          <tr><td>바이오비쥬 적용 제품</td><td class="check">출시 완료</td><td class="none">—</td></tr>
-        </tbody>
-      </table>
+      <div class="compare-card" data-show>
+        <div class="section-header">
+          <span class="section-label">Performance Check</span>
+          <h2 class="section-title">Technology Comparison</h2>
+        </div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th class="highlight">LNP Technology</th>
+              <th>Other Systems</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Delivery Efficiency</td><td class="highlight">Excellent (Nano-scaled)</td><td>Moderate</td></tr>
+            <tr><td>Stability</td><td class="highlight">Highly Stable</td><td>Sensitive</td></tr>
+            <tr><td>Skin Penetration</td><td class="highlight">90% +</td><td>Less than 40%</td></tr>
+            <tr><td>Production Scalability</td><td class="highlight">Mass Production Ready</td><td>Laboratory Level</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -219,45 +291,72 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
-          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
-          <div class="footer-sns">
-            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
-            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
-          </div>
+          <a href="index.html" class="logo-img footer-logo">
+            <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
+          </a>
+          <p class="f-desc">글로벌 에스테틱 이노베이터.<br/>LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
         </div>
         <div>
-          <div class="footer-col-title en">Company</div>
-          <div class="footer-links">
+          <div class="f-title">Company</div>
+          <div class="f-links">
             <a href="company.html">인사말</a>
             <a href="company.html">기업개요</a>
-            <a href="company.html">연혁</a>
-            <a href="global.html">글로벌 네트워크</a>
-            <a href="contact.html">오시는길</a>
+            <a href="company.html#history">연혁</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Products</div>
-          <div class="footer-links">
+          <div class="f-title">Products</div>
+          <div class="f-links">
             <a href="products.html">HA Filler</a>
             <a href="products.html">Skin Booster</a>
-            <a href="products.html">2026 New Launch</a>
+            <a href="products.html">New Launch</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Support</div>
-          <div class="footer-links">
-            <a href="contact.html">문의하기</a>
-            <a href="news.html">공지사항</a>
-            <a href="contact.html">이용약관</a>
+          <div class="f-title">Support</div>
+          <div class="f-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="news.html">News & Press</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div class="footer-info">대표 : 양준호 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
+        <div>대표 : 양준호 | 경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
       </div>
     </div>
   </footer>
+
+  <script>
+    const subTabs = document.querySelector('.sub-tabs');
+    const sections = document.querySelectorAll('section[id]');
+    const tabs = document.querySelectorAll('.sub-tab');
+
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
+
+    // Scroll Logic
+    window.addEventListener('scroll', () => {
+      subTabs.classList.toggle('scrolled', window.scrollY > 300);
+
+      // Tab Highlighting
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.getAttribute('href').includes(current)) tab.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>

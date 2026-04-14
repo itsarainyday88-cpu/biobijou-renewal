@@ -82,10 +82,7 @@
     .brand-headline em { color: var(--orange); font-style: normal; }
     .brand-body { font-size: 16px; line-height: 1.9; color: var(--dark-2); margin-bottom: 36px; }
     
-    /* Header Scrolled State (Maintain transparency, just nudge height) */
-    #header.scrolled {
-      height: 72px;
-    }
+    /* Header State handled via global style.css */
     
     .brand-links { display: flex; gap: 16px; flex-wrap: wrap; }
     #brand .btn-outline { background: var(--white); border-color: transparent; color: var(--teal-dk); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
@@ -118,18 +115,67 @@
 <body>
 
   <!-- HEADER -->
+  <!-- HEADER -->
   <header id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" id="main-logo" /></a>
-      <nav class="gnb">
-        <a href="company.html" class="en">Company</a>
-        <a href="technology.html" class="en">Technology</a>
-        <a href="products.html" class="en">Products</a>
-        <a href="global.html" class="en">Global</a>
-        <a href="news.html" class="en">News</a>
-      </nav>
+      <a href="index.html" class="logo-img">
+        <img src="images/main/logo.png" alt="BIOBIJOU" style="filter: brightness(0) invert(1);">
+      </a>
+      <ul class="gnb">
+        <li><a href="company.html" class="en">Company</a></li>
+        <li><a href="technology.html" class="en">Technology</a></li>
+        <li><a href="products.html" class="en">Products</a></li>
+        <li><a href="global.html" class="en">Global</a></li>
+        <li><a href="news.html" class="en">News</a></li>
+      </ul>
       <div class="header-right">
         <a href="contact.html" class="btn-primary en">Contact Us</a>
+      </div>
+    </div>
+    
+    <!-- Mega Menu Panel -->
+    <div class="header-drop">
+      <div class="drop-inner">
+        <div class="drop-col">
+          <div class="drop-col-title">Company</div>
+          <div class="drop-list">
+            <a href="company.html#ceo" class="drop-link">인사말</a>
+            <a href="company.html#overview" class="drop-link">기업개요</a>
+            <a href="company.html#history" class="drop-link">연혁</a>
+            <a href="company.html#location" class="drop-link">오시는길</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Technology</div>
+          <div class="drop-list">
+            <a href="technology.html#lnp" class="drop-link">LNP 기술</a>
+            <a href="technology.html#hadm" class="drop-link">hADM 기술</a>
+            <a href="technology.html#comparison" class="drop-link">기술 비교</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Products</div>
+          <div class="drop-list">
+            <a href="products.html" class="drop-link">HA 필러</a>
+            <a href="products.html" class="drop-link">스킨 부스터</a>
+            <a href="products.html" class="drop-link">2026 신제품</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Global</div>
+          <div class="drop-list">
+            <a href="global.html" class="drop-link">글로벌 네트워크</a>
+            <a href="global.html" class="drop-link">USA 지사</a>
+          </div>
+        </div>
+        <div class="drop-col">
+          <div class="drop-col-title">Media</div>
+          <div class="drop-list">
+            <a href="news.html" class="drop-link">보도자료</a>
+            <a href="news.html" class="drop-link">공지사항</a>
+            <a href="contact.html" class="drop-link">문의하기</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -218,7 +264,7 @@
 
   <!-- CORE VALUE -->
   <section class="section bg-science">
-    <div class="container">
+    <div class="container shift-up-10">
       <div class="tac mb64">
         <div class="label" style="justify-content: center;">Core Value</div>
         <h2 class="section-title">Science Meets <span>Beauty.</span></h2>
@@ -250,7 +296,7 @@
 
   <!-- PRODUCT LINEUP PREVIEW -->
   <section class="section bg-wave">
-    <div class="container">
+    <div class="container shift-up-10">
       <div class="mb64">
         <div class="label">Products</div>
         <h2 class="section-title">Product <span>Line-up.</span></h2>
@@ -284,7 +330,7 @@
 
   <!-- NEWS PREVIEW -->
   <section id="news-preview" class="section">
-    <div class="container">
+    <div class="container shift-up-10">
       <div class="np-header">
         <div>
           <div class="label mb16">Press &amp; Media</div>

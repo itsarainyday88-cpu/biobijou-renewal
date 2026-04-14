@@ -6,71 +6,101 @@
   <title>Products — BIOBIJOU</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
-    .filter-bar { display:flex; gap:0; border-bottom:1px solid var(--silver-lt); margin-bottom:56px; }
+    /* ── SUB HERO (Products) ── */
+    .sub-hero {
+      position: relative; height: 50vh; min-height: 450px;
+      background: linear-gradient(135deg, #f8fbfb 0%, #ffffff 100%);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding-top: 50px; overflow: hidden;
+    }
+    .hero-water {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 70% 30%, rgba(242,101,34,0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    #header { position: absolute; background: transparent; }
+    #header .logo-img { visibility: visible; pointer-events: auto; }
+    #header .logo-img img { filter: brightness(0); opacity: 0.8; }
+    #header .gnb a { color: var(--dark); }
+    #header .gnb a.active { color: var(--orange); font-weight: 700; }
+    #header .header-inner { justify-content: space-between; }
+
+    .sub-hero-content { position: relative; z-index: 10; }
+    .page-title { font-family: var(--font-en); font-size: clamp(40px, 8vw, 72px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
+
+    /* ── FILTER & CONTENT ── */
+    .product-controls { 
+      background: var(--white); border-bottom: 1px solid var(--border); 
+      position: sticky; top: 0; z-index: 100; padding: 20px 0;
+    }
+    .filter-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: center; gap: 8px; }
     .filter-btn {
-      padding:14px 28px;
-      font-family:var(--font-en); font-size:12px; font-weight:700;
-      letter-spacing:.1em; text-transform:uppercase;
-      color:var(--silver-dk); cursor:pointer;
-      border-bottom:2px solid transparent; margin-bottom:-1px;
-      background:none; border-top:none; border-left:none; border-right:none;
-      transition:color .2s, border-color .2s;
+      padding: 12px 24px; border-radius: 100px; border: 1px solid var(--border);
+      font-family: var(--font-en); font-size: 13px; font-weight: 700; color: var(--text-muted);
+      cursor: pointer; transition: all 0.3s ease; background: var(--white);
     }
-    .filter-btn.active { color:var(--orange); border-bottom-color:var(--orange); }
-    .filter-btn:hover { color:var(--text); }
+    .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .filter-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
 
-    .product-section { margin-bottom:80px; }
-    .product-section-header { margin-bottom:36px; padding-bottom:20px; border-bottom:1px solid var(--silver-lt); display:flex; align-items:center; justify-content:space-between; }
-    .product-section-title { font-family:var(--font-en); font-size:22px; font-weight:800; color:var(--text); }
-    .product-section-badge { padding:5px 14px; border-radius:20px; font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-    .sb-b2b  { background:rgba(14,16,20,.08); color:var(--dark); }
-    .sb-both { background:rgba(242,101,34,.1); color:var(--orange); }
-    .sb-new  { background:#D1FAE5; color:#065F46; }
-
-    .prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
-    .prod-card { background:var(--white); border:1px solid var(--silver-lt); overflow:hidden; transition:transform .3s, box-shadow .3s; cursor:pointer; }
-    .prod-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(0,0,0,.1); }
-    .prod-card-img { width:100%; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; position:relative; }
-    .prod-img-text { font-family:var(--font-en); font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.2); }
-    .prod-card-body { padding:28px; }
-    .prod-series { font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--silver-dk); margin-bottom:6px; }
-    .prod-name { font-family:var(--font-en); font-size:22px; font-weight:900; color:var(--text); margin-bottom:4px; letter-spacing:-.01em; }
-    .prod-sub { font-size:13px; color:var(--orange); font-weight:600; margin-bottom:14px; }
-    .prod-desc { font-size:13px; line-height:1.8; color:var(--text-sub); margin-bottom:20px; }
-    .prod-specs { display:flex; flex-direction:column; gap:6px; margin-bottom:22px; }
-    .prod-spec { display:flex; align-items:center; gap:10px; font-size:12px; color:var(--text-sub); }
-    .prod-spec::before { content:''; width:16px; height:1px; background:var(--orange); flex-shrink:0; }
-    .prod-tags { display:flex; flex-wrap:wrap; gap:6px; }
-    .prod-tag { padding:4px 10px; border-radius:2px; background:var(--bg-light); font-size:11px; font-weight:600; color:var(--silver-dk); }
-
-    /* 2026 HIGHLIGHT */
-    .new-highlight {
-      background:var(--dark); padding:72px 64px;
-      display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
-      margin-bottom:2px;
+    /* Product Cards */
+    .products-section { padding: 100px 0; background: var(--bg-light); min-height: 800px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    
+    .product-card { 
+      background: var(--white); border-radius: 24px; overflow: hidden; 
+      box-shadow: var(--shadow-sm); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex; flex-direction: column;
     }
-    .nh-label { font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
-    .nh-title { font-family:var(--font-en); font-size:clamp(28px,3.5vw,44px); font-weight:900; color:var(--white); line-height:1.1; letter-spacing:-.03em; margin-bottom:20px; }
-    .nh-title span { color:var(--orange); }
-    .nh-desc { font-size:15px; line-height:1.85; color:var(--silver); margin-bottom:32px; }
-    .nh-products { display:flex; gap:20px; }
-    .nh-prod { flex:1; padding:24px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:4px; transition:border-color .2s; }
-    .nh-prod:hover { border-color:var(--orange); }
-    .nh-prod-name { font-family:var(--font-en); font-size:18px; font-weight:900; color:var(--white); margin-bottom:6px; }
-    .nh-prod-tech { font-size:12px; color:var(--orange); font-weight:600; margin-bottom:10px; }
-    .nh-prod-desc { font-size:13px; line-height:1.7; color:var(--silver-dk); }
+    .product-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
+    
+    .pc-img-wrap { 
+      position: relative; width: 100%; aspect-ratio: 1/1; 
+      background: #fdfdfd; display: flex; align-items: center; justify-content: center;
+      padding: 40px; overflow: hidden;
+    }
+    .pc-img-wrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s ease; }
+    .product-card:hover .pc-img-wrap img { transform: scale(1.05); }
+
+    .pc-badge { 
+      position: absolute; top: 20px; left: 20px; 
+      padding: 6px 12px; background: rgba(0,0,0,0.8); color: var(--white); 
+      font-size: 10px; font-weight: 700; border-radius: 4px; z-index: 5;
+    }
+    .pc-badge.new { background: var(--orange); }
+
+    .pc-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+    .pc-series { font-family: var(--font-en); font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .pc-title { font-size: 24px; font-weight: 900; color: var(--dark); margin-bottom: 8px; }
+    .pc-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+    .pc-desc { font-size: 15px; line-height: 1.6; color: var(--dark-3); margin-bottom: 24px; }
+    
+    .pc-specs { margin-bottom: 24px; border-top: 1px solid var(--border); padding-top: 20px; }
+    .spec-item { font-size: 13px; color: var(--text-sub); margin-bottom: 8px; display: flex; gap: 8px; }
+    .spec-item::before { content: '•'; color: var(--orange); }
+
+    .pc-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+    .btn-arrow { font-family: var(--font-en); font-size: 13px; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 8px; }
+    .btn-arrow span { transition: transform 0.3s; }
+    .product-card:hover .btn-arrow span { transform: translateX(5px); }
+
+    /* Reveal Animation */
+    [data-show] { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+    [data-show].visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
-<body>
+<body class="sub-page">
 
   <!-- HEADER -->
-  <header id="header" class="solid">
+  <header id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+      <a href="index.html" class="logo-img">
+        <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 44px;">
+      </a>
       <nav class="gnb">
         <a href="company.html" class="en">Company</a>
         <a href="technology.html" class="en">Technology</a>
@@ -79,318 +109,160 @@
         <a href="news.html" class="en">News</a>
       </nav>
       <div class="header-right">
-        <span class="lang-toggle en">KR · EN · CN</span>
-        <a href="contact.html" class="btn-contact en">Contact</a>
+        <a href="contact.html" class="btn-primary en">Contact Us</a>
       </div>
     </div>
   </header>
 
-  <!-- PAGE BANNER -->
-  <div class="page-banner">
-    <div class="page-banner-bg"></div>
-    <div class="container page-banner-inner">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="sep">›</span>
-        <span class="current">Products</span>
-      </div>
-      <div class="label mb16">Product Line</div>
-      <h1 class="page-banner-title en">Our <span>Products</span></h1>
-      <p class="page-banner-desc">전문가용 HA 필러부터 홈케어 가능 스킨 부스터, 2026년 신기술 제품까지 — B2B·B2C 통합 에스테틱 솔루션.</p>
+  <!-- SUB HERO -->
+  <section class="sub-hero">
+    <div class="hero-water"></div>
+    <div class="sub-hero-content">
+      <div class="label" style="justify-content: center; color: var(--teal);">Premium Aesthetic Solutions</div>
+      <h1 class="page-title en">Products</h1>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <div class="product-controls">
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All Solutions</button>
+      <button class="filter-btn" data-filter="filler">HA Filler</button>
+      <button class="filter-btn" data-filter="booster">Skin Booster</button>
+      <button class="filter-btn" data-filter="new">2026 Collection</button>
     </div>
   </div>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span class="ticker-item">HA Filler <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">LNP Technology <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">Skin Booster <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">hADM <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">CELIVION <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">2026 New Launch <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">HA Filler <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">LNP Technology <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">Skin Booster <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">hADM <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">CELIVION <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">2026 New Launch <span class="ticker-sep">·</span></span>
-    </div>
-  </div>
-
-  <!-- PRODUCTS CONTENT -->
-  <section style="padding:100px 0; background:var(--bg-light);">
+  <!-- PRODUCT GRID -->
+  <section class="products-section">
     <div class="container">
+      <div class="product-grid" id="productGrid">
+        
+        <!-- CELIVION -->
+        <div class="product-card" data-category="new" data-show>
+          <div class="pc-img-wrap">
+            <div class="pc-badge new">2026 NEW</div>
+            <img src="images/brand/lin_j_white.png" alt="CELIVION Lin J">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">hADM Matrix</div>
+            <h3 class="pc-title en">CELIVION Lin J</h3>
+            <div class="pc-sub">셀리비온 린제이</div>
+            <p class="pc-desc">입자형 무세포 동종 진피 매트릭스(hADM) 기술을 적용하여 피부 구조와 기능을 혁신적으로 복원합니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">인체 유래 동종 진피 매트릭스</div>
+              <div class="spec-item">탁월한 생체 적합성 및 안정성</div>
+              <div class="spec-item">피부 재생 및 볼륨 복원 솔루션</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
 
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="filler">HA Filler</button>
-        <button class="filter-btn" data-filter="booster">Skin Booster</button>
-        <button class="filter-btn" data-filter="cosmetic">Cosmetics</button>
-        <button class="filter-btn" data-filter="new">2026 New</button>
+        <!-- SPEETIQUEL -->
+        <div class="product-card" data-category="new" data-show>
+          <div class="pc-img-wrap">
+            <div class="pc-badge new">2026 NEW</div>
+            <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">LNP Skin Action</div>
+            <h3 class="pc-title en">SPEETIQUEL</h3>
+            <div class="pc-sub">스피티클</div>
+            <p class="pc-desc">LNP 기술이 적용된 프리미엄 홈케어 및 클리닉 솔루션. 유효 성분을 세포 깊숙이 전달합니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">LNP (지질나노입자) 기술 적용</div>
+              <div class="spec-item">수분 공급 및 재생 복합 작용</div>
+              <div class="spec-item">글로벌 전략 리뉴얼 제품</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CADDORLOV -->
+        <div class="product-card" data-category="filler" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/candorlov.png" alt="CADDORLOV">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Professional Filler</div>
+            <h3 class="pc-title en">CADDORLOV</h3>
+            <div class="pc-sub">칸도럽 시리즈</div>
+            <p class="pc-desc">고순도 HA 교차결합 기술로 정밀한 볼륨 교정과 우수한 지속성을 제공하는 전문가용 필러입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">CE Certified & Premium Quality</div>
+              <div class="spec-item">안정적인 점탄성과 정밀 주입</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLENA -->
+        <div class="product-card" data-category="filler" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/colena.jpg" alt="COLENA" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Professional Filler</div>
+            <h3 class="pc-title en">COLENA</h3>
+            <div class="pc-sub">코레나 시리즈</div>
+            <p class="pc-desc">얼굴 윤곽 개선 및 자연스러운 리프팅 효과에 특화된 프리미엄 HA 필러 라인업입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">멀티 레이어 볼륨 디자인</div>
+              <div class="spec-item">글로벌 베스트셀링 라인</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASCENART AQUA -->
+        <div class="product-card" data-category="booster" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/ascenart_aqua.jpg" alt="ASCENART Aqua" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Skin Booster</div>
+            <h3 class="pc-title en">ASCENART Aqua</h3>
+            <div class="pc-sub">아세나르트 아쿠아</div>
+            <p class="pc-desc">피부 속부터 차오르는 강력한 수분 공급과 장벽 강화를 위한 LNP 기술 기반 부스터입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">수분 공급 & 피부 장벽 강화</div>
+              <div class="spec-item">클리닉 전용 LNP 포뮬러</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASCENART LUX -->
+        <div class="product-card" data-category="booster" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Skin Booster</div>
+            <h3 class="pc-title en">ASCENART Lux</h3>
+            <div class="pc-sub">아세나르트 럭스</div>
+            <p class="pc-desc">피부 광채와 안티에이징을 동시에 케어하는 고기능성 프리미엄 스킨 부스터입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">광채 개선 & 안티에이징</div>
+              <div class="spec-item">고농축 유효성분 함유</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- 2026 NEW LAUNCH -->
-      <div class="product-section" data-category="new">
-        <div class="product-section-header">
-          <div class="product-section-title en">2026 New Launch</div>
-          <span class="product-section-badge sb-both">B2B / B2C · Strategic Lineup</span>
-        </div>
-        <div class="prod-grid">
-          <!-- CELIVION Lin J -->
-          <div class="prod-card" onclick="window.open('https://celivion-bijou.com/', '_blank')">
-            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
-              <img src="images/brand/lin_j_white.png" alt="CELIVION Lin J" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">hADM · 2026 New Launch</div>
-              <div class="prod-name en">CELIVION <span style="font-weight:400;font-size:.7em;opacity:.6;">Lin J</span></div>
-              <div class="prod-sub">셀리비온 린제이</div>
-              <p class="prod-desc">입자형 무세포 동종 진피 매트릭스(hADM) 적용 제품. 피부의 구조와 기능 복원을 목적으로 합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">입자형 무세포 동종진피 소재</div>
-                <div class="prod-spec">우수한 생체 적합성</div>
-                <div class="prod-spec">피부의 구조와 기능 복원 목적</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">hADM</span>
-                <span class="prod-tag">Brand Site ↗</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <!-- SPEETIQUEL (2026 New Launch Target) -->
-          <div class="prod-card" onclick="window.open('https://speetiquelred-bijou.com/', '_blank')">
-            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
-              <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">2026 New Launch · LNP Tech</div>
-              <div class="prod-name en">SPEETIQUEL</div>
-              <div class="prod-sub">스피티클</div>
-              <p class="prod-desc">LNP 기술 적용 프리미엄 스킨 소액션. 탁월한 수분 공급과 피부 재생 효과를 자랑하는 2026년 전략 리뉴얼 제품.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">LNP 기술 적용, 피부 투과율 극대화</div>
-                <div class="prod-spec">미국 아마존(Amazon) 진출 전략 제품</div>
-                <div class="prod-spec">항노화 및 피부 재생 복합 솔루션</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Brand Site ↗</span>
-                <span class="prod-tag">Home Care</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- HA FILLER -->
-      <div class="product-section" data-category="filler">
-        <div class="product-section-header">
-          <div class="product-section-title en">HA Filler</div>
-          <span class="product-section-badge sb-b2b">B2B · Professional Use Only</span>
-        </div>
-        <div class="prod-grid">
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
-              <img src="images/brand/candorlov.png" alt="CADDORLOV" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">HA Filler · Professional</div>
-              <div class="prod-name en">CADDORLOV</div>
-              <div class="prod-sub">칸도럽</div>
-              <p class="prod-desc">임상적으로 검증된 히알루론산 필러. 정밀한 볼륨 교정과 주름 개선에 최적화. 전문 클리닉 전용 제품으로 높은 점성과 안정적인 지속력이 특징.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">고순도 HA 교차결합 기술 적용</div>
-                <div class="prod-spec">정밀 주입 가능한 점도 설계</div>
-                <div class="prod-spec">CE 인증 완료</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">HA Cross-linking</span>
-                <span class="prod-tag">Medical Grade</span>
-                <span class="prod-tag">CE Certified</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/colena.jpg" alt="COLENA" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">HA Filler · Professional</div>
-              <div class="prod-name en">COLENA</div>
-              <div class="prod-sub">코레나</div>
-              <p class="prod-desc">고순도 HA 기반 멀티 레이어 필러. 얼굴 윤곽 개선 및 리프팅 효과에 특화. 자연스러운 볼륨감과 오랜 지속력으로 전문가 신뢰를 받는 클리닉 전용 솔루션.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">멀티 레이어 주입 가능</div>
-                <div class="prod-spec">리프팅 효과 최적화</div>
-                <div class="prod-spec">장기 지속 포뮬러</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Multi-layer</span>
-                <span class="prod-tag">Lifting</span>
-                <span class="prod-tag">Long-lasting</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SKIN BOOSTER -->
-      <div class="product-section" data-category="booster">
-        <div class="product-section-header">
-          <div class="product-section-title en">Skin Booster</div>
-          <span class="product-section-badge sb-b2b">B2B · Professional Use Only</span>
-        </div>
-        <div class="prod-grid">
-          <!-- Aqua -->
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_aqua.jpg" alt="ASCENART Aqua" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Aqua</span></div>
-              <div class="prod-sub">아세나르트 아쿠아</div>
-              <p class="prod-desc">강력한 수분 공급에 집중한 스킨 부스터. 건조하고 민감한 피부에 즉각적인 수분감과 피부 장벽 강화 효과를 제공합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">초강력 수분 공급</div>
-                <div class="prod-spec">피부 장벽 강화</div>
-                <div class="prod-spec">전문 클리닉 전용 케어</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Aqua</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <!-- Amber -->
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_amber.jpg" alt="ASCENART Amber" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Amber</span></div>
-              <div class="prod-sub">아세나르트 앰버</div>
-              <p class="prod-desc">피부 재생과 항산화 케어에 특화된 스킨 부스터. 웜톤 피부 개선과 칙칙함 완화에 효과적인 포뮬러.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">피부 재생·항산화</div>
-                <div class="prod-spec">칙칙함·톤 개선</div>
-                <div class="prod-spec">전문 클리닉 전용 솔루션</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Amber</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <!-- Nanofill -->
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Nanofill</span></div>
-              <div class="prod-sub">아세나르트 나노필</div>
-              <p class="prod-desc">나노 입자 기술로 미세 주름과 피부결 개선에 특화. 정밀한 부위별 케어가 가능한 정교한 스킨 부스터.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">나노 입자 정밀 케어</div>
-                <div class="prod-spec">미세 주름·피부결 개선</div>
-                <div class="prod-spec">전문 클리닉 전용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Nanofill</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <!-- Azure -->
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/Azure.jpg" alt="ASCENART Azure" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Azure</span></div>
-              <div class="prod-sub">아세나르트 아주르</div>
-              <p class="prod-desc">자연스러운 볼륨감과 수분 공급을 동시에 만족시키는 스킨 부스터. LNP 기술과 표피작용인자(EGF)의 결합으로 최적의 솔루션을 제공합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">볼륨 디자인 특화</div>
-                <div class="prod-spec">LNP 및 EGF 포뮬러 적용</div>
-                <div class="prod-spec">전문 클리닉 전용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Azure</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <!-- Lux -->
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Lux</span></div>
-              <div class="prod-sub">아세나르트 럭스</div>
-              <p class="prod-desc">프리미엄 라인의 고기능성 스킨 부스터. 피부 광채 개선과 안티에이징 케어에 최적화된 럭셔리 포뮬러.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">피부 광채·안티에이징</div>
-                <div class="prod-spec">고기능성 프리미엄 포뮬러</div>
-                <div class="prod-spec">전문 클리닉 전용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Lux</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-          <!-- Fillmoa -->
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Hair Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Fillmoa</span></div>
-              <div class="prod-sub">아세나르트 필모아</div>
-              <p class="prod-desc">두피 환경 개선 및 모근 강화에 특화된 헤어 부스터. LNP 기술 기반의 줄기세포 인자(Stem Cell Factor)가 모발 건강의 핵심 솔루션을 제공합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">두피 환경 및 모근 강화 집중 케어</div>
-                <div class="prod-spec">LNP 기반 줄기세포 인자 포뮬러</div>
-                <div class="prod-spec">전문 클리닉 케어 전용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Fillmoa</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- COSMETICS (Future Section) -->
-      <div class="product-section" data-category="cosmetic">
-        <div class="product-section-header">
-          <div class="product-section-title en">Cosmetics</div>
-          <span class="product-section-badge sb-both">Preparing for Launch</span>
-        </div>
-        <div style="padding:100px 0; text-align:center; background:rgba(0,0,0,0.02); border:1px dashed var(--silver); border-radius:4px;">
-          <p style="color:var(--silver-dk); font-weight:600;">바이오비쥬의 고기능성 코스메틱 라인업이 곧 공개됩니다.</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -399,68 +271,80 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
-          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
-          <div class="footer-sns">
-            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
-            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
-          </div>
+          <a href="index.html" class="logo-img footer-logo">
+            <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
+          </a>
+          <p class="f-desc">글로벌 에스테틱 이노베이터.<br/>LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
         </div>
         <div>
-          <div class="footer-col-title en">Company</div>
-          <div class="footer-links">
+          <div class="f-title">Company</div>
+          <div class="f-links">
             <a href="company.html">인사말</a>
             <a href="company.html">기업개요</a>
-            <a href="company.html">연혁</a>
-            <a href="global.html">글로벌 네트워크</a>
-            <a href="contact.html">오시는길</a>
+            <a href="company.html#history">연혁</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Products</div>
-          <div class="footer-links">
+          <div class="f-title">Products</div>
+          <div class="f-links">
             <a href="products.html">HA Filler</a>
             <a href="products.html">Skin Booster</a>
-            <a href="products.html">2026 New Launch</a>
+            <a href="products.html">New Launch</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Support</div>
-          <div class="footer-links">
-            <a href="contact.html">문의하기</a>
-            <a href="news.html">공지사항</a>
-            <a href="contact.html">이용약관</a>
+          <div class="f-title">Support</div>
+          <div class="f-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="news.html">News & Press</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div class="footer-info">대표 : 양준호 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
+        <div>대표 : 양준호 | 경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
       </div>
     </div>
   </footer>
 
   <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-        
-        // Active class toggle
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
 
-        // Filtering sections
-        const sections = document.querySelectorAll('.product-section');
-        sections.forEach(sec => {
-          if (filter === 'all') {
-            sec.style.display = 'block';
-          } else {
-            if (sec.getAttribute('data-category') === filter) {
-              sec.style.display = 'block';
+    document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
+
+    // Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        
+        // Active Toggle
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filtering with Animation
+        productCards.forEach(card => {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          
+          setTimeout(() => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.style.display = 'flex';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              }, 50);
             } else {
-              sec.style.display = 'none';
+              card.style.display = 'none';
             }
-          }
+          }, 300);
         });
       });
     });
