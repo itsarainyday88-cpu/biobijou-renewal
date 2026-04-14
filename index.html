@@ -21,27 +21,58 @@
       width: 100%;
       overflow: hidden;
     }
-    .hero-video {
+    .hero-slider {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: cover;
-      opacity: 0.6;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+      background: #fff;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 2.5s ease-in-out; /* Slower, smoother fade */
+      will-change: transform, opacity;
       z-index: 1;
     }
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: var(--white);
+    .slide.active {
+      opacity: 1;
+      z-index: 2; /* New slide comes on top */
+      animation: kenburns 12s linear forwards;
     }
-    .hero-content .label { color: var(--teal); }
-    .hero-content .hero-desc { color: rgba(255,255,255,0.8); }
+    @keyframes kenburns {
+      0% { transform: scale(1.15); }
+      100% { transform: scale(1.02); }
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent 40%, rgba(0,0,0,0.1)); 
+      z-index: 2;
+    }
+    .hero-content {
+      position: absolute;
+      top: 25%;
+      left: 17%;
+      z-index: 10;
+      text-align: left;
+      color: var(--dark);
+    }
+    .hero-content .label { color: var(--teal); margin-bottom: 20px; justify-content: flex-start; }
+    .hero-content .hero-title { color: var(--dark); text-shadow: 0 2px 20px rgba(255,255,255,0.9); margin-bottom: 40px; margin-top: 0; }
+    .hero-content .hero-desc { display: none; } /* Remove as requested */
 
     /* ── BRAND INTRO ── */
     #brand { padding: 120px 0 180px 0; background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('images/main/brand_bg.png') no-repeat center center / cover; min-height: 117vh; display: flex; align-items: center; scroll-snap-align: start; }
@@ -50,6 +81,12 @@
     .brand-headline { font-family: var(--font-en); font-size: clamp(32px,4vw,50px); font-weight: 800; line-height: 1.15; letter-spacing: -.03em; margin-bottom: 24px; color: var(--dark); }
     .brand-headline em { color: var(--orange); font-style: normal; }
     .brand-body { font-size: 16px; line-height: 1.9; color: var(--dark-2); margin-bottom: 36px; }
+    
+    /* Header Scrolled State (Maintain transparency, just nudge height) */
+    #header.scrolled {
+      height: 72px;
+    }
+    
     .brand-links { display: flex; gap: 16px; flex-wrap: wrap; }
     #brand .btn-outline { background: var(--white); border-color: transparent; color: var(--teal-dk); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
     #brand .btn-outline:hover { background: var(--teal-lt); color: var(--teal-dk); border-color: transparent; }
@@ -97,16 +134,19 @@
     </div>
   </header>
 
-  <!-- HERO (Video Back) -->
+  <!-- HERO (Cinematic Slider) -->
   <section id="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="images/main/How to use_Speetiquel_Clean.mp4" type="video/mp4" />
-    </video>
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('images/main/hero_slide_01.png');"></div>
+      <div class="slide" style="background-image: url('images/main/hero_slide_03.png');"></div>
+      <div class="slide" style="background-image: url('images/main/hero_slide_04.png');"></div>
+      <div class="slide" style="background-image: url('images/main/hero_slide_05.png');"></div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="label" style="justify-content: center;">Innovating Aesthetics</div>
+        <div class="label" style="justify-content: flex-start;">Innovating Aesthetics</div>
         <h1 class="hero-title en">Beyond the <span>Boundary.</span></h1>
-        <p class="hero-desc">바이오비쥬는 LNP와 hADM 기술을 바탕으로<br/>글로벌 에스테틱 메디컬 시장의 새로운 기준을 제시합니다.</p>
         <div class="hero-btns">
           <a href="products.html" class="btn-primary en">Our Products</a>
         </div>
@@ -387,14 +427,32 @@
       if (Math.abs(diff) > 40 && !animating) { updateCurrent(); goTo(diff > 0 ? current + 1 : current - 1); }
     });
 
-    // Header state
+    // Header state (Unified)
     function updateHeader() {
-      const isHero = window.scrollY < 100;
-      header.classList.toggle('scrolled', !isHero);
-      header.classList.toggle('hero-mode', isHero);
+      const isScrolled = window.scrollY > 50;
+      header.classList.toggle('scrolled', isScrolled);
     }
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader(); // Initial check
+
+    // Cinematic Hero Slider Logic
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    let currentSlide = 0;
+    const slideInterval = 6000; // 6 seconds per slide
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      // Reset scale after fading out
+      setTimeout(() => {
+        if (!slides[currentSlide].classList.contains('active')) {
+          slides[currentSlide].style.transform = 'scale(1.1)';
+        }
+      }, 1500);
+
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, slideInterval);
   </script>
 </body>
 </html>
