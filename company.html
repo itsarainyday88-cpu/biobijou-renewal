@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company — BIOBIJOU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* 서브 탭 네비 */
+    .sub-tabs { background:var(--white); border-bottom:1px solid var(--silver-lt); position:sticky; top:72px; z-index:99; }
+    .sub-tabs-inner { max-width:1280px; margin:0 auto; padding:0 48px; display:flex; gap:0; }
+    .sub-tab { padding:16px 24px; font-family:var(--font-en); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--silver-dk); border-bottom:2px solid transparent; transition:color .2s, border-color .2s; white-space:nowrap; }
+    .sub-tab:hover { color:var(--text); }
+    .sub-tab.active { color:var(--orange); border-bottom-color:var(--orange); }
+
+    /* 인사말 */
+    .greeting-section { padding:100px 0; background:var(--white); }
+    .greeting-inner { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:center; }
+    .greeting-img { aspect-ratio:4/5; background:linear-gradient(135deg,#1A1E26,#1A1A1A); border-radius:2px; display:flex; align-items:center; justify-content:center; }
+    .greeting-img-placeholder { font-family:var(--font-en); font-size:12px; font-weight:700; letter-spacing:.14em; color:rgba(255,255,255,.15); text-transform:uppercase; }
+    .greeting-label { margin-bottom:14px; }
+    .greeting-title { font-family:var(--font-en); font-size:clamp(28px,4vw,48px); font-weight:800; line-height:1.1; letter-spacing:-.03em; margin-bottom:28px; }
+    .greeting-title span { color:var(--orange); }
+    .greeting-body { font-size:16px; line-height:2.0; color:var(--text-sub); margin-bottom:32px; }
+    .greeting-sig { font-family:var(--font-en); font-size:18px; font-weight:700; color:var(--text); }
+    .greeting-sig-title { font-size:13px; color:var(--silver-dk); margin-top:4px; }
+
+    /* 기업개요 */
+    .overview-section { padding:100px 0; background:var(--bg-light); }
+    .overview-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:56px; }
+    .overview-card { background:var(--white); padding:40px; }
+    .overview-card-title { font-family:var(--font-en); font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--silver-dk); margin-bottom:12px; }
+    .overview-card-value { font-family:var(--font-en); font-size:clamp(20px,2.5vw,28px); font-weight:800; color:var(--text); }
+    .overview-card-value span { color:var(--orange); }
+    .overview-table { width:100%; border-collapse:collapse; margin-top:56px; background:var(--white); }
+    .overview-table th, .overview-table td { padding:18px 24px; text-align:left; border-bottom:1px solid var(--silver-lt); font-size:14px; }
+    .overview-table th { font-family:var(--font-en); font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--silver-dk); background:var(--bg-light); width:200px; }
+    .overview-table td { color:var(--text); }
+
+    /* 연혁 */
+    .history-section { padding:100px 0; background:var(--white); }
+    .timeline { position:relative; padding-left:32px; }
+    .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--silver-lt); }
+    .tl-year { font-family:var(--font-en); font-size:32px; font-weight:900; color:var(--text); letter-spacing:-.03em; margin-bottom:24px; margin-top:48px; }
+    .tl-year:first-child { margin-top:0; }
+    .tl-year span { color:var(--orange); }
+    .tl-item { position:relative; padding-left:32px; margin-bottom:20px; }
+    .tl-item::before { content:''; position:absolute; left:-33px; top:8px; width:8px; height:8px; border-radius:50%; background:var(--silver-lt); border:2px solid var(--white); }
+    .tl-item.highlight::before { background:var(--orange); }
+    .tl-month { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--orange); margin-bottom:4px; }
+    .tl-content { font-size:15px; color:var(--text); font-weight:500; }
+    .tl-sub { font-size:13px; color:var(--text-sub); margin-top:4px; line-height:1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="solid">
+    <div class="header-inner">
+      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+      <nav class="gnb">
+        <a href="company.html" class="en active">Company</a>
+        <a href="technology.html" class="en">Technology</a>
+        <a href="products.html" class="en">Products</a>
+        <a href="global.html" class="en">Global</a>
+        <a href="news.html" class="en">News</a>
+      </nav>
+      <div class="header-right">
+        <span class="lang-toggle en">KR · EN · CN</span>
+        <a href="contact.html" class="btn-contact en">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-bg"></div>
+    <div class="container page-banner-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span class="current">Company</span>
+      </div>
+      <div class="label mb16">About BIOBIJOU</div>
+      <h1 class="page-banner-title en">We are<br/><span>BIOBIJOU</span></h1>
+      <p class="page-banner-desc">건강한 신념으로 가치를 추구하며 글로벌 에스테틱 이노베이터로 나아가는 바이오비쥬입니다.</p>
+    </div>
+  </div>
+
+  <!-- 서브 탭 -->
+  <div class="sub-tabs">
+    <div class="sub-tabs-inner">
+      <a href="#greeting" class="sub-tab active">인사말</a>
+      <a href="#overview" class="sub-tab">기업개요</a>
+      <a href="#history" class="sub-tab">연혁</a>
+      <a href="global.html" class="sub-tab">글로벌 네트워크</a>
+      <a href="contact.html" class="sub-tab">오시는길</a>
+    </div>
+  </div>
+
+  <!-- 인사말 -->
+  <section id="greeting" class="greeting-section">
+    <div class="container">
+      <div class="greeting-inner">
+        <div class="greeting-img">
+          <span class="greeting-img-placeholder en">CEO Photo</span>
+        </div>
+        <div>
+          <div class="label greeting-label">CEO Message</div>
+          <h2 class="greeting-title">
+            Innovating <span>Aesthetics,</span><br/>
+            Enriching Lives.
+          </h2>
+          <p class="greeting-body">
+            안녕하십니까, 바이오비쥬 대표이사 양준호입니다.<br/><br/>
+            바이오비쥬는 2018년 설립 이후 '건강한 아름다움'이라는 신념 아래 글로벌 에스테틱 시장을 향한 끊임없는 도전을 이어오고 있습니다.<br/><br/>
+            LNP 기술을 필두로 Micro PDRN, HADM 등 차세대 원천기술에 대한 지속적인 투자와 연구를 통해 HA 필러와 스킨 부스터 분야에서 새로운 기준을 제시하고 있습니다. 제조부터 판매까지 일원화된 가치사슬을 바탕으로 10개국 이상에 수출하며 K-뷰티의 우수성을 세계에 알리고 있습니다.<br/><br/>
+            2025년 코스닥 상장을 계기로 더욱 투명하고 신뢰받는 기업으로 성장하여, 고객과 파트너 모두가 함께 발전하는 미래를 만들어 나가겠습니다.
+          </p>
+          <div class="greeting-sig en">Yang Jun-ho</div>
+          <div class="greeting-sig-title">대표이사 (CEO), (주)바이오비쥬</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기업개요 -->
+  <section id="overview" class="overview-section">
+    <div class="container">
+      <div class="label mb16">Company Overview</div>
+      <h2 class="section-title mb32">기업개요</h2>
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="overview-card-title en">Founded</div>
+          <div class="overview-card-value en">2018<span>.</span>08</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-title en">Valuation</div>
+          <div class="overview-card-value en"><span>₩</span>150B+</div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-title en">Export Countries</div>
+          <div class="overview-card-value en">10<span>+</span></div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-title en">Listed</div>
+          <div class="overview-card-value en">KOSDAQ <span>2025</span></div>
+        </div>
+      </div>
+      <table class="overview-table">
+        <tr><th>회사명</th><td>(주)바이오비쥬 BIOBIJOU Co., Ltd.</td></tr>
+        <tr><th>설립일</th><td>2018년 8월</td></tr>
+        <tr><th>대표이사</th><td>양준호</td></tr>
+        <tr><th>사업자등록번호</th><td>870-87-01049</td></tr>
+        <tr><th>주요 사업</th><td>HA 필러, 스킨 부스터, 코스메틱 제조 및 판매</td></tr>
+        <tr><th>본사</th><td>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</td></tr>
+        <tr><th>공장</th><td>경기도 하남시 하남대로 947 하남테크노밸리 U1 B동 907~913호</td></tr>
+        <tr><th>연락처</th><td>Tel. 02-6235-9696 &nbsp; Fax. 02-511-9695</td></tr>
+        <tr><th>이메일</th><td>biobijou@biobijou.co.kr</td></tr>
+        <tr><th>상장</th><td>코스닥 (2025년 5월)</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 연혁 -->
+  <section id="history" class="history-section">
+    <div class="container">
+      <div class="label mb16">History</div>
+      <h2 class="section-title mb64">연혁</h2>
+      <div class="timeline">
+        <div class="tl-year en">2025<span>.</span></div>
+        <div class="tl-item highlight">
+          <div class="tl-month en">05</div>
+          <div class="tl-content">코스닥 상장 완료</div>
+          <div class="tl-sub">에스테틱 바이오 기업으로서 코스닥 시장에 공식 입성</div>
+        </div>
+
+        <div class="tl-year en">2024<span>.</span></div>
+        <div class="tl-item highlight">
+          <div class="tl-month en">06</div>
+          <div class="tl-content">1,500억원 밸류에이션으로 투자유치 성공</div>
+          <div class="tl-sub">IPO 전 최종 투자 라운드 완료</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-month en">06</div>
+          <div class="tl-content">KIMES 2024 참가</div>
+          <div class="tl-sub">HA 필러·스킨 부스터 및 LNP 기술 공개, 업계 주목</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-month en">02</div>
+          <div class="tl-content">2024 아랍헬스 참가</div>
+          <div class="tl-sub">중동 시장 공략 강화</div>
+        </div>
+
+        <div class="tl-year en">2022<span>.</span></div>
+        <div class="tl-item">
+          <div class="tl-month en">—</div>
+          <div class="tl-content">중국 내 4대 지사 설립 완료</div>
+          <div class="tl-sub">중국 온라인 유통 선도기업 포지셔닝 강화</div>
+        </div>
+
+        <div class="tl-year en">2020<span>.</span></div>
+        <div class="tl-item">
+          <div class="tl-month en">—</div>
+          <div class="tl-content">글로벌 수출 10개국 달성</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-month en">—</div>
+          <div class="tl-content">자체 생산라인 구축 (하남테크노밸리)</div>
+          <div class="tl-sub">자동화 생산라인 및 엄격한 품질검사 시스템 도입</div>
+        </div>
+
+        <div class="tl-year en">2018<span>.</span></div>
+        <div class="tl-item highlight">
+          <div class="tl-month en">08</div>
+          <div class="tl-content">바이오비쥬 설립</div>
+          <div class="tl-sub">경기도 하남시, 글로벌 에스테틱 전문기업으로 출발</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo-img footer-logo"><img src="images/main/f_logo.png" alt="BIOBIJOU" style="height:28px;display:block;" /></a>
+          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
+            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Company</div>
+          <div class="footer-links">
+            <a href="company.html">인사말</a>
+            <a href="company.html">기업개요</a>
+            <a href="company.html">연혁</a>
+            <a href="global.html">글로벌 네트워크</a>
+            <a href="contact.html">오시는길</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Products</div>
+          <div class="footer-links">
+            <a href="products.html">HA Filler</a>
+            <a href="products.html">Skin Booster</a>
+            <a href="products.html">2026 New Launch</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Support</div>
+          <div class="footer-links">
+            <a href="contact.html">문의하기</a>
+            <a href="news.html">공지사항</a>
+            <a href="contact.html">이용약관</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
+        <div class="footer-info">대표 : 양준호 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 서브탭 active 처리
+    const subTabs = document.querySelectorAll('.sub-tab');
+    const sections = ['greeting','overview','history'];
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 160) current = id;
+      });
+      subTabs.forEach(t => {
+        t.classList.remove('active');
+        if (t.getAttribute('href') === '#' + current) t.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

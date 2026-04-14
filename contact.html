@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — BIOBIJOU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .contact-section { padding:100px 0; background:var(--bg-light); }
+    .contact-inner { display:grid; grid-template-columns:1fr 1.4fr; gap:80px; }
+    .contact-info { }
+    .contact-info .label { margin-bottom:14px; }
+    .contact-info h2 { font-family:var(--font-en); font-size:clamp(28px,4vw,44px); font-weight:800; line-height:1.1; letter-spacing:-.03em; margin-bottom:24px; }
+    .contact-info h2 span { color:var(--orange); }
+    .contact-info p { font-size:15px; line-height:1.85; color:var(--text-sub); margin-bottom:40px; }
+    .contact-items { display:flex; flex-direction:column; gap:24px; }
+    .contact-item { display:flex; align-items:flex-start; gap:16px; }
+    .contact-item-icon { width:44px; height:44px; border-radius:4px; background:var(--dark); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .contact-item-icon svg { width:18px; height:18px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .contact-item-label { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--silver-dk); margin-bottom:4px; }
+    .contact-item-value { font-size:15px; font-weight:500; color:var(--text); line-height:1.6; }
+
+    /* 문의 폼 */
+    .contact-form { background:var(--white); padding:48px; }
+    .form-title { font-family:var(--font-en); font-size:20px; font-weight:800; color:var(--text); margin-bottom:32px; letter-spacing:-.01em; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+    .form-group { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+    .form-label { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--silver-dk); }
+    .form-input, .form-select, .form-textarea {
+      padding:14px 16px; border:1px solid var(--silver-lt); border-radius:2px;
+      font-family:var(--font-kr); font-size:14px; color:var(--text);
+      background:var(--white); transition:border-color .2s;
+      outline:none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--orange); }
+    .form-textarea { resize:vertical; min-height:120px; }
+    .form-submit { width:100%; padding:16px; background:var(--orange); color:var(--white); border:none; cursor:pointer; font-family:var(--font-en); font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border-radius:2px; transition:background .2s; margin-top:8px; }
+    .form-submit:hover { background:var(--orange-lt); }
+
+    /* 지도 */
+    .map-section { padding:80px 0; background:var(--white); }
+    .map-tabs { display:flex; gap:0; border-bottom:1px solid var(--silver-lt); margin-bottom:32px; }
+    .map-tab { padding:14px 24px; font-family:var(--font-en); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--silver-dk); cursor:pointer; border:none; background:none; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .2s, border-color .2s; }
+    .map-tab.active { color:var(--orange); border-bottom-color:var(--orange); }
+    .map-embed { width:100%; height:400px; border:none; background:var(--bg-light); display:block; }
+    .map-address { margin-top:20px; padding:20px 24px; background:var(--bg-light); }
+    .map-address-title { font-family:var(--font-en); font-size:13px; font-weight:700; color:var(--text); margin-bottom:6px; }
+    .map-address-text { font-size:14px; color:var(--text-sub); line-height:1.7; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="solid">
+    <div class="header-inner">
+      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+      <nav class="gnb">
+        <a href="company.html" class="en">Company</a>
+        <a href="technology.html" class="en">Technology</a>
+        <a href="products.html" class="en">Products</a>
+        <a href="global.html" class="en">Global</a>
+        <a href="news.html" class="en">News</a>
+      </nav>
+      <div class="header-right">
+        <span class="lang-toggle en">KR · EN · CN</span>
+        <a href="contact.html" class="btn-contact en" style="background:var(--orange);color:var(--white);">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-bg"></div>
+    <div class="container page-banner-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span class="current">Contact</span>
+      </div>
+      <div class="label mb16">Get in Touch</div>
+      <h1 class="page-banner-title en">Contact <span>Us</span></h1>
+      <p class="page-banner-desc">제품 문의, 파트너십, 수출 상담 등 모든 문의를 환영합니다.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info">
+          <div class="label mb16">Contact Information</div>
+          <h2>Let's <span>Connect</span></h2>
+          <p>바이오비쥬는 국내외 파트너, 의료기관, 유통사와의 협력을 환영합니다. 제품 문의부터 글로벌 파트너십 상담까지 빠르게 응대해드립니다.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.24 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div><div class="contact-item-label en">Phone</div><div class="contact-item-value">02-6235-9696</div></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div><div class="contact-item-label en">Email</div><div class="contact-item-value">biobijou@biobijou.co.kr</div></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div><div class="contact-item-label en">Address</div><div class="contact-item-value">경기도 하남시 하남대로 947<br/>하남테크노밸리 U1CENTER A동 1516호</div></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div><div class="contact-item-label en">Business Hours</div><div class="contact-item-value">월–금 09:00 – 18:00<br/>주말 및 공휴일 휴무</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="form-title en">Send a Message</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label en">Name *</label>
+              <input type="text" class="form-input" placeholder="성함을 입력하세요" />
+            </div>
+            <div class="form-group">
+              <label class="form-label en">Company</label>
+              <input type="text" class="form-input" placeholder="회사명" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label en">Email *</label>
+              <input type="email" class="form-input" placeholder="이메일 주소" />
+            </div>
+            <div class="form-group">
+              <label class="form-label en">Phone</label>
+              <input type="tel" class="form-input" placeholder="연락처" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label en">Inquiry Type</label>
+            <select class="form-select">
+              <option value="">문의 유형 선택</option>
+              <option>제품 문의 (국내)</option>
+              <option>수출 / 파트너십</option>
+              <option>기술 및 R&D</option>
+              <option>IR / 투자자 문의</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label en">Message *</label>
+            <textarea class="form-textarea" placeholder="문의 내용을 입력하세요"></textarea>
+          </div>
+          <button class="form-submit en">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="container">
+      <div class="label mb16">Location</div>
+      <h2 class="section-title mb32">오시는길</h2>
+      <div class="map-tabs">
+        <button class="map-tab active">본사</button>
+        <button class="map-tab">공장</button>
+      </div>
+      <iframe class="map-embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.3873399604045!2d127.19091171566538!3d37.545937033064476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cb1ba0aa70249%3A0x7353e8ca0bcc3fbd!2z7ZWY64Ko7YWM7YGs64W467C466asIFUx7IS87YSw!5e0!3m2!1sko!2skr!4v1657775104461!5m2!1sko!2skr"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+      <div class="map-address">
+        <div class="map-address-title en">BIOBIJOU HQ</div>
+        <div class="map-address-text">경기도 하남시 하남대로 947 (풍산동 하남테크노밸리 U1CENTER) A동 1516호<br/>Tel. 02-6235-9696 &nbsp; Fax. 02-511-9695</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo-img footer-logo"><img src="images/main/f_logo.png" alt="BIOBIJOU" style="height:28px;display:block;" /></a>
+          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
+            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Company</div>
+          <div class="footer-links">
+            <a href="company.html">인사말</a><a href="company.html">기업개요</a>
+            <a href="company.html">연혁</a><a href="global.html">글로벌 네트워크</a>
+            <a href="contact.html">오시는길</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Products</div>
+          <div class="footer-links">
+            <a href="products.html">HA Filler</a><a href="products.html">Skin Booster</a>
+            <a href="products.html">2026 New Launch</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Support</div>
+          <div class="footer-links">
+            <a href="contact.html">문의하기</a><a href="news.html">공지사항</a>
+            <a href="contact.html">이용약관</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
+        <div class="footer-info">대표 : 양준호 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.map-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.map-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

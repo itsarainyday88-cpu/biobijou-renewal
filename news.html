@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News — BIOBIJOU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .news-section { padding:100px 0; background:var(--bg-light); }
+    .news-filter { display:flex; gap:0; border-bottom:1px solid var(--silver-lt); margin-bottom:56px; background:var(--white); }
+    .news-filter-btn { padding:14px 26px; font-family:var(--font-en); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--silver-dk); cursor:pointer; border:none; background:none; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .2s, border-color .2s; }
+    .news-filter-btn.active { color:var(--orange); border-bottom-color:var(--orange); }
+    .news-filter-btn:hover { color:var(--text); }
+    .news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .news-card { background:var(--white); overflow:hidden; transition:transform .3s, box-shadow .3s; cursor:pointer; }
+    .news-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(0,0,0,.1); }
+    .news-card-img { width:100%; aspect-ratio:16/10; background:var(--dark-2); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .news-img-text { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.14em; color:rgba(255,255,255,.14); text-transform:uppercase; }
+    .news-card-body { padding:28px; }
+    .news-meta { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .news-tag { display:inline-block; padding:4px 10px; border-radius:2px; font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .tag-ipo   { background:rgba(242,101,34,.1); color:var(--orange); }
+    .tag-inv   { background:rgba(26,138,84,.1); color:#1A8A54; }
+    .tag-expo  { background:rgba(59,130,246,.1); color:#3B82F6; }
+    .tag-press { background:rgba(120,113,108,.1); color:#78716C; }
+    .news-date { font-family:var(--font-en); font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--silver-dk); }
+    .news-title { font-size:16px; font-weight:700; color:var(--text); line-height:1.6; margin-bottom:12px; }
+    .news-excerpt { font-size:13px; line-height:1.75; color:var(--text-sub); }
+    .news-read { display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-family:var(--font-en); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); transition:gap .2s; }
+    .news-read:hover { gap:10px; }
+
+    /* 공지사항 */
+    .notice-section { padding:80px 0; background:var(--white); }
+    .notice-list { margin-top:40px; }
+    .notice-item { display:flex; align-items:center; justify-content:space-between; padding:20px 0; border-bottom:1px solid var(--silver-lt); cursor:pointer; transition:padding-left .2s; }
+    .notice-item:hover { padding-left:8px; }
+    .notice-item:first-child { border-top:1px solid var(--silver-lt); }
+    .notice-title { font-size:15px; font-weight:500; color:var(--text); }
+    .notice-date { font-family:var(--font-en); font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--silver-dk); flex-shrink:0; margin-left:24px; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="solid">
+    <div class="header-inner">
+      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+      <nav class="gnb">
+        <a href="company.html" class="en">Company</a>
+        <a href="technology.html" class="en">Technology</a>
+        <a href="products.html" class="en">Products</a>
+        <a href="global.html" class="en">Global</a>
+        <a href="news.html" class="en active">News</a>
+      </nav>
+      <div class="header-right">
+        <span class="lang-toggle en">KR · EN · CN</span>
+        <a href="contact.html" class="btn-contact en">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-bg"></div>
+    <div class="container page-banner-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span class="current">News</span>
+      </div>
+      <div class="label mb16">Press &amp; Media</div>
+      <h1 class="page-banner-title en">News &amp; <span>Press</span></h1>
+      <p class="page-banner-desc">바이오비쥬의 최신 뉴스, 보도자료, 주요 행사 소식을 확인하세요.</p>
+    </div>
+  </div>
+
+  <!-- NEWS LIST -->
+  <section class="news-section">
+    <div class="container">
+      <div class="news-filter">
+        <button class="news-filter-btn active">전체</button>
+        <button class="news-filter-btn">보도자료</button>
+        <button class="news-filter-btn">주요행사</button>
+        <button class="news-filter-btn">IR</button>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-card-img" style="overflow:hidden;"><img src="images/board/ipo.jpg" alt="IPO" style="width:100%;height:100%;object-fit:cover;" /></div>
+          <div class="news-card-body">
+            <div class="news-meta"><span class="news-tag tag-ipo en">IPO</span><span class="news-date en">2025.05.22</span></div>
+            <div class="news-title">바이오비쥬, 코스닥 상장 완료</div>
+            <p class="news-excerpt">에스테틱 바이오 기업으로서 코스닥 시장에 공식 입성. 상장을 발판으로 글로벌 확장 및 R&D 투자를 가속화할 예정.</p>
+            <a href="#" class="news-read en">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img" style="overflow:hidden;"><img src="images/board/investment.jpg" alt="Investment" style="width:100%;height:100%;object-fit:cover;" /></div>
+          <div class="news-card-body">
+            <div class="news-meta"><span class="news-tag tag-inv en">Investment</span><span class="news-date en">2024.06.17</span></div>
+            <div class="news-title">IPO 앞둔 바이오비쥬, 1,500억원 밸류로 투자유치</div>
+            <p class="news-excerpt">IPO를 앞두고 최종 투자 라운드에서 1,500억원 기업가치를 인정받으며 성공적인 투자유치 완료.</p>
+            <a href="#" class="news-read en">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img" style="overflow:hidden;"><img src="images/board/kimes.jpg" alt="KIMES 2024" style="width:100%;height:100%;object-fit:cover;" /></div>
+          <div class="news-card-body">
+            <div class="news-meta"><span class="news-tag tag-expo en">Exhibition</span><span class="news-date en">2024.06.17</span></div>
+            <div class="news-title">KIMES 2024 — LNP 기술 및 신제품 공개</div>
+            <p class="news-excerpt">KIMES 2024에서 HA 필러·스킨 부스터 및 지질나노입자(LNP) 기술을 공개해 업계의 주목을 받았습니다.</p>
+            <a href="#" class="news-read en">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img" style="overflow:hidden;"><img src="images/board/arab_health.jpg" alt="Arab Health 2024" style="width:100%;height:100%;object-fit:cover;" /></div>
+          <div class="news-card-body">
+            <div class="news-meta"><span class="news-tag tag-expo en">Exhibition</span><span class="news-date en">2024.02.29</span></div>
+            <div class="news-title">2024 아랍헬스 참가 — 중동 시장 공략 강화</div>
+            <p class="news-excerpt">두바이에서 개최된 아랍헬스 2024에 참가하여 중동 및 CIS 시장 파트너십을 확대했습니다.</p>
+            <a href="#" class="news-read en">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 공지사항 -->
+  <section class="notice-section">
+    <div class="container">
+      <div class="label mb16">Announcement</div>
+      <h2 class="section-title mb8">공지사항</h2>
+      <div class="notice-list">
+        <div class="notice-item"><span class="notice-title">제8기 사업보고서</span><span class="notice-date en">2025.03</span></div>
+        <div class="notice-item"><span class="notice-title">제8기 감사보고서</span><span class="notice-date en">2025.03</span></div>
+        <div class="notice-item"><span class="notice-title">제8기 정기주주총회 소집공고</span><span class="notice-date en">2025.02</span></div>
+        <div class="notice-item"><span class="notice-title">신주발행공고</span><span class="notice-date en">2024.12</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo-img footer-logo"><img src="images/main/f_logo.png" alt="BIOBIJOU" style="height:28px;display:block;" /></a>
+          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
+            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Company</div>
+          <div class="footer-links">
+            <a href="company.html">인사말</a><a href="company.html">기업개요</a>
+            <a href="company.html">연혁</a><a href="global.html">글로벌 네트워크</a>
+            <a href="contact.html">오시는길</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Products</div>
+          <div class="footer-links">
+            <a href="products.html">HA Filler</a><a href="products.html">Skin Booster</a>
+            <a href="products.html">2026 New Launch</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title en">Support</div>
+          <div class="footer-links">
+            <a href="contact.html">문의하기</a><a href="news.html">공지사항</a>
+            <a href="contact.html">이용약관</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
+        <div class="footer-info">대표 : 양준호 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.news-filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
