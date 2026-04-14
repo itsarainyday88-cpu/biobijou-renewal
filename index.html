@@ -9,6 +9,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Hero Video Specifics */
+    #hero {
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      opacity: 0.6;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: var(--white);
+    }
+    .hero-content .label { color: var(--teal); }
+    .hero-content .hero-desc { color: rgba(255,255,255,0.8); }
+    
+    #header:not(.scrolled) .gnb a { color: var(--white); }
+    #header:not(.scrolled) .logo-img img { filter: brightness(0) invert(1); }
+  </style>
 </head>
 <body>
 
@@ -29,11 +66,14 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (Video Back) -->
   <section id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/main/How to use_Speetiquel_Clean.mp4" type="video/mp4" />
+    </video>
     <div class="container">
       <div class="hero-content">
-        <div class="label">Innovating Aesthetics</div>
+        <div class="label" style="justify-content: center;">Innovating Aesthetics</div>
         <h1 class="hero-title en">Beyond the <span>Boundary.</span></h1>
         <p class="hero-desc">바이오비쥬는 LNP와 hADM 기술을 바탕으로<br/>글로벌 에스테틱 메디컬 시장의 새로운 기준을 제시합니다.</p>
         <div class="hero-btns">
@@ -47,7 +87,7 @@
   <section class="section bg-wave">
     <div class="container">
       <div class="tac mb64">
-        <div class="label">Core Value</div>
+        <div class="label" style="justify-content: center;">Core Value</div>
         <h2 class="section-title">Science Meets <span>Beauty.</span></h2>
         <p class="section-sub mx-auto">가장 안전한 원료와 독자적인 정제 기술로 안심하고 사용할 수 있는 고기능성 에스테틱 솔루션을 제공합니다.</p>
       </div>
@@ -109,55 +149,6 @@
     </div>
   </section>
 
-  <!-- NEWS PREVIEW -->
-  <section class="section bg-light">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end;" class="mb64">
-        <div>
-          <div class="label">Media</div>
-          <h2 class="section-title">Latest <span>News.</span></h2>
-        </div>
-        <a href="news.html" class="en" style="color:var(--teal); font-weight:700;">All News →</a>
-      </div>
-
-      <div class="card-grid">
-        <!-- News Card 1 -->
-        <article class="product-card" style="padding:0;">
-          <div style="aspect-ratio:16/9; background:#eee; overflow:hidden;">
-            <img src="images/board/kosdaq_ipo.jpg" alt="News" style="width:100%; height:100%; object-fit:cover;" />
-          </div>
-          <div style="padding:32px;">
-            <div class="pc-label">KOSDAQ IPO</div>
-            <h4 style="font-size:20px; font-weight:700; margin-bottom:12px;">바이오비쥬, 코스닥 상장 승인</h4>
-            <p style="font-size:14px; color:var(--text-sub);">글로벌 에스테틱 리더로 도약하기 위한 코스닥 시장 입성을 완료했습니다.</p>
-          </div>
-        </article>
-        <!-- News Card 2 -->
-        <article class="product-card" style="padding:0;">
-          <div style="aspect-ratio:16/9; background:#eee; overflow:hidden;">
-            <img src="images/board/investment.jpg" alt="News" style="width:100%; height:100%; object-fit:cover;" />
-          </div>
-          <div style="padding:32px;">
-            <div class="pc-label">INVESTMENT</div>
-            <h4 style="font-size:20px; font-weight:700; margin-bottom:12px;">1,500억원 기업가치 투자 유치</h4>
-            <p style="font-size:14px; color:var(--text-sub);">차세대 파이프라인 R&D 및 글로벌 공장 증설을 위한 투자를 성공적으로 유치했습니다.</p>
-          </div>
-        </article>
-        <!-- News Card 3 -->
-        <article class="product-card" style="padding:0;">
-          <div style="aspect-ratio:16/9; background:#eee; overflow:hidden;">
-            <img src="images/board/kimes.jpg" alt="News" style="width:100%; height:100%; object-fit:cover;" />
-          </div>
-          <div style="padding:32px;">
-            <div class="pc-label">EXHIBITION</div>
-            <h4 style="font-size:20px; font-weight:700; margin-bottom:12px;">KIMES 2024 대성황</h4>
-            <p style="font-size:14px; color:var(--text-sub);">새로운 LNP 기술이 적용된 스킨부스터 라인업이 해외 바이어들에게 큰 호평을 받았습니다.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
@@ -165,11 +156,6 @@
         <div>
           <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
           <p class="f-desc">바이오비쥬는 독자적인 기술력을 바탕으로 전 세계인의 건강한 아름다움을 위해 혁신적인 에스테틱 솔루션을 지속적으로 공급합니다.</p>
-          <div style="display:flex; gap:16px;">
-            <a href="#" style="color:var(--text-sub); font-size:18px;">IG</a>
-            <a href="#" style="color:var(--text-sub); font-size:18px;">FB</a>
-            <a href="#" style="color:var(--text-sub); font-size:18px;">YT</a>
-          </div>
         </div>
         <div>
           <div class="f-title">Company</div>
@@ -202,7 +188,6 @@
   </footer>
 
   <script>
-    // Header Scroll Effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
