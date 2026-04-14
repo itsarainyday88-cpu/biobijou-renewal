@@ -123,14 +123,69 @@
     <div class="container">
 
       <div class="filter-bar">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">HA Filler</button>
-        <button class="filter-btn">Skin Booster</button>
-        <button class="filter-btn">2026 New</button>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="filler">HA Filler</button>
+        <button class="filter-btn" data-filter="booster">Skin Booster</button>
+        <button class="filter-btn" data-filter="cosmetic">Cosmetics</button>
+        <button class="filter-btn" data-filter="new">2026 New</button>
+      </div>
+
+      <!-- 2026 NEW LAUNCH -->
+      <div class="product-section" data-category="new">
+        <div class="product-section-header">
+          <div class="product-section-title en">2026 New Launch</div>
+          <span class="product-section-badge sb-both">B2B / B2C · Strategic Lineup</span>
+        </div>
+        <div class="prod-grid">
+          <!-- CELIVION Lin J -->
+          <div class="prod-card" onclick="window.open('https://celivion-bijou.com/', '_blank')">
+            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
+              <img src="images/brand/lin_j_white.png" alt="CELIVION Lin J" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+            </div>
+            <div class="prod-card-body">
+              <div class="prod-series en">hADM · 2026 New Launch</div>
+              <div class="prod-name en">CELIVION <span style="font-weight:400;font-size:.7em;opacity:.6;">Lin J</span></div>
+              <div class="prod-sub">셀리비온 린제이</div>
+              <p class="prod-desc">입자형 무세포 동종 진피 매트릭스(hADM) 적용 제품. 피부의 구조와 기능 복원을 목적으로 합니다.</p>
+              <div class="prod-specs">
+                <div class="prod-spec">입자형 무세포 동종진피 소재</div>
+                <div class="prod-spec">우수한 생체 적합성</div>
+                <div class="prod-spec">피부의 구조와 기능 복원 목적</div>
+              </div>
+              <div class="prod-tags">
+                <span class="prod-tag">hADM</span>
+                <span class="prod-tag">Brand Site ↗</span>
+                <span class="prod-tag">Clinic Only</span>
+              </div>
+            </div>
+          </div>
+          <!-- SPEETIQUEL (2026 New Launch Target) -->
+          <div class="prod-card" onclick="window.open('https://speetiquelred-bijou.com/', '_blank')">
+            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
+              <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+            </div>
+            <div class="prod-card-body">
+              <div class="prod-series en">2026 New Launch · LNP Tech</div>
+              <div class="prod-name en">SPEETIQUEL</div>
+              <div class="prod-sub">스피티클</div>
+              <p class="prod-desc">LNP 기술 적용 프리미엄 스킨 소액션. 탁월한 수분 공급과 피부 재생 효과를 자랑하는 2026년 전략 리뉴얼 제품.</p>
+              <div class="prod-specs">
+                <div class="prod-spec">LNP 기술 적용, 피부 투과율 극대화</div>
+                <div class="prod-spec">미국 아마존(Amazon) 진출 전략 제품</div>
+                <div class="prod-spec">항노화 및 피부 재생 복합 솔루션</div>
+              </div>
+              <div class="prod-tags">
+                <span class="prod-tag">LNP Tech</span>
+                <span class="prod-tag">Brand Site ↗</span>
+                <span class="prod-tag">Home Care</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- HA FILLER -->
-      <div class="product-section">
+      <div class="product-section" data-category="filler">
         <div class="product-section-header">
           <div class="product-section-title en">HA Filler</div>
           <span class="product-section-badge sb-b2b">B2B · Professional Use Only</span>
@@ -184,96 +239,13 @@
       </div>
 
       <!-- SKIN BOOSTER -->
-      <div class="product-section">
+      <div class="product-section" data-category="booster">
         <div class="product-section-header">
           <div class="product-section-title en">Skin Booster</div>
-          <span class="product-section-badge sb-both">B2B / B2C · Clinic &amp; Home Care</span>
+          <span class="product-section-badge sb-b2b">B2B · Professional Use Only</span>
         </div>
         <div class="prod-grid">
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
-              <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">SPEETIQUEL</div>
-              <div class="prod-sub">스피티클</div>
-              <p class="prod-desc">LNP 기술 적용 대표 스킨 부스터. 탁월한 수분 공급과 피부 재생 효과. 클리닉 시술 및 홈케어 모두 활용 가능한 유연한 제품.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">LNP 기술 적용, 피부 투과율 향상</div>
-                <div class="prod-spec">클리닉·홈케어 듀얼 포지셔닝</div>
-                <div class="prod-spec">수분·재생 복합 효과</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Home Care OK</span>
-                <span class="prod-tag">Hydration+</span>
-              </div>
-            </div>
-          </div>
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/Azure.jpg" alt="ASCENART Azure" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Azure</span></div>
-              <div class="prod-sub">아세나르트 아주르</div>
-              <p class="prod-desc">자연스러운 볼륨감과 수분 공급을 동시에 만족시키는 스킨 부스터. LNP 기술과 표피작용인자(EGF)의 결합으로 최적의 솔루션을 제공합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">볼륨 디자인 특화</div>
-                <div class="prod-spec">LNP 및 EGF 포뮬러 적용</div>
-                <div class="prod-spec">클리닉·홈케어 듀얼 사용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Azure</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Volume</span>
-              </div>
-            </div>
-          </div>
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Hair Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Fillmoa</span></div>
-              <div class="prod-sub">아세나르트 필모아</div>
-              <p class="prod-desc">두피 환경 개선 및 모근 강화에 특화된 헤어 부스터. LNP 기술 기반의 줄기세포 인자(Stem Cell Factor)가 모발 건강의 핵심 솔루션을 제공합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">두피 환경 및 모근 강화 집중 케어</div>
-                <div class="prod-spec">LNP 기반 줄기세포 인자 포뮬러</div>
-                <div class="prod-spec">전문 두피 케어 및 홈케어 병행</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Fillmoa</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Hair & Scalp</span>
-              </div>
-            </div>
-          </div>
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Lux</span></div>
-              <div class="prod-sub">아세나르트 럭스</div>
-              <p class="prod-desc">프리미엄 라인의 고기능성 스킨 부스터. 피부 광채 개선과 안티에이징 케어에 최적화된 럭셔리 포뮬러.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">피부 광채·안티에이징</div>
-                <div class="prod-spec">고기능성 프리미엄 포뮬러</div>
-                <div class="prod-spec">LNP 기술 적용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Lux</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Anti-aging</span>
-              </div>
-            </div>
-          </div>
+          <!-- Aqua -->
           <div class="prod-card">
             <div class="prod-card-img" style="background:#141414; overflow:hidden;">
               <img src="images/brand/ascenart_aqua.jpg" alt="ASCENART Aqua" style="width:100%;height:100%;object-fit:cover;" />
@@ -286,36 +258,16 @@
               <div class="prod-specs">
                 <div class="prod-spec">초강력 수분 공급</div>
                 <div class="prod-spec">피부 장벽 강화</div>
-                <div class="prod-spec">민감성 피부 적합</div>
+                <div class="prod-spec">전문 클리닉 전용 케어</div>
               </div>
               <div class="prod-tags">
                 <span class="prod-tag">Aqua</span>
                 <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Hydration</span>
+                <span class="prod-tag">Clinic Only</span>
               </div>
             </div>
           </div>
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
-              <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">Skin Booster · LNP Tech</div>
-              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Nanofill</span></div>
-              <div class="prod-sub">아세나르트 나노필</div>
-              <p class="prod-desc">나노 입자 기술로 미세 주름과 피부결 개선에 특화. 정밀한 부위별 케어가 가능한 정교한 스킨 부스터.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">나노 입자 정밀 케어</div>
-                <div class="prod-spec">미세 주름·피부결 개선</div>
-                <div class="prod-spec">LNP 기술 적용</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">Nanofill</span>
-                <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Precision</span>
-              </div>
-            </div>
-          </div>
+          <!-- Amber -->
           <div class="prod-card">
             <div class="prod-card-img" style="background:#141414; overflow:hidden;">
               <img src="images/brand/ascenart_amber.jpg" alt="ASCENART Amber" style="width:100%;height:100%;object-fit:cover;" />
@@ -328,46 +280,114 @@
               <div class="prod-specs">
                 <div class="prod-spec">피부 재생·항산화</div>
                 <div class="prod-spec">칙칙함·톤 개선</div>
-                <div class="prod-spec">LNP 기술 적용</div>
+                <div class="prod-spec">전문 클리닉 전용 솔루션</div>
               </div>
               <div class="prod-tags">
                 <span class="prod-tag">Amber</span>
                 <span class="prod-tag">LNP Tech</span>
-                <span class="prod-tag">Brightening</span>
+                <span class="prod-tag">Clinic Only</span>
+              </div>
+            </div>
+          </div>
+          <!-- Nanofill -->
+          <div class="prod-card">
+            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
+              <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="prod-card-body">
+              <div class="prod-series en">Skin Booster · LNP Tech</div>
+              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Nanofill</span></div>
+              <div class="prod-sub">아세나르트 나노필</div>
+              <p class="prod-desc">나노 입자 기술로 미세 주름과 피부결 개선에 특화. 정밀한 부위별 케어가 가능한 정교한 스킨 부스터.</p>
+              <div class="prod-specs">
+                <div class="prod-spec">나노 입자 정밀 케어</div>
+                <div class="prod-spec">미세 주름·피부결 개선</div>
+                <div class="prod-spec">전문 클리닉 전용</div>
+              </div>
+              <div class="prod-tags">
+                <span class="prod-tag">Nanofill</span>
+                <span class="prod-tag">LNP Tech</span>
+                <span class="prod-tag">Clinic Only</span>
+              </div>
+            </div>
+          </div>
+          <!-- Azure -->
+          <div class="prod-card">
+            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
+              <img src="images/brand/Azure.jpg" alt="ASCENART Azure" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="prod-card-body">
+              <div class="prod-series en">Skin Booster · LNP Tech</div>
+              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Azure</span></div>
+              <div class="prod-sub">아세나르트 아주르</div>
+              <p class="prod-desc">자연스러운 볼륨감과 수분 공급을 동시에 만족시키는 스킨 부스터. LNP 기술과 표피작용인자(EGF)의 결합으로 최적의 솔루션을 제공합니다.</p>
+              <div class="prod-specs">
+                <div class="prod-spec">볼륨 디자인 특화</div>
+                <div class="prod-spec">LNP 및 EGF 포뮬러 적용</div>
+                <div class="prod-spec">전문 클리닉 전용</div>
+              </div>
+              <div class="prod-tags">
+                <span class="prod-tag">Azure</span>
+                <span class="prod-tag">LNP Tech</span>
+                <span class="prod-tag">Clinic Only</span>
+              </div>
+            </div>
+          </div>
+          <!-- Lux -->
+          <div class="prod-card">
+            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
+              <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="prod-card-body">
+              <div class="prod-series en">Skin Booster · LNP Tech</div>
+              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Lux</span></div>
+              <div class="prod-sub">아세나르트 럭스</div>
+              <p class="prod-desc">프리미엄 라인의 고기능성 스킨 부스터. 피부 광채 개선과 안티에이징 케어에 최적화된 럭셔리 포뮬러.</p>
+              <div class="prod-specs">
+                <div class="prod-spec">피부 광채·안티에이징</div>
+                <div class="prod-spec">고기능성 프리미엄 포뮬러</div>
+                <div class="prod-spec">전문 클리닉 전용</div>
+              </div>
+              <div class="prod-tags">
+                <span class="prod-tag">Lux</span>
+                <span class="prod-tag">LNP Tech</span>
+                <span class="prod-tag">Clinic Only</span>
+              </div>
+            </div>
+          </div>
+          <!-- Fillmoa -->
+          <div class="prod-card">
+            <div class="prod-card-img" style="background:#141414; overflow:hidden;">
+              <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="prod-card-body">
+              <div class="prod-series en">Hair Booster · LNP Tech</div>
+              <div class="prod-name en">ASCENART <span style="font-weight:400;font-size:.75em;opacity:.7;">Fillmoa</span></div>
+              <div class="prod-sub">아세나르트 필모아</div>
+              <p class="prod-desc">두피 환경 개선 및 모근 강화에 특화된 헤어 부스터. LNP 기술 기반의 줄기세포 인자(Stem Cell Factor)가 모발 건강의 핵심 솔루션을 제공합니다.</p>
+              <div class="prod-specs">
+                <div class="prod-spec">두피 환경 및 모근 강화 집중 케어</div>
+                <div class="prod-spec">LNP 기반 줄기세포 인자 포뮬러</div>
+                <div class="prod-spec">전문 클리닉 케어 전용</div>
+              </div>
+              <div class="prod-tags">
+                <span class="prod-tag">Fillmoa</span>
+                <span class="prod-tag">LNP Tech</span>
+                <span class="prod-tag">Clinic Only</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 2026 NEW LAUNCH -->
-      <div class="product-section">
+      <!-- COSMETICS (Future Section) -->
+      <div class="product-section" data-category="cosmetic">
         <div class="product-section-header">
-          <div class="product-section-title en">2026 New Launch</div>
-          <span class="product-section-badge sb-b2b">B2B · Professional Use Only</span>
+          <div class="product-section-title en">Cosmetics</div>
+          <span class="product-section-badge sb-both">Preparing for Launch</span>
         </div>
-        <div class="prod-grid">
-          <div class="prod-card">
-            <div class="prod-card-img" style="background:#ffffff; overflow:hidden;">
-              <img src="images/brand/lin_j_white.png" alt="CELIVION Lin J" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            </div>
-            <div class="prod-card-body">
-              <div class="prod-series en">hADM · 2026 New Launch</div>
-              <div class="prod-name en">CELIVION <span style="font-weight:400;font-size:.7em;opacity:.6;">Lin J</span></div>
-              <div class="prod-sub">셀리비온 린제이</div>
-              <p class="prod-desc">입자형 무세포 동종 진피 매트릭스(hADM) 적용 제품. 피부의 구조와 기능 복원을 목적으로 합니다.</p>
-              <div class="prod-specs">
-                <div class="prod-spec">입자형 무세포 동종진피 소재</div>
-                <div class="prod-spec">우수한 생체 적합성</div>
-                <div class="prod-spec">피부의 구조와 기능 복원 목적</div>
-              </div>
-              <div class="prod-tags">
-                <span class="prod-tag">hADM</span>
-                <span class="prod-tag">2026 Launch</span>
-                <span class="prod-tag">Clinic Only</span>
-              </div>
-            </div>
-          </div>
+        <div style="padding:100px 0; text-align:center; background:rgba(0,0,0,0.02); border:1px dashed var(--silver); border-radius:4px;">
+          <p style="color:var(--silver-dk); font-weight:600;">바이오비쥬의 고기능성 코스메틱 라인업이 곧 공개됩니다.</p>
         </div>
       </div>
 
@@ -423,8 +443,25 @@
   <script>
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        
+        // Active class toggle
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
+
+        // Filtering sections
+        const sections = document.querySelectorAll('.product-section');
+        sections.forEach(sec => {
+          if (filter === 'all') {
+            sec.style.display = 'block';
+          } else {
+            if (sec.getAttribute('data-category') === filter) {
+              sec.style.display = 'block';
+            } else {
+              sec.style.display = 'none';
+            }
+          }
+        });
       });
     });
   </script>
