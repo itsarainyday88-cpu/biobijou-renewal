@@ -163,18 +163,19 @@
     .preview-more:hover { background:var(--orange); color:var(--white); }
 
     /* ── NEWS PREVIEW ── */
-    #news-preview { padding:120px 0; background:var(--dark); }
+    #news-preview { padding:120px 0; background:var(--white); border-top: 1px solid var(--silver-lt); border-bottom: 1px solid var(--silver-lt); }
     .np-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; }
-    .np-header .section-title { color:var(--white); }
+    .np-header .section-title { color:var(--text); }
     .np-more { font-family:var(--font-en); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); display:flex; align-items:center; gap:8px; transition:gap .2s; }
     .np-more:hover { gap:14px; }
     .np-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:2px; }
-    .np-card { background:var(--dark-2); overflow:hidden; cursor:pointer; }
-    .np-card-img { aspect-ratio:16/10; background:var(--dark-3); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-    .np-img-label { font-family:var(--font-en); font-size:10px; font-weight:600; letter-spacing:.14em; color:rgba(255,255,255,.12); }
+    .np-card { background:var(--bg-light); overflow:hidden; cursor:pointer; border:1px solid var(--silver-lt); }
+    .np-card:hover { border-color:var(--orange); }
+    .np-card-img { aspect-ratio:16/10; background:var(--silver-lt); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .np-img-label { font-family:var(--font-en); font-size:10px; font-weight:600; letter-spacing:.14em; color:var(--silver-dk); }
     .np-card-body { padding:24px; }
     .np-date { font-family:var(--font-en); font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--silver-dk); margin-bottom:10px; }
-    .np-title { font-size:14px; font-weight:700; color:var(--white); line-height:1.6; margin-bottom:14px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+    .np-title { font-size:14px; font-weight:700; color:var(--text); line-height:1.6; margin-bottom:14px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
     .np-tag { display:inline-block; padding:4px 9px; background:rgba(242,101,34,.12); border:1px solid rgba(242,101,34,.25); border-radius:2px; font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); }
   </style>
 </head>
@@ -405,7 +406,7 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+          <a href="index.html" class="logo-img footer-logo"><img src="images/main/f_logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
           <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
           <div class="footer-sns">
             <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
