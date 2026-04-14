@@ -3,188 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BIOBIJOU — Global Aesthetic Innovation</title>
+  <title>BIOBIJOU — Aesthetic Innovator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* ── HERO ── */
-    #hero {
-      position: relative;
-      height: 100vh; min-height: 700px;
-      background: var(--dark);
-      display: flex; align-items: center;
-      overflow: hidden;
-    }
-    /* 슬라이더: img 태그 기반 — file:// 에서도 동작 */
-    .hero-slides { position:absolute; inset:0; }
-    .hero-slide {
-      position:absolute; inset:0;
-      opacity:0; transition:opacity 1.2s ease;
-    }
-    .hero-slide.active { opacity:1; }
-    .hero-slide img {
-      width:100%; height:100%; object-fit:cover; display:block;
-    }
-    .hero-slide::after {
-      content:'';
-      position:absolute; inset:0;
-      background:
-        linear-gradient(to right, rgba(0,0,0,0.62) 35%, rgba(0,0,0,0.15) 100%),
-        linear-gradient(to top,   rgba(0,0,0,0.45) 0%, transparent 45%);
-    }
-    .hero-orb {
-      position: absolute; border-radius: 50%;
-      animation: orb-float 10s ease-in-out infinite;
-    }
-    .hero-orb-1 {
-      width: 520px; height: 520px;
-      right: 8%; top: 50%; transform: translateY(-50%);
-      background: radial-gradient(circle at 35% 35%, rgba(255,140,66,0.18) 0%, rgba(242,101,34,0.08) 40%, transparent 70%);
-      border: 1px solid rgba(242,101,34,0.15);
-    }
-    .hero-orb-2 {
-      width: 360px; height: 360px;
-      right: 14%; top: 50%; transform: translateY(-50%);
-      background: radial-gradient(circle at 40% 40%, rgba(184,190,199,0.12) 0%, transparent 70%);
-      border: 1px solid rgba(184,190,199,0.2);
-      animation-duration: 7s; animation-delay: -2s;
-    }
-    .hero-orb-3 {
-      width: 200px; height: 200px;
-      right: 22%; top: 50%; transform: translateY(-50%);
-      background: radial-gradient(circle, rgba(242,101,34,0.25) 0%, transparent 70%);
-      border: 1px solid rgba(242,101,34,0.3);
-      animation-duration: 5s; animation-delay: -1s;
-    }
-    @keyframes orb-float {
-      0%, 100% { transform: translateY(-50%) scale(1); }
-      50%       { transform: translateY(calc(-50% - 18px)) scale(1.03); }
-    }
-    .hero-dot {
-      position: absolute; border-radius: 50%; background: var(--orange); opacity: 0.6;
-      animation: dot-pulse 3s ease-in-out infinite;
-    }
-    .hero-dot:nth-child(4) { width:6px; height:6px; right:28%; top:38%; }
-    .hero-dot:nth-child(5) { width:4px; height:4px; right:18%; top:55%; animation-delay:.8s; background:var(--silver); }
-    .hero-dot:nth-child(6) { width:3px; height:3px; right:32%; top:62%; animation-delay:1.6s; }
-    @keyframes dot-pulse {
-      0%,100% { opacity:.4; transform:scale(1); }
-      50%      { opacity:1;  transform:scale(1.6); }
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 640px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px;
-      border: 1px solid rgba(242,101,34,0.4); border-radius: 20px;
-      background: rgba(242,101,34,0.08);
-      margin-bottom: 32px;
-    }
-    .hero-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--orange); animation:dot-pulse 2s infinite; }
-    .hero-badge span { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--orange); }
-    .hero-title {
-      font-family: var(--font-en);
-      font-size: clamp(40px, 6vw, 76px);
-      font-weight: 900; line-height: 1.0; letter-spacing: -0.03em;
-      color: var(--white); margin-bottom: 24px;
-    }
-    .hero-title .hl  { color: var(--orange); }
-    .hero-title .hl-s { color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,0.25); }
-    .hero-desc { font-size:16px; line-height:1.85; color:rgba(255,255,255,0.5); margin-bottom:48px; max-width:480px; }
-    .hero-cta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-    .btn-ghost {
-      font-family:var(--font-en); font-size:13px; font-weight:600;
-      letter-spacing:.08em; text-transform:uppercase;
-      color:rgba(255,255,255,0.55); display:flex; align-items:center; gap:8px;
-      transition:color .2s;
-    }
-    .btn-ghost:hover { color:var(--white); }
-    .hero-stats {
-      position: absolute; bottom: 60px; left: 0; right: 0; z-index: 2;
-    }
-    .hero-stats-inner { max-width:1280px; margin:0 auto; padding:0 48px; display:flex; gap:60px; }
-    .hero-stat-num { font-family:var(--font-en); font-size:36px; font-weight:800; color:var(--white); line-height:1; }
-    .hero-stat-num span { color:var(--orange); }
-    .hero-stat-label { font-size:12px; color:rgba(255,255,255,0.38); margin-top:6px; letter-spacing:.04em; }
-    .hero-scroll {
-      position:absolute; bottom:60px; right:48px; z-index:2;
-      display:flex; flex-direction:column; align-items:center; gap:8px;
-    }
-    .hero-scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(242,101,34,0.8),transparent); animation:scroll-ln 2s ease-in-out infinite; }
-    .hero-scroll-label { font-family:var(--font-en); font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.28); writing-mode:vertical-rl; }
-    @keyframes scroll-ln {
-      0%  { transform:scaleY(0); transform-origin:top; }
-      50% { transform:scaleY(1); transform-origin:top; }
-      51% { transform:scaleY(1); transform-origin:bottom; }
-      100%{ transform:scaleY(0); transform-origin:bottom; }
-    }
-
-    /* ── BRAND INTRO ── */
-    #brand { padding:120px 0; background:var(--white); }
-    .brand-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-    .brand-num { font-family:var(--font-en); font-size:140px; font-weight:900; color:transparent; -webkit-text-stroke:1px rgba(0,0,0,0.06); line-height:1; letter-spacing:-.05em; margin-bottom:-16px; user-select:none; }
-    .brand-headline { font-family:var(--font-en); font-size:clamp(32px,4vw,50px); font-weight:800; line-height:1.15; letter-spacing:-.03em; margin-bottom:24px; }
-    .brand-headline em { color:var(--orange); font-style:normal; }
-    .brand-body { font-size:16px; line-height:1.9; color:var(--text-sub); margin-bottom:36px; }
-    .brand-links { display:flex; gap:16px; flex-wrap:wrap; }
-    .brand-pillars { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
-    .pillar { padding:36px 30px; background:var(--dark); transition:background .2s; }
-    .pillar:hover { background:var(--dark-3); }
-    .pillar-icon { width:38px; height:38px; border-radius:8px; background:rgba(242,101,34,.14); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
-    .pillar-icon svg { width:18px; height:18px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .pillar-title { font-family:var(--font-en); font-size:14px; font-weight:700; color:var(--white); margin-bottom:8px; }
-    .pillar-desc { font-size:12px; line-height:1.75; color:var(--silver); }
-    .pillar:nth-child(3) { background:var(--orange); }
-    .pillar:nth-child(3) .pillar-icon { background:rgba(255,255,255,.2); }
-    .pillar:nth-child(3) .pillar-icon svg { stroke:var(--white); }
-    .pillar:nth-child(3) .pillar-title { color:var(--white); }
-    .pillar:nth-child(3) .pillar-desc { color:rgba(255,255,255,.8); }
-
-    /* ── PRODUCTS PREVIEW ── */
-    #products-preview { padding:120px 0; background:var(--bg-light); }
-    .preview-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:56px; gap:40px; }
-    .preview-header-desc { font-size:15px; line-height:1.8; color:var(--text-sub); max-width:360px; }
-    .preview-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-bottom:2px; }
-    .preview-card { background:var(--white); overflow:hidden; cursor:pointer; transition:transform .3s, box-shadow .3s; }
-    .preview-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,.1); }
-    .preview-card-img { width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; position:relative; }
-    .preview-img-label { font-family:var(--font-en); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.2); }
-    .preview-badge { position:absolute; top:14px; left:14px; padding:4px 10px; border-radius:2px; font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-    .b-b2b { background:var(--dark); color:var(--orange); }
-    .b-both { background:var(--orange); color:var(--white); }
-    .b-new  { background:#1A8754; color:var(--white); }
-    .preview-card-body { padding:24px 24px 28px; }
-    .preview-line { font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--silver-dk); margin-bottom:6px; }
-    .preview-name { font-family:var(--font-en); font-size:18px; font-weight:800; color:var(--text); margin-bottom:10px; letter-spacing:-.01em; }
-    .preview-desc { font-size:13px; line-height:1.75; color:var(--text-sub); }
-    .preview-more { display:flex; align-items:center; justify-content:center; padding:22px; background:var(--dark); color:rgba(255,255,255,.6); font-family:var(--font-en); font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; transition:background .2s, color .2s; }
-    .preview-more:hover { background:var(--orange); color:var(--white); }
-
-    /* ── NEWS PREVIEW ── */
-    #news-preview { padding:120px 0; background:var(--white); border-top: 1px solid var(--silver-lt); border-bottom: 1px solid var(--silver-lt); }
-    .np-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; }
-    .np-header .section-title { color:var(--text); }
-    .np-more { font-family:var(--font-en); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); display:flex; align-items:center; gap:8px; transition:gap .2s; }
-    .np-more:hover { gap:14px; }
-    .np-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:2px; }
-    .np-card { background:var(--bg-light); overflow:hidden; cursor:pointer; border:1px solid var(--silver-lt); }
-    .np-card:hover { border-color:var(--orange); }
-    .np-card-img { aspect-ratio:16/10; background:var(--silver-lt); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-    .np-img-label { font-family:var(--font-en); font-size:10px; font-weight:600; letter-spacing:.14em; color:var(--silver-dk); }
-    .np-card-body { padding:24px; }
-    .np-date { font-family:var(--font-en); font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--silver-dk); margin-bottom:10px; }
-    .np-title { font-size:14px; font-weight:700; color:var(--text); line-height:1.6; margin-bottom:14px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-    .np-tag { display:inline-block; padding:4px 9px; background:rgba(242,101,34,.12); border:1px solid rgba(242,101,34,.25); border-radius:2px; font-family:var(--font-en); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); }
-  </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
+      <a href="index.html" class="logo-img"><img src="images/main/logo.png" alt="BIOBIJOU" id="main-logo" /></a>
       <nav class="gnb">
         <a href="company.html" class="en">Company</a>
         <a href="technology.html" class="en">Technology</a>
@@ -193,210 +24,136 @@
         <a href="news.html" class="en">News</a>
       </nav>
       <div class="header-right">
-        <span class="lang-toggle en">KR · EN · CN</span>
-        <a href="contact.html" class="btn-contact en">Contact</a>
+        <a href="contact.html" class="btn-primary en">Get Started</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-slides">
-      <div class="hero-slide active"><img src="images/main/main_visual01.png" alt="" /></div>
-      <div class="hero-slide"><img src="images/main/main_visual02.png" alt="" /></div>
-      <div class="hero-slide"><img src="images/main/main_visual03.png" alt="" /></div>
-    </div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="hero-dot"></div>
-    <div class="hero-dot"></div>
-    <div class="hero-dot"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <div class="hero-badge-dot"></div>
-          <span>2026 New Launch — CELIVION Lin J</span>
-        </div>
-        <h1 class="hero-title en">
-          AESTHETIC<br/>
-          <span class="hl">INNOVATION</span><br/>
-          <span class="hl-s">REDEFINED.</span>
-        </h1>
-        <p class="hero-desc">
-          LNP 기술 기반의 프리미엄 에스테틱 솔루션.<br/>
-          <span style="white-space:nowrap;">HA 필러부터 스킨 부스터까지, 신뢰할 수 있는 품질로 글로벌 시장을 선도합니다.</span>
-        </p>
-        <div class="hero-cta">
-          <a href="products.html" class="btn-primary en">Explore Products</a>
-          <a href="technology.html" class="btn-ghost en">Our Technology →</a>
+        <div class="label">Innovating Aesthetics</div>
+        <h1 class="hero-title en">Beyond the <span>Boundary.</span></h1>
+        <p class="hero-desc">바이오비쥬는 LNP와 hADM 기술을 바탕으로<br/>글로벌 에스테틱 메디컬 시장의 새로운 기준을 제시합니다.</p>
+        <div class="hero-btns">
+          <a href="products.html" class="btn-primary en">Our Products</a>
         </div>
       </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stats-inner">
-        <div><div class="hero-stat-num en">25<span>+</span></div><div class="hero-stat-label">Countries Exported</div></div>
-        <div><div class="hero-stat-num en">2018</div><div class="hero-stat-label">Founded</div></div>
-        <div><div class="hero-stat-num en">2</div><div class="hero-stat-label">Core Technologies</div></div>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <div class="hero-scroll-line"></div>
-      <div class="hero-scroll-label en">Scroll</div>
     </div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span class="ticker-item">HA Filler <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">LNP Technology <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">hADM <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">CELIVION <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">K-Beauty Global <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">Skin Booster <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">Aesthetic Medicine <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">IPO 2025 <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">HA Filler <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">LNP Technology <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">hADM <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">CELIVION <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">K-Beauty Global <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">Skin Booster <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">Aesthetic Medicine <span class="ticker-sep">·</span></span>
-      <span class="ticker-item">IPO 2025 <span class="ticker-sep">·</span></span>
-    </div>
-  </div>
 
   <!-- BRAND INTRO -->
-  <section id="brand">
+  <section class="section bg-wave">
     <div class="container">
-      <div class="brand-inner">
-        <div>
-          <div class="brand-num en">BB</div>
-          <h2 class="brand-headline">Global Bio &amp;<br/><em>Aesthetic</em> Leader</h2>
-          <p class="brand-body">바이오비쥬는 2018년 설립 이래 HA 필러, 스킨 부스터, 코스메틱을 아우르는 통합 에스테틱 솔루션을 개발해왔습니다. 제조부터 판매까지 일원화된 가치사슬과 25여 개국 글로벌 유통망을 바탕으로 K-뷰티 혁신을 선도합니다.</p>
-          <div class="brand-links">
-            <a href="company.html" class="btn-primary en">About Us</a>
-            <a href="technology.html" class="btn-outline en">Our Technology</a>
-          </div>
+      <div class="tac mb64">
+        <div class="label">Core Value</div>
+        <h2 class="section-title">Science Meets <span>Beauty.</span></h2>
+        <p class="section-sub mx-auto">가장 안전한 원료와 독자적인 정제 기술로 안심하고 사용할 수 있는 고기능성 에스테틱 솔루션을 제공합니다.</p>
+      </div>
+      
+      <div class="card-grid">
+        <div class="product-card">
+          <div class="pc-label">LNP TECHNOLOGY</div>
+          <h3 class="pc-name">Skin Delivery</h3>
+          <p class="pc-desc">지질나노입자 캡슐화 기술로 유효성분의 피부 투과율과 유효성을 극대화합니다.</p>
+          <a href="technology.html" class="en" style="color:var(--teal); font-weight:700;">Learn More →</a>
         </div>
-        <div class="brand-pillars">
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-            <div class="pillar-title en">Value Chain</div>
-            <div class="pillar-desc">제조~판매 수직 통합, 일원화된 운영</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="pillar-title en">R&amp;D First</div>
-            <div class="pillar-desc">LNP · hADM 적용 기술</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg></div>
-            <div class="pillar-title en">Global Network</div>
-            <div class="pillar-desc">25개국 수출, 미국 지사 운영</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <div class="pillar-title en">IPO Listed</div>
-            <div class="pillar-desc">2025 코스닥 상장, 1,500억 밸류에이션</div>
-          </div>
+        <div class="product-card">
+          <div class="pc-label">HIGH PURITY</div>
+          <h3 class="pc-name">Safety First</h3>
+          <p class="pc-desc">안면 주사용 수준의 엄격한 정제 공정을 통해 엔도톡신 및 불순물을 완벽하게 제어합니다.</p>
+          <a href="technology.html" class="en" style="color:var(--teal); font-weight:700;">Learn More →</a>
+        </div>
+        <div class="product-card">
+          <div class="pc-label">GLOBAL NETWORK</div>
+          <h3 class="pc-name">Worldwide</h3>
+          <p class="pc-desc">미주, 동남아, CIS 등 전 세계 25개국 이상의 글로벌 유통망을 통해 K-뷰티를 선도합니다.</p>
+          <a href="global.html" class="en" style="color:var(--teal); font-weight:700;">Learn More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTS PREVIEW -->
-  <section id="products-preview">
+  <!-- PRODUCT LINEUP PREVIEW -->
+  <section class="section">
     <div class="container">
-      <div class="preview-header">
-        <div>
-          <div class="label mb16">Product Line</div>
-          <h2 class="section-title">Our Products</h2>
-        </div>
-        <p class="preview-header-desc">클리닉 전용 솔루션과 아마존 진출 전략 제품까지, B2B·B2C 모두를 아우르는 풀 라인업.</p>
+      <div class="mb64">
+        <div class="label">Products</div>
+        <h2 class="section-title">Product <span>Line-up.</span></h2>
       </div>
-      <div class="preview-grid">
-        <div class="preview-card" onclick="location.href='products.html'">
-          <div class="preview-card-img" style="background:#ffffff; overflow:hidden;">
-            <img src="images/brand/lin_j_white.png" alt="CELIVION Lin J" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            <span class="preview-badge b-new" style="position:absolute;">2026 Launch</span>
-          </div>
-          <div class="preview-card-body">
-            <div class="preview-line en">2026 New Technology · hADM</div>
-            <div class="preview-name en">CELIVION <span style="font-weight:400;opacity:.6;font-size:.7em;">Lin J</span></div>
-            <p class="preview-desc">hADM 기반 2026년 전략 신제품. 피부 구조 복합 솔루션.</p>
-          </div>
+
+      <div class="card-grid">
+        <div class="product-card">
+          <div class="pc-img"><img src="images/brand/Celivion_logo.png" alt="Celivion" style="width:120px;" /></div>
+          <div class="pc-label">2026 NEW LAUNCH</div>
+          <h3 class="pc-name">CELIVION</h3>
+          <p class="pc-desc">hADM 기술 기반의 차세대 피부 재생 및 구조 복원 솔루션입니다.</p>
+          <a href="https://celivion-bijou.com/" target="_blank" class="btn-primary en" style="padding:12px 24px; font-size:11px;">Visit Website</a>
         </div>
-        <div class="preview-card" onclick="location.href='products.html'">
-          <div class="preview-card-img" style="background:#ffffff; overflow:hidden;">
-            <img src="images/brand/ha_fillers.png" alt="HA Filler" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            <span class="preview-badge b-b2b" style="position:absolute;">B2B · Professional</span>
-          </div>
-          <div class="preview-card-body">
-            <div class="preview-line en">HA Filler</div>
-            <div class="preview-name en">CADDORLOV · COLENA</div>
-            <p class="preview-desc">임상적으로 검증된 고순도 HA 필러 라인. 전문 클리닉 전용 솔루션.</p>
-          </div>
+        <div class="product-card">
+          <div class="pc-img"><img src="images/product/filler_main.png" alt="Filler" style="height:140px; object-fit:contain;" /></div>
+          <div class="pc-label">HA FILLER</div>
+          <h3 class="pc-name">COLENA · REFILL</h3>
+          <p class="pc-desc">우수한 점탄성과 검증된 안전성의 프리미엄 HA 필러 라인업입니다.</p>
+          <a href="products.html" class="btn-primary en" style="padding:12px 24px; font-size:11px;">View Detail</a>
         </div>
-        <div class="preview-card" onclick="location.href='products.html'">
-          <div class="preview-card-img" style="background:#ffffff; overflow:hidden;">
-            <img src="images/brand/SPEETIQUEL_white.png" alt="Skin Booster" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
-            <span class="preview-badge b-both" style="position:absolute;">B2B / B2C</span>
-          </div>
-          <div class="preview-card-body">
-            <div class="preview-line en">Skin Booster</div>
-            <div class="preview-name en">ASCENART · SPEETIQUEL</div>
-            <p class="preview-desc">LNP 기술 적용 프리미엄 스킨 소액션. 아마존 진출 및 홈케어 가능.</p>
-          </div>
+        <div class="product-card">
+          <div class="pc-img"><img src="images/brand/Speetiquel_red_logo.png" alt="Speetiquel" style="width:140px;" /></div>
+          <div class="pc-label">SKIN BOOSTER</div>
+          <h3 class="pc-name">ASCENART · SPEETIQUEL</h3>
+          <p class="pc-desc">LNP 기술이 적용된 고농축 유효성분의 집중 스킨 케어 솔루션입니다.</p>
+          <a href="https://speetiquelred-bijou.com/" target="_blank" class="btn-primary en" style="padding:12px 24px; font-size:11px;">Visit Website</a>
         </div>
       </div>
-      <a href="products.html" class="preview-more en">전체 제품 보기 →</a>
     </div>
   </section>
 
   <!-- NEWS PREVIEW -->
-  <section id="news-preview">
+  <section class="section bg-light">
     <div class="container">
-      <div class="np-header">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end;" class="mb64">
         <div>
-          <div class="label mb16">Press &amp; Media</div>
-          <h2 class="section-title">Latest News</h2>
+          <div class="label">Media</div>
+          <h2 class="section-title">Latest <span>News.</span></h2>
         </div>
-        <a href="news.html" class="np-more en">All News →</a>
+        <a href="news.html" class="en" style="color:var(--teal); font-weight:700;">All News →</a>
       </div>
-      <div class="np-grid">
-        <div class="np-card" onclick="location.href='news.html'">
-          <div class="np-card-img" style="overflow:hidden;">
-            <img src="images/board/kosdaq_ipo.jpg" alt="KOSDAQ IPO" style="width:100%;height:100%;object-fit:cover;" />
+
+      <div class="card-grid">
+        <!-- News Card 1 -->
+        <article class="product-card" style="padding:0;">
+          <div style="aspect-ratio:16/9; background:#eee; overflow:hidden;">
+            <img src="images/board/kosdaq_ipo.jpg" alt="News" style="width:100%; height:100%; object-fit:cover;" />
           </div>
-          <div class="np-card-body">
-            <div class="np-date en">2025 · 05 · 22</div>
-            <div class="np-title">바이오비쥬, 코스닥 상장 완료 — 에스테틱 바이오 기업으로서 새로운 도약</div>
-            <span class="np-tag en">IPO</span>
+          <div style="padding:32px;">
+            <div class="pc-label">KOSDAQ IPO</div>
+            <h4 style="font-size:20px; font-weight:700; margin-bottom:12px;">바이오비쥬, 코스닥 상장 승인</h4>
+            <p style="font-size:14px; color:var(--text-sub);">글로벌 에스테틱 리더로 도약하기 위한 코스닥 시장 입성을 완료했습니다.</p>
           </div>
-        </div>
-        <div class="np-card" onclick="location.href='news.html'">
-          <div class="np-card-img" style="overflow:hidden;">
-            <img src="images/board/investment.jpg" alt="Investment" style="width:100%;height:100%;object-fit:cover;" />
+        </article>
+        <!-- News Card 2 -->
+        <article class="product-card" style="padding:0;">
+          <div style="aspect-ratio:16/9; background:#eee; overflow:hidden;">
+            <img src="images/board/investment.jpg" alt="News" style="width:100%; height:100%; object-fit:cover;" />
           </div>
-          <div class="np-card-body">
-            <div class="np-date en">2024 · 06 · 17</div>
-            <div class="np-title">IPO 앞둔 바이오비쥬, 1,500억원 밸류로 투자유치 성공</div>
-            <span class="np-tag en">Investment</span>
+          <div style="padding:32px;">
+            <div class="pc-label">INVESTMENT</div>
+            <h4 style="font-size:20px; font-weight:700; margin-bottom:12px;">1,500억원 기업가치 투자 유치</h4>
+            <p style="font-size:14px; color:var(--text-sub);">차세대 파이프라인 R&D 및 글로벌 공장 증설을 위한 투자를 성공적으로 유치했습니다.</p>
           </div>
-        </div>
-        <div class="np-card" onclick="location.href='news.html'">
-          <div class="np-card-img" style="overflow:hidden;">
-            <img src="images/board/kimes.jpg" alt="KIMES" style="width:100%;height:100%;object-fit:cover;" />
+        </article>
+        <!-- News Card 3 -->
+        <article class="product-card" style="padding:0;">
+          <div style="aspect-ratio:16/9; background:#eee; overflow:hidden;">
+            <img src="images/board/kimes.jpg" alt="News" style="width:100%; height:100%; object-fit:cover;" />
           </div>
-          <div class="np-card-body">
-            <div class="np-date en">2024 · 06 · 17</div>
-            <div class="np-title">KIMES 2024 — HA 필러·LNP 기술 공개로 업계 주목</div>
-            <span class="np-tag en">Exhibition</span>
+          <div style="padding:32px;">
+            <div class="pc-label">EXHIBITION</div>
+            <h4 style="font-size:20px; font-weight:700; margin-bottom:12px;">KIMES 2024 대성황</h4>
+            <p style="font-size:14px; color:var(--text-sub);">새로운 LNP 기술이 적용된 스킨부스터 라인업이 해외 바이어들에게 큰 호평을 받았습니다.</p>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -406,63 +163,54 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo"><img src="images/main/logo.png" alt="BIOBIJOU" style="height:36px;display:block;" /></a>
-          <p class="footer-desc">글로벌 에스테틱 이노베이터.<br/>LNP 기술 기반 프리미엄 HA 필러 &amp; 스킨 부스터 전문기업.</p>
-          <div class="footer-sns">
-            <a href="https://www.instagram.com/biobijou_official/" target="_blank">IG</a>
-            <a href="https://youtube.com/channel/UCwIU5nOJEF6ftZHqaW8gjug" target="_blank">YT</a>
+          <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
+          <p class="f-desc">바이오비쥬는 독자적인 기술력을 바탕으로 전 세계인의 건강한 아름다움을 위해 혁신적인 에스테틱 솔루션을 지속적으로 공급합니다.</p>
+          <div style="display:flex; gap:16px;">
+            <a href="#" style="color:var(--text-sub); font-size:18px;">IG</a>
+            <a href="#" style="color:var(--text-sub); font-size:18px;">FB</a>
+            <a href="#" style="color:var(--text-sub); font-size:18px;">YT</a>
           </div>
         </div>
         <div>
-          <div class="footer-col-title en">Company</div>
-          <div class="footer-links">
+          <div class="f-title">Company</div>
+          <div class="f-links">
             <a href="company.html">인사말</a>
             <a href="company.html">기업개요</a>
             <a href="company.html">연혁</a>
-            <a href="global.html">글로벌 네트워크</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Technology</div>
+          <div class="f-links">
+            <a href="technology.html">LNP Technology</a>
+            <a href="technology.html">hADM Technology</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Contact</div>
+          <div class="f-links">
             <a href="contact.html">오시는길</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title en">Products</div>
-          <div class="footer-links">
-            <a href="products.html">HA Filler</a>
-            <a href="products.html">Skin Booster</a>
-            <a href="products.html">2026 New Launch</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title en">Support</div>
-          <div class="footer-links">
             <a href="contact.html">문의하기</a>
-            <a href="news.html">공지사항</a>
-            <a href="news.html">자료실</a>
-            <a href="contact.html">이용약관</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy en">©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div class="footer-info">대표 : 양준호 · 사업자등록번호 : 870-87-01049 · Tel : 02-6235-9696<br/>경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>© 2026 BIOBIJOU. All rights reserved.</div>
+        <div>경기도 하남시 하남대로 947 하남테크노밸리 U1 A동 1516호 | 02-6235-9696</div>
       </div>
     </div>
   </footer>
 
   <script>
-    // 헤더 스크롤
+    // Header Scroll Effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
-
-    // 히어로 슬라이더 — img 태그 기반 (file:// 호환)
-    const slides = document.querySelectorAll('.hero-slide');
-    let cur = 0;
-    setInterval(() => {
-      slides[cur].classList.remove('active');
-      cur = (cur + 1) % slides.length;
-      slides[cur].classList.add('active');
-    }, 5000);
   </script>
 </body>
 </html>
