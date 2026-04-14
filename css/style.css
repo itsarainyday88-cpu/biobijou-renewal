@@ -9,11 +9,11 @@
 
 /* ─── DESIGN TOKENS ─── */
 :root {
-  /* Brand: Premium Teal / Cyan */
-  --teal:        #11B0B8;
-  --teal-lt:     #DEF5F6;
-  --teal-dk:     #0E8D93;
-  --orange:      #F26522; /* Accents only */
+  /* Brand: BioBijou Orange */
+  --teal:        #F26522;
+  --teal-lt:     #FDEAE0;
+  --teal-dk:     #D4551A;
+  --orange:      #F26522;
 
   /* Backgrounds */
   --white:       #FFFFFF;
@@ -59,6 +59,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .container { width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 40px; }
 .en { font-family: var(--font-en); }
 .tac { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
 .mb16 { margin-bottom: 16px; }
 .mb32 { margin-bottom: 32px; }
 .mb64 { margin-bottom: 64px; }
@@ -94,7 +95,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .section-sub {
   font-size: 17px;
   color: var(--text-sub);
-  max-width: 600px;
+  max-width: 900px;
   margin-top: 24px;
 }
 
@@ -117,7 +118,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .btn-primary:hover {
   background: var(--teal-dk);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(17, 176, 184, 0.3);
+  box-shadow: 0 8px 20px rgba(242, 101, 34, 0.3);
 }
 
 /* ─── HEADER ─── */
@@ -129,7 +130,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 }
 #header.scrolled {
   height: 72px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -137,17 +138,16 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.logo-img img { height: 38px; }
+.logo-img img { height: 44px; }
 
 .gnb { display: flex; gap: 40px; }
 .gnb a {
   font-family: var(--font-en);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
   letter-spacing: 0.02em;
 }
-#header.scrolled .gnb a { color: var(--text); }
 .gnb a:hover, .gnb a.active { color: var(--teal); }
 
 /* ─── HERO ─── */
@@ -178,6 +178,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .section { padding: 120px 0; }
 .bg-light { background: var(--bg-light); }
 .bg-wave { background: url('../images/main/clean_bg.png') no-repeat center center / cover; }
+.bg-science { background: url('../images/main/bio_hero.png') no-repeat center center / cover; }
 
 /* ─── PRODUCT CARDS ─── */
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -219,7 +220,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   border-top: 1px solid var(--border);
 }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 80px; }
-.f-logo { height: 32px; margin-bottom: 24px; filter: grayscale(1) brightness(0.2); }
+.f-logo { height: 32px; margin-bottom: 24px; }
 .f-desc { font-size: 14px; color: var(--text-sub); margin-bottom: 32px; line-height: 1.8; }
 .f-title { font-family: var(--font-en); font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em; }
 .f-links a { display: block; font-size: 14px; color: var(--text-sub); margin-bottom: 12px; }
