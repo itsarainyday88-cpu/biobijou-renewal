@@ -155,12 +155,9 @@
     #lnp .container {
       position: relative;
       z-index: 1;
-      transform: translateY(-30px);
     }
-
-    /* 전체 컨텐츠 상향 이동 유지 */
     #lnp {
-      padding: 50px 0 130px 0;
+      padding: 30px 0 50px 0;
     }
 
     /* 상단 패딩 줄여서 중심을 위로 배치 */
@@ -326,10 +323,12 @@
     #hadm .container {
       position: relative;
       z-index: 1;
-      transform: translateY(-30px);
     }
-
-    /* z-index로 텍스트 위로 올림 */
+    #hadm {
+      padding: 30px 0 50px 0;
+      position: relative;
+      overflow: hidden;
+    }
     #hadm .tech-visual { 
       background: transparent !important;
       border: none !important;
@@ -338,23 +337,10 @@
       transform-origin: center center;
       overflow: visible; 
     }
-
     #hadm .tech-visual img {
-      transform: scale(1.2);
-      /* 1.1에서 1.2로 추가 확대 */
+      transform: scale(1.2); 
       transition: transform 0.4s ease;
     }
-
-    #hadm {
-      padding: 80px 0 160px 0;
-    }
-
-    /* 상단 여백 줄여서 상향 배치 */
-    #hadm .container {
-      transform: translateY(-30px);
-    }
-
-    /* 컨텐츠 전체 10% 상향 이동 */
     #hadm .tech-title {
       font-size: 48px;
     }
@@ -608,31 +594,36 @@
         <table class="compare-table">
           <thead>
             <tr>
-              <th>Criteria</th>
-              <th class="highlight">LNP Technology</th>
-              <th>Other Systems</th>
+              <th>비교 항목</th>
+              <th class="highlight">바이오비쥬 LNP</th>
+              <th>기존 엑소좀</th>
+              <th>기존 리포좀</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Delivery Efficiency</td>
-              <td class="highlight">Excellent (Nano-scaled)</td>
-              <td>Moderate</td>
+              <td>성분 전달 효율</td>
+              <td class="highlight rating">●●●●○</td>
+              <td class="rating dim">●●●●○</td>
+              <td class="rating dim">●●○</td>
             </tr>
             <tr>
-              <td>Stability</td>
-              <td class="highlight">Highly Stable</td>
-              <td>Sensitive</td>
+              <td>유효 성분 안정성</td>
+              <td class="highlight rating">●●●●●</td>
+              <td class="rating dim">●○○</td>
+              <td class="rating dim">●●○</td>
             </tr>
             <tr>
-              <td>Skin Penetration</td>
-              <td class="highlight">90%+</td>
-              <td>Less than 40%</td>
+              <td>피부 침투 및 흡수율</td>
+              <td class="highlight rating">●●●●●</td>
+              <td class="rating dim">●●●●○</td>
+              <td class="rating dim">●●●</td>
             </tr>
             <tr>
-              <td>Production Scalability</td>
-              <td class="highlight">Mass Production Ready</td>
-              <td>Laboratory Level</td>
+              <td>보관 및 대량 생산성</td>
+              <td class="highlight rating">●●●●○</td>
+              <td class="rating dim">●○○</td>
+              <td class="rating dim">●●●○</td>
             </tr>
           </tbody>
         </table>
