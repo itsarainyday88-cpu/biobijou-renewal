@@ -25,7 +25,7 @@
       background: rgba(255,255,255,0.08);
     }
     .sub-hero-content { position: relative; z-index: 10; }
-    .page-title { font-family: var(--font-en); font-size: clamp(40px, 8vw, 72px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
+    .page-title { font-family: var(--font-en); font-size: clamp(46px, 9.2vw, 83px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
 
     /* ── SUB TABS — hero 하단 고정 ── */
     .sub-tabs {
@@ -39,7 +39,7 @@
     }
     .sub-tabs-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: center; }
     .sub-tab {
-      padding: 18px 28px; font-family: var(--font-en); font-size: 13px; font-weight: 700;
+      padding: 18px 28px; font-family: var(--font-en); font-size: 15px; font-weight: 700;
       color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;
       border-bottom: 3px solid transparent; transition: all 0.3s ease; cursor: pointer;
     }
@@ -59,8 +59,8 @@
 
     /* ── COMMON SECTION ELEMENTS ── */
     .section-header { margin-bottom: 28px; text-align: center; }
-    .section-label { color: var(--teal); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; display: block; font-size: 11px; }
-    .section-title { font-size: 36px; font-weight: 800; color: var(--dark); }
+    .section-label { color: var(--teal); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; display: block; font-size: 13px; }
+    .section-title { font-size: 41px; font-weight: 800; color: var(--dark); }
 
     /* ── DATA-SHOW REVEAL ── */
     [data-show] { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -71,22 +71,22 @@
 
     /* ── CEO MESSAGE ── */
     .ceo-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: center; }
-    .ceo-text h3 { font-size: 26px; font-weight: 800; line-height: 1.35; margin-bottom: 16px; color: var(--dark); }
+    .ceo-text h3 { font-size: 30px; font-weight: 800; line-height: 1.35; margin-bottom: 16px; color: var(--dark); }
     .ceo-text h3 span { color: var(--orange); }
-    .ceo-text p { font-size: 14px; line-height: 1.8; color: var(--dark-2); margin-bottom: 16px; }
+    .ceo-text p { font-size: 16px; line-height: 1.8; color: var(--dark-2); margin-bottom: 16px; }
     .ceo-sig { border-top: 1px solid var(--border); padding-top: 16px; }
-    .ceo-sig .name { font-size: 18px; font-weight: 800; margin-bottom: 3px; }
-    .ceo-sig .pos { color: var(--text-muted); font-size: 13px; }
+    .ceo-sig .name { font-size: 21px; font-weight: 800; margin-bottom: 3px; }
+    .ceo-sig .pos { color: var(--text-muted); font-size: 15px; }
     .ceo-photo { background: #f0f3f6; border-radius: 20px; height: 360px; position: relative; overflow: hidden; }
     .ceo-photo img { width: 100%; height: 100%; object-fit: contain; }
-    .ceo-photo-label { position: absolute; bottom: 16px; right: 16px; color: rgba(0,0,0,0.08); font-weight: 900; font-size: 36px; }
+    .ceo-photo-label { position: absolute; bottom: 16px; right: 16px; color: rgba(0,0,0,0.08); font-weight: 900; font-size: 41px; }
 
     /* ── OVERVIEW STATS ── */
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .stat-card { background: var(--white); padding: 28px 28px; border-radius: 20px; box-shadow: var(--shadow); transition: transform 0.4s ease; }
     .stat-card:hover { transform: translateY(-8px); }
-    .stat-label { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.05em; }
-    .stat-value { font-family: var(--font-en); font-size: 28px; font-weight: 900; color: var(--dark); }
+    .stat-label { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.05em; }
+    .stat-value { font-family: var(--font-en); font-size: 32px; font-weight: 900; color: var(--dark); }
     .stat-value span { color: var(--teal); margin-right: 2px; }
 
     /* ── HISTORY — 2-COLUMN ── */
@@ -95,23 +95,23 @@
     .history-year-group { position: relative; margin-bottom: 28px; }
     .history-year {
       position: absolute; left: -120px; top: 0;
-      font-size: 30px; font-weight: 900; color: var(--teal);
+      font-size: 35px; font-weight: 900; color: var(--teal);
       font-family: var(--font-en);
     }
     .history-line { position: absolute; left: 36px; top: 0; bottom: 0; width: 1px; background: var(--border); }
     .history-item { position: relative; padding-left: 72px; margin-bottom: 10px; }
     .history-dot { position: absolute; left: 32px; top: 10px; width: 9px; height: 9px; background: var(--border); border-radius: 50%; z-index: 2; transition: all 0.3s; }
     .history-item:hover .history-dot { background: var(--orange); transform: scale(1.5); }
-    .history-month { font-family: var(--font-en); font-size: 11px; font-weight: 800; color: var(--orange); margin-bottom: 4px; }
-    .history-content { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
-    .history-sub { color: var(--text-sub); font-size: 12px; line-height: 1.5; }
+    .history-month { font-family: var(--font-en); font-size: 13px; font-weight: 800; color: var(--orange); margin-bottom: 4px; }
+    .history-content { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+    .history-sub { color: var(--text-sub); font-size: 14px; line-height: 1.5; }
 
     /* ── LOCATION — 2-COLUMN ── */
     .location-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
     .map-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
     .map-btn {
       padding: 9px 18px; border-radius: 100px; border: 1px solid var(--border);
-      background: var(--white); font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      background: var(--white); font-family: var(--font-en); font-size: 13px; font-weight: 700;
       color: var(--text-muted); cursor: pointer; transition: all 0.3s;
     }
     .map-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
@@ -120,9 +120,9 @@
     .map-info-item { padding: 14px 18px; background: var(--white); border-radius: 16px; transition: transform 0.3s; }
     .bg-light .map-info-item { background: var(--bg-alt); }
     .map-info-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
-    .map-info-label { font-family: var(--font-en); font-size: 10px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-    .map-info-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; color: var(--dark); }
-    .map-info-text { font-size: 12px; color: var(--dark-2); line-height: 1.65; }
+    .map-info-label { font-family: var(--font-en); font-size: 12px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .map-info-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; color: var(--dark); }
+    .map-info-text { font-size: 14px; color: var(--dark-2); line-height: 1.65; }
   </style>
 </head>
 <body class="sub-page">
