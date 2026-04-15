@@ -1,178 +1,493 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Technology — BIOBIJOU</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=5" />
+  <link rel="stylesheet" href="css/style.css?v=24" />
   <style>
-    /* ── SUB HERO (Technology) ── */
+    /* ── SUB HERO ── */
     .sub-hero {
-      position: relative; height: 50vh; min-height: 450px;
-      /* Using a premium CSS gradient as placeholder until image gen is back */
-      background: linear-gradient(135deg, #eef9fa 0%, #ffffff 50%, #effafb 100%);
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      padding-top: 50px; overflow: hidden;
+      position: relative;
+      height: 50vh;
+      min-height: 450px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%),
+        url('images/main/bio_hero.png') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 100px;
     }
-    /* Abstract Biotech Circles */
-    .hero-orb {
-      position: absolute; border-radius: 50%; border: 1px solid rgba(17,176,184,0.1);
-      background: radial-gradient(circle, rgba(17,176,184,0.05) 0%, transparent 70%);
-      z-index: 1; pointer-events: none;
+
+    .sub-hero-content {
+      position: relative;
+      z-index: 10;
     }
-    .orb-1 { width: 600px; height: 600px; top: -100px; right: -100px; }
-    .orb-2 { width: 400px; height: 400px; bottom: -50px; left: -100px; }
 
-    #header { position: absolute; background: transparent; }
-    #header .logo-img { visibility: visible; pointer-events: auto; }
-    #header .logo-img img { filter: brightness(0); opacity: 0.8; } /* Dark Logo for light tech bg */
-    #header .gnb a { color: var(--dark-2); }
-    #header .gnb a.active { color: var(--orange); font-weight: 700; }
-    #header .header-inner { justify-content: space-between; }
+    .sub-hero .label {
+      color: var(--orange);
+    }
 
-    .sub-hero-content { position: relative; z-index: 10; }
-    .page-title { font-family: var(--font-en); font-size: clamp(40px, 8vw, 72px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
+    .page-title {
+      font-family: var(--font-en);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.04em;
+    }
 
-    /* ── SUB TABS (Sticky to top:0) ── */
-    .sub-tabs { 
-      background: var(--white); 
-      border-bottom: 1px solid var(--border); 
-      position: sticky; top: 0; z-index: 100; 
+    /* ── SUB TABS ── */
+    .sub-tabs {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
       transition: box-shadow 0.3s ease;
     }
-    .sub-tabs.scrolled { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .sub-tabs-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: center; }
-    .sub-tab { 
-      padding: 24px 32px; font-family: var(--font-en); font-size: 13px; font-weight: 700; 
-      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;
-      border-bottom: 3px solid transparent; transition: all 0.3s ease;
+
+    .sub-tabs.scrolled {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
-    .sub-tab:hover { color: var(--teal); }
-    .sub-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+    .sub-tabs-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .sub-tab {
+      padding: 24px 32px;
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .sub-tab:hover {
+      color: var(--teal);
+    }
+
+    .sub-tab.active {
+      color: var(--teal);
+      border-bottom-color: var(--teal);
+    }
 
     /* ── SECTIONS ── */
-    .section { padding: 120px 0; }
-    .bg-dark { background: var(--dark); color: var(--white); }
-    .bg-light { background: var(--bg-light); }
-
-    /* Tech Block */
-    .tech-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .tech-block.reverse { direction: rtl; }
-    .tech-block.reverse > * { direction: ltr; }
-
-    .tech-visual { 
-      position: relative; aspect-ratio: 1/1; 
-      background: rgba(255,255,255,0.03); border-radius: 30px; 
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
+    .section {
+      padding: 120px 0;
     }
-    .bg-light .tech-visual { background: var(--white); border-color: var(--border); box-shadow: var(--shadow); }
+
+    .section-header {
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--teal);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+      font-size: 11px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .bg-dark .section-title {
+      color: var(--white);
+    }
+
+    .bg-dark .section-label {
+      color: var(--orange);
+    }
+
+    .bg-light {
+      background: var(--bg-light);
+    }
+
+    .bg-dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    /* ── LNP 섹션 오버라이드 ── */
+    #lnp {
+      background: #f0f8f9 url('images/main/lnp_tech.png') no-repeat center center / cover;
+      color: var(--dark);
+      position: relative;
+    }
+
+    #lnp::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240, 248, 249, 0.88);
+      /* 좀 더 밝게 조정 */
+    }
+
+    #lnp .tech-desc {
+      color: var(--text-sub);
+    }
+
+    #lnp .tech-title {
+      color: var(--dark);
+    }
+
+    /* 컬러 원복 */
+    #lnp .container {
+      position: relative;
+      z-index: 1;
+      transform: translateY(-30px);
+    }
+
+    /* 전체 컨텐츠 상향 이동 유지 */
+    #lnp {
+      padding: 50px 0 130px 0;
+    }
+
+    /* 상단 패딩 줄여서 중심을 위로 배치 */
+    #lnp .tech-block {
+      gap: 64px;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+    }
+
+    /* 이미지 폭 줄이고 설명 폭 늘림 */
+    #lnp .tech-visual {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      aspect-ratio: auto;
+      width: 100%;
+      height: auto;
+      min-height: 310px;
+      padding: 0;
+    }
+
+    #lnp .feature-name {
+      color: var(--dark);
+    }
+
+    #lnp .label {
+      color: var(--orange);
+    }
+
+    /* ── TECH BLOCK ── */
+    .tech-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .tech-block.reverse {
+      direction: rtl;
+    }
+
+    .tech-block.reverse>* {
+      direction: ltr;
+    }
+
+    .tech-visual {
+      position: relative;
+      aspect-ratio: 1/1;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .bg-light .tech-visual {
+      background: var(--white);
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
 
     .tech-bubble {
-      width: 300px; height: 300px; border-radius: 50%;
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
       background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
-      opacity: 0.2; filter: blur(40px); animation: pulse 6s infinite;
+      opacity: 0.2;
+      filter: blur(40px);
+      animation: pulse 6s infinite;
     }
-    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.2; } 50% { transform: scale(1.2); opacity: 0.3; } }
 
-    .tech-text .label { color: var(--orange); margin-bottom: 24px; font-weight: 700; }
-    .tech-title { font-size: 48px; font-weight: 900; margin-bottom: 24px; line-height: 1.1; }
-    .tech-desc { font-size: 18px; line-height: 1.8; color: var(--silver-dk); margin-bottom: 40px; }
-    .bg-light .tech-desc { color: var(--dark-3); }
+    @keyframes pulse {
 
-    .tech-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .feature-item { display: flex; align-items: flex-start; gap: 12px; }
-    .feature-icon { width: 24px; height: 24px; color: var(--orange); flex-shrink: 0; }
-    .feature-name { font-weight: 700; font-size: 15px; }
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.2;
+      }
 
-    /* Compare Table */
-    .compare-card { background: var(--white); border-radius: 24px; padding: 60px; box-shadow: var(--shadow-lg); }
-    .compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
-    .compare-table th, .compare-table td { padding: 24px; text-align: center; border-bottom: 1px solid var(--border); }
-    .compare-table th { font-family: var(--font-en); font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .compare-table td:first-child { text-align: left; font-weight: 700; color: var(--dark); width: 30%; }
-    .compare-table .highlight { color: var(--orange); font-weight: 800; }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+      }
+    }
 
-    /* Reveal Animation */
-    [data-show] { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    [data-show].visible { opacity: 1; transform: translateY(0); }
+    .tech-text .label {
+      color: var(--orange);
+      margin-bottom: 24px;
+    }
+
+    .tech-title {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 24px;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .bg-light .tech-title {
+      color: var(--dark);
+    }
+
+    .tech-desc {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 40px;
+    }
+
+    .bg-light .tech-desc {
+      color: var(--text-sub);
+    }
+
+    .tech-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feature-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--white);
+    }
+
+    .bg-light .feature-name {
+      color: var(--dark);
+    }
+
+    /* ── hADM 섹션 오버라이드 ── */
+    #hadm {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hadm::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/main/hadm_bg.png') no-repeat center center / cover;
+      opacity: 0.12;
+      /* 은은한 투명도 적용 */
+      z-index: 0;
+    }
+
+    #hadm .container {
+      position: relative;
+      z-index: 1;
+      transform: translateY(-30px);
+    }
+
+    /* z-index로 텍스트 위로 올림 */
+    #hadm .tech-visual { 
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      transform: scale(0.95); 
+      transform-origin: center center;
+      overflow: visible; 
+    }
+
+    #hadm .tech-visual img {
+      transform: scale(1.2);
+      /* 1.1에서 1.2로 추가 확대 */
+      transition: transform 0.4s ease;
+    }
+
+    #hadm {
+      padding: 80px 0 160px 0;
+    }
+
+    /* 상단 여백 줄여서 상향 배치 */
+    #hadm .container {
+      transform: translateY(-30px);
+    }
+
+    /* 컨텐츠 전체 10% 상향 이동 */
+    #hadm .tech-title {
+      font-size: 48px;
+    }
+
+    /* LNP 섹션과 동일하게 48px로 통일 */
+    /* ── COMPARISON TABLE ── */
+    .compare-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 22px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-table th {
+      font-family: var(--font-en);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--bg-light);
+    }
+
+    .compare-table th:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+
+    .compare-table th:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .compare-table td:first-child {
+      text-align: left;
+      font-weight: 700;
+      color: var(--dark);
+      width: 30%;
+    }
+
+    .compare-table .highlight {
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── REVEAL ── */
+    [data-show] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-show].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body class="sub-page">
 
-  <!-- HEADER -->
+  <!-- HEADER (Unified) -->
   <header id="header">
     <div class="header-inner">
       <a href="index.html" class="logo-img">
-        <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 44px;">
+        <img src="images/main/logo.png" alt="BIOBIJOU">
       </a>
       <ul class="gnb">
-        <li><a href="company.html" class="en">Company</a></li>
-        <li><a href="technology.html" class="en active">Technology</a></li>
-        <li><a href="products.html" class="en">Products</a></li>
-        <li><a href="global.html" class="en">Global</a></li>
-        <li><a href="news.html" class="en">News</a></li>
+        <li>
+          <a href="company.html" class="en">Company</a>
+          <ul class="sub-menu">
+            <li><a href="company.html#ceo">인사말</a></li>
+            <li><a href="company.html#history">연혁</a></li>
+            <li><a href="company.html#certs">인증 &amp; 특허</a></li>
+            <li><a href="company.html#location">오시는길</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="technology.html" class="en">Technology</a>
+          <ul class="sub-menu">
+            <li><a href="technology.html#lnp">LNP 기술</a></li>
+            <li><a href="technology.html#hadm">hADM 기술</a></li>
+            <li><a href="technology.html#comparison">기술 비교</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="products.html" class="en">Products</a>
+          <ul class="sub-menu">
+            <li><a href="products.html">HA 필러</a></li>
+            <li><a href="products.html">스킨 부스터</a></li>
+            <li><a href="products.html">2026 신제품</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="global.html" class="en">Global</a>
+          <ul class="sub-menu">
+            <li><a href="global.html">글로벌 네트워크</a></li>
+            <li><a href="global.html">USA 지사</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="news.html" class="en">News</a>
+          <ul class="sub-menu">
+            <li><a href="news.html">보도자료</a></li>
+            <li><a href="news.html">공지사항</a></li>
+            <li><a href="contact.html">문의하기</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="header-right">
         <a href="contact.html" class="btn-primary en">Contact Us</a>
-      </div>
-    </div>
-    <div class="header-drop">
-      <div class="drop-inner">
-        <div class="drop-col">
-          <div class="drop-col-title">Company</div>
-          <div class="drop-list">
-            <a href="company.html#ceo" class="drop-link">인사말</a>
-            <a href="company.html#overview" class="drop-link">기업개요</a>
-            <a href="company.html#history" class="drop-link">연혁</a>
-            <a href="company.html#location" class="drop-link">오시는길</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Technology</div>
-          <div class="drop-list">
-            <a href="technology.html#lnp" class="drop-link">LNP 기술</a>
-            <a href="technology.html#hadm" class="drop-link">hADM 기술</a>
-            <a href="technology.html#comparison" class="drop-link">기술 비교</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Products</div>
-          <div class="drop-list">
-            <a href="products.html" class="drop-link">HA 필러</a>
-            <a href="products.html" class="drop-link">스킨 부스터</a>
-            <a href="products.html" class="drop-link">2026 신제품</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Global</div>
-          <div class="drop-list">
-            <a href="global.html" class="drop-link">글로벌 네트워크</a>
-            <a href="global.html" class="drop-link">USA 지사</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Media</div>
-          <div class="drop-list">
-            <a href="news.html" class="drop-link">보도자료</a>
-            <a href="news.html" class="drop-link">공지사항</a>
-            <a href="contact.html" class="drop-link">문의하기</a>
-          </div>
-        </div>
       </div>
     </div>
   </header>
 
   <!-- SUB HERO -->
   <section class="sub-hero">
-    <div class="hero-orb orb-1"></div>
-    <div class="hero-orb orb-2"></div>
     <div class="sub-hero-content">
-      <div class="label" style="justify-content: center; color: var(--teal);">Scientific Excellence</div>
+      <div class="label" style="justify-content: center;">Scientific Excellence</div>
       <h1 class="page-title en">Technology</h1>
     </div>
   </section>
@@ -181,40 +496,52 @@
   <nav class="sub-tabs">
     <div class="sub-tabs-inner">
       <a href="#lnp" class="sub-tab active">LNP Technology</a>
-      <a href="#hadm" class="sub-tab"><span style="text-transform: lowercase;">h</span>ADM Matrix</a>
+      <a href="#hadm" class="sub-tab">hADM Matrix</a>
       <a href="#comparison" class="sub-tab">Comparison</a>
     </div>
   </nav>
 
-  <!-- LNP SECTION -->
+  <!-- LNP -->
   <section id="lnp" class="section bg-dark">
     <div class="container">
       <div class="tech-block">
         <div class="tech-visual" data-show>
-          <div class="tech-bubble"></div>
-          <img src="images/main/hero_slide_03.png" alt="LNP Structure" style="width: 70%; height: 70%; object-fit: contain; z-index: 10;">
+          <!-- 사용자께서 배경 제거하신 이미지가 깔끔하게 보이도록 contain 적용 -->
+          <img src="images/main/lnp_penetration.png" alt="LNP Penetration"
+            style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="tech-text" data-show>
           <div class="label">Proprietary Delivery System</div>
-          <h2 class="tech-title en">LNP<br/>Technology</h2>
-          <p class="tech-desc">
-            지질나노입자(Lipid Nano Particle) 기술은 고분자 지질을 활용하여 유효 성분을 안정적으로 캡슐화합니다. 바이오비쥬만의 독자적인 LNP 포뮬러는 피부 장벽 투과율을 극대화하여 스킨부스터의 효능을 세포 수준까지 전달합니다.
-          </p>
+          <h2 class="tech-title en">LNP<br />Technology</h2>
+          <p class="tech-desc">지질나노입자(Lipid Nano Particle) 기술은 고분자 지질을 활용하여 유효 성분을 안정적으로 캡슐화합니다. 바이오비쥬만의 독자적인 LNP 포뮬러는
+            피부 장벽 투과율을 극대화하여 스킨부스터의 효능을 세포 수준까지 전달합니다.</p>
           <div class="tech-features">
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Nano-Encapsulation</div>
             </div>
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">High Skin Penetration</div>
             </div>
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Enhanced Stability</div>
             </div>
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Long-lasting Effects</div>
             </div>
           </div>
@@ -223,34 +550,45 @@
     </div>
   </section>
 
-  <!-- hADM SECTION -->
+  <!-- hADM -->
   <section id="hadm" class="section bg-light">
     <div class="container">
       <div class="tech-block reverse">
         <div class="tech-visual" data-show>
-          <img src="images/brand/Skin_white.png" alt="hADM Matrix" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="images/main/hADM.png" alt="hADM Matrix" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="tech-text" data-show>
           <div class="label">Advanced Regenerative Matrix</div>
-          <h2 class="tech-title en">hADM<br/>Matrix</h2>
-          <p class="tech-desc">
-            human Allogeneic Dermal Matrix (hADM)은 인체 유래 동종 진피를 무세포화하여 가공한 혁신적인 매트릭스입니다. 피부 조직의 구조를 복원하고 자가 재생을 유도하여 에스테틱 치료의 한계를 뛰어넘는 결과를 제공합니다.
-          </p>
+          <h2 class="tech-title en">hADM Matrix</h2>
+          <p class="tech-desc">human Allogeneic Dermal Matrix(hADM)은 인체 유래 동종 진피를 무세포화하여 가공한 혁신적인 매트릭스입니다. 피부 조직의 구조를
+            복원하고 자가 재생을 유도하여 에스테틱 치료의 한계를 뛰어넘는 결과를 제공합니다.</p>
           <div class="tech-features">
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Biocompatibility</div>
             </div>
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Tissue Restoration</div>
             </div>
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Natural Integration</div>
             </div>
             <div class="feature-item">
-              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div class="feature-name">Premium Material</div>
             </div>
           </div>
@@ -260,10 +598,10 @@
   </section>
 
   <!-- COMPARISON -->
-  <section id="comparison" class="section bg-alt">
+  <section id="comparison" class="section">
     <div class="container">
       <div class="compare-card" data-show>
-        <div class="section-header">
+        <div class="section-header" style="margin-bottom:0;">
           <span class="section-label">Performance Check</span>
           <h2 class="section-title">Technology Comparison</h2>
         </div>
@@ -276,87 +614,114 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Delivery Efficiency</td><td class="highlight">Excellent (Nano-scaled)</td><td>Moderate</td></tr>
-            <tr><td>Stability</td><td class="highlight">Highly Stable</td><td>Sensitive</td></tr>
-            <tr><td>Skin Penetration</td><td class="highlight">90% +</td><td>Less than 40%</td></tr>
-            <tr><td>Production Scalability</td><td class="highlight">Mass Production Ready</td><td>Laboratory Level</td></tr>
+            <tr>
+              <td>Delivery Efficiency</td>
+              <td class="highlight">Excellent (Nano-scaled)</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td>Stability</td>
+              <td class="highlight">Highly Stable</td>
+              <td>Sensitive</td>
+            </tr>
+            <tr>
+              <td>Skin Penetration</td>
+              <td class="highlight">90%+</td>
+              <td>Less than 40%</td>
+            </tr>
+            <tr>
+              <td>Production Scalability</td>
+              <td class="highlight">Mass Production Ready</td>
+              <td>Laboratory Level</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (Unified) -->
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo">
-            <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
-          </a>
-          <p class="f-desc">글로벌 에스테틱 이노베이터.<br/>LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
+          <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
+          <p class="f-desc">바이오비쥬는 독자적인 기술력을 바탕으로 전 세계인의 건강한 아름다움을 위해 혁신적인 에스테틱 솔루션을 지속적으로 공급합니다.</p>
         </div>
         <div>
           <div class="f-title">Company</div>
           <div class="f-links">
-            <a href="company.html">인사말</a>
-            <a href="company.html">기업개요</a>
+            <a href="company.html#ceo">인사말</a>
             <a href="company.html#history">연혁</a>
+            <a href="company.html#certs">인증 &amp; 특허</a>
+            <a href="company.html#location">오시는길</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Technology</div>
+          <div class="f-links">
+            <a href="technology.html#lnp">LNP 기술</a>
+            <a href="technology.html#hadm">hADM 기술</a>
+            <a href="technology.html#comparison">기술 비교</a>
           </div>
         </div>
         <div>
           <div class="f-title">Products</div>
           <div class="f-links">
-            <a href="products.html">HA Filler</a>
-            <a href="products.html">Skin Booster</a>
-            <a href="products.html">New Launch</a>
+            <a href="products.html">HA 필러</a>
+            <a href="products.html">스킨 부스터</a>
+            <a href="products.html">2026 신제품</a>
           </div>
         </div>
         <div>
-          <div class="f-title">Support</div>
+          <div class="f-title">Global</div>
           <div class="f-links">
-            <a href="contact.html">Contact Us</a>
-            <a href="news.html">News & Press</a>
+            <a href="global.html">글로벌 네트워크</a>
+            <a href="global.html">USA 지사</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Media</div>
+          <div class="f-links">
+            <a href="news.html">보도자료</a>
+            <a href="news.html">공지사항</a>
+            <a href="contact.html">문의하기</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div>대표 : 양준호 | 경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>© 2026 BIOBIJOU. All rights reserved.</div>
+        <div>경기도 하남시 하남대로 947 하남테크노밸리 U1 A동 1516호 | 02-6235-9696</div>
       </div>
     </div>
   </footer>
 
   <script>
+    const header = document.getElementById('header');
     const subTabs = document.querySelector('.sub-tabs');
-    const sections = document.querySelectorAll('section[id]');
     const tabs = document.querySelectorAll('.sub-tab');
+    const sections = document.querySelectorAll('section[id]');
 
-    // Reveal Animation
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
-
-    // Scroll Logic
     window.addEventListener('scroll', () => {
-      subTabs.classList.toggle('scrolled', window.scrollY > 300);
+      if (subTabs) subTabs.classList.toggle('scrolled', window.scrollY > 100);
 
-      // Tab Highlighting
+      // Tab active state
       let current = '';
-      sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 200) {
-          current = section.getAttribute('id');
-        }
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
       });
       tabs.forEach(tab => {
         tab.classList.remove('active');
-        if (tab.getAttribute('href').includes(current)) tab.classList.add('active');
+        if (current && tab.getAttribute('href').includes(current)) tab.classList.add('active');
       });
     });
+
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
   </script>
 </body>
+
 </html>

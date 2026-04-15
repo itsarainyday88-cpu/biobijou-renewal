@@ -1,98 +1,286 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products — BIOBIJOU</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
     /* ── SUB HERO (Products) ── */
     .sub-hero {
-      position: relative; height: 50vh; min-height: 450px;
+      position: relative;
+      min-height: 117vh;
       background: linear-gradient(135deg, #f8fbfb 0%, #ffffff 100%);
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      padding-top: 50px; overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 50px;
+      overflow: hidden;
     }
+
     .hero-water {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 70% 30%, rgba(242,101,34,0.03) 0%, transparent 50%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 70% 30%, rgba(242, 101, 34, 0.03) 0%, transparent 50%);
       pointer-events: none;
     }
 
-    #header { position: absolute; background: transparent; }
-    #header .logo-img { visibility: visible; pointer-events: auto; }
-    #header .logo-img img { filter: brightness(0); opacity: 0.8; }
-    #header .gnb a { color: var(--dark); }
-    #header .gnb a.active { color: var(--orange); font-weight: 700; }
-    #header .header-inner { justify-content: space-between; }
+    #header {
+      position: absolute;
+      background: transparent;
+    }
 
-    .sub-hero-content { position: relative; z-index: 10; }
-    .page-title { font-family: var(--font-en); font-size: clamp(40px, 8vw, 72px); font-weight: 900; color: var(--dark); letter-spacing: -0.04em; }
+    #header .logo-img {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    #header .logo-img img {
+      filter: brightness(0);
+      opacity: 0.8;
+    }
+
+    #header .gnb a {
+      color: var(--dark);
+    }
+
+    #header .gnb a.active {
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    #header .header-inner {
+      justify-content: space-between;
+    }
+
+    .sub-hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .page-title {
+      font-family: var(--font-en);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.04em;
+    }
 
     /* ── FILTER & CONTENT ── */
-    .product-controls { 
-      background: var(--white); border-bottom: 1px solid var(--border); 
-      position: sticky; top: 0; z-index: 100; padding: 20px 0;
+    .product-controls {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0;
     }
-    .filter-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: center; gap: 8px; }
+
+    .filter-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
     .filter-btn {
-      padding: 12px 24px; border-radius: 100px; border: 1px solid var(--border);
-      font-family: var(--font-en); font-size: 13px; font-weight: 700; color: var(--text-muted);
-      cursor: pointer; transition: all 0.3s ease; background: var(--white);
+      padding: 12px 24px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--white);
     }
-    .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
-    .filter-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
+
+    .filter-btn:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .filter-btn.active {
+      background: var(--dark);
+      color: var(--white);
+      border-color: var(--dark);
+    }
 
     /* Product Cards */
-    .products-section { padding: 100px 0; background: var(--bg-light); min-height: 800px; }
-    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-    
-    .product-card { 
-      background: var(--white); border-radius: 24px; overflow: hidden; 
-      box-shadow: var(--shadow-sm); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      display: flex; flex-direction: column;
+    .products-section {
+      padding: 100px 0;
+      background: var(--bg-light);
+      min-height: 800px;
     }
-    .product-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
-    
-    .pc-img-wrap { 
-      position: relative; width: 100%; aspect-ratio: 1/1; 
-      background: #fdfdfd; display: flex; align-items: center; justify-content: center;
-      padding: 40px; overflow: hidden;
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
     }
-    .pc-img-wrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s ease; }
-    .product-card:hover .pc-img-wrap img { transform: scale(1.05); }
 
-    .pc-badge { 
-      position: absolute; top: 20px; left: 20px; 
-      padding: 6px 12px; background: rgba(0,0,0,0.8); color: var(--white); 
-      font-size: 10px; font-weight: 700; border-radius: 4px; z-index: 5;
+    .product-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
     }
-    .pc-badge.new { background: var(--orange); }
 
-    .pc-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
-    .pc-series { font-family: var(--font-en); font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; }
-    .pc-title { font-size: 24px; font-weight: 900; color: var(--dark); margin-bottom: 8px; }
-    .pc-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
-    .pc-desc { font-size: 15px; line-height: 1.6; color: var(--dark-3); margin-bottom: 24px; }
-    
-    .pc-specs { margin-bottom: 24px; border-top: 1px solid var(--border); padding-top: 20px; }
-    .spec-item { font-size: 13px; color: var(--text-sub); margin-bottom: 8px; display: flex; gap: 8px; }
-    .spec-item::before { content: '•'; color: var(--orange); }
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+    }
 
-    .pc-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
-    .btn-arrow { font-family: var(--font-en); font-size: 13px; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 8px; }
-    .btn-arrow span { transition: transform 0.3s; }
-    .product-card:hover .btn-arrow span { transform: translateX(5px); }
+    .pc-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #fdfdfd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .pc-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.6s ease;
+    }
+
+    .product-card:hover .pc-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 6px 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 4px;
+      z-index: 5;
+    }
+
+    .pc-badge.new {
+      background: var(--orange);
+    }
+
+    .pc-content {
+      padding: 32px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pc-series {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .pc-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .pc-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .pc-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--dark-3);
+      margin-bottom: 24px;
+    }
+
+    .pc-specs {
+      margin-bottom: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .spec-item {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .spec-item::before {
+      content: '•';
+      color: var(--orange);
+    }
+
+    .pc-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-arrow {
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-arrow span {
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover .btn-arrow span {
+      transform: translateX(5px);
+    }
 
     /* Reveal Animation */
-    [data-show] { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
-    [data-show].visible { opacity: 1; transform: translateY(0); }
+    [data-show] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    [data-show].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body class="sub-page">
 
   <!-- HEADER -->
@@ -134,10 +322,10 @@
   </div>
 
   <!-- PRODUCT GRID -->
-  <section class="products-section">
+  <section class="products-section section">
     <div class="container">
       <div class="product-grid" id="productGrid">
-        
+
         <!-- CELIVION -->
         <div class="product-card" data-category="new" data-show>
           <div class="pc-img-wrap">
@@ -253,8 +441,88 @@
             <div class="pc-sub">아세나르트 럭스</div>
             <p class="pc-desc">피부 광채와 안티에이징을 동시에 케어하는 고기능성 프리미엄 스킨 부스터입니다.</p>
             <div class="pc-specs">
-              <div class="spec-item">광채 개선 & 안티에이징</div>
-              <div class="spec-item">고농축 유효성분 함유</div>
+              <div class="spec-item">피부 광채 & 안티에이징</div>
+              <div class="spec-item">고기능성 프리미엄 포뮬러</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASCENART AZURE -->
+        <div class="product-card" data-category="booster" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/ascenart_azure.jpg" alt="ASCENART Azure" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Skin Booster</div>
+            <h3 class="pc-title en">ASCENART Azure</h3>
+            <div class="pc-sub">아세나르트 아주르</div>
+            <p class="pc-desc">LNP 기술과 EGF 포뮬러를 결합하여 피부 수분 밸런스와 볼륨 디자인에 최적화된 솔루션입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">LNP 및 EGF 포뮬러 적용</div>
+              <div class="spec-item">볼륨 디자인 및 수분 공급</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASCENART FILLMOA -->
+        <div class="product-card" data-category="booster" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Hair Booster</div>
+            <h3 class="pc-title en">ASCENART Fillmoa</h3>
+            <div class="pc-sub">아세나르트 필모아</div>
+            <p class="pc-desc">두피 환경 개선 및 모근 강화 특화 줄기세포 인자 포뮬러를 적용한 프리미엄 헤어 부스터입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">Stem Cell Factor 포뮬러</div>
+              <div class="spec-item">두피 및 모근 집중 강화 솔루션</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASCENART NANOFILL -->
+        <div class="product-card" data-category="booster" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Skin Booster</div>
+            <h3 class="pc-title en">ASCENART Nanofill</h3>
+            <div class="pc-sub">아세나르트 나노필</div>
+            <p class="pc-desc">LNP 나노 입자가 피부 깊숙이 침투하여 미세 주름 개선과 매끄러운 피부결을 완성합니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">초미세 나노 입자 기술</div>
+              <div class="spec-item">미세 주름 및 조밀한 보습 케어</div>
+            </div>
+            <div class="pc-footer">
+              <span class="btn-arrow">Learn More <span>→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASCENART AMBER -->
+        <div class="product-card" data-category="booster" data-show>
+          <div class="pc-img-wrap">
+            <img src="images/brand/ascenart_amber.jpg" alt="ASCENART Amber" style="object-fit: cover;">
+          </div>
+          <div class="pc-content">
+            <div class="pc-series">Skin Booster</div>
+            <h3 class="pc-title en">ASCENART Amber</h3>
+            <div class="pc-sub">아세나르트 앰버</div>
+            <p class="pc-desc">피부 광채와 생기를 배가시키는 성분 구성으로 건강하고 화사한 안색을 선사하는 프리미엄 부스터입니다.</p>
+            <div class="pc-specs">
+              <div class="spec-item">피부 광채 및 생기 부여</div>
+              <div class="spec-item">LNP 기반 안티에이징 액션</div>
             </div>
             <div class="pc-footer">
               <span class="btn-arrow">Learn More <span>→</span></span>
@@ -274,7 +542,7 @@
           <a href="index.html" class="logo-img footer-logo">
             <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
           </a>
-          <p class="f-desc">글로벌 에스테틱 이노베이터.<br/>LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
+          <p class="f-desc">글로벌 에스테틱 이노베이터.<br />LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
         </div>
         <div>
           <div class="f-title">Company</div>
@@ -308,6 +576,69 @@
   </footer>
 
   <script>
+    // Unified Full-Page Scroll Logic
+    const sections = Array.from(document.querySelectorAll('.sub-hero, .product-controls, .products-section, #footer'));
+    let current = 0;
+    let animating = false;
+
+    function goTo(index) {
+      if (index < 0 || index >= sections.length || animating) return;
+      animating = true;
+      current = index;
+
+      const target = sections[index].getBoundingClientRect().top + window.scrollY;
+      const start = window.scrollY;
+      const distance = target - start;
+      const duration = 800;
+      let startTime = null;
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + distance * easeInOutCubic(progress));
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          animating = false;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function updateCurrent() {
+      const scrollY = window.scrollY + window.innerHeight / 2;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].offsetTop <= scrollY) { current = i; break; }
+      }
+    }
+
+    // Wheel
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (animating) return;
+      updateCurrent();
+      goTo(e.deltaY > 0 ? current + 1 : current - 1);
+    }, { passive: false });
+
+    // Keyboard
+    window.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 'PageDown'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current + 1); } }
+      if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current - 1); } }
+    });
+
+    // Touch
+    let touchY = 0;
+    window.addEventListener('touchstart', (e) => { touchY = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      const diff = touchY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) > 40 && !animating) { updateCurrent(); goTo(diff > 0 ? current + 1 : current - 1); }
+    });
+
     // Reveal Animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -317,23 +648,18 @@
 
     document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
 
-    // Filter Logic
+    // Filter Logic (Keep original)
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const filter = btn.dataset.filter;
-        
-        // Active Toggle
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        // Filtering with Animation
         productCards.forEach(card => {
           card.style.opacity = '0';
           card.style.transform = 'scale(0.95)';
-          
           setTimeout(() => {
             if (filter === 'all' || card.dataset.category === filter) {
               card.style.display = 'flex';
@@ -350,4 +676,5 @@
     });
   </script>
 </body>
+
 </html>

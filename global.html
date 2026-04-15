@@ -12,7 +12,7 @@
   <style>
     /* ── SUB HERO (Global) ── */
     .sub-hero {
-      position: relative; height: 50vh; min-height: 450px;
+      position: relative; min-height: 117vh;
       background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
       display: flex; align-items: center; justify-content: center; text-align: center;
       padding-top: 50px; overflow: hidden;
@@ -104,7 +104,7 @@
   </section>
 
   <!-- STATS -->
-  <section class="stats-section">
+  <section class="stats-section section">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-box" data-show>
@@ -128,7 +128,7 @@
   </section>
 
   <!-- REGIONS -->
-  <section class="regions-section">
+  <section class="regions-section section">
     <div class="container">
       <div class="section-header" style="text-align: center; margin-bottom: 80px;">
         <span class="section-label">Expanding Boundaries</span>
@@ -241,6 +241,69 @@
   </footer>
 
   <script>
+    // Unified Full-Page Scroll Logic
+    const sections = Array.from(document.querySelectorAll('.sub-hero, .stats-section.section, .regions-section.section, #footer'));
+    let current = 0;
+    let animating = false;
+
+    function goTo(index) {
+      if (index < 0 || index >= sections.length || animating) return;
+      animating = true;
+      current = index;
+
+      const target = sections[index].getBoundingClientRect().top + window.scrollY;
+      const start = window.scrollY;
+      const distance = target - start;
+      const duration = 800;
+      let startTime = null;
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + distance * easeInOutCubic(progress));
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          animating = false;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function updateCurrent() {
+      const scrollY = window.scrollY + window.innerHeight / 2;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].offsetTop <= scrollY) { current = i; break; }
+      }
+    }
+
+    // Wheel
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (animating) return;
+      updateCurrent();
+      goTo(e.deltaY > 0 ? current + 1 : current - 1);
+    }, { passive: false });
+
+    // Keyboard
+    window.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 'PageDown'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current + 1); } }
+      if (['ArrowUp', 'PageUp'].includes(e.key))   { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current - 1); } }
+    });
+
+    // Touch
+    let touchY = 0;
+    window.addEventListener('touchstart', (e) => { touchY = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      const diff = touchY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) > 40 && !animating) { updateCurrent(); goTo(diff > 0 ? current + 1 : current - 1); }
+    });
+
     // Reveal Animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
