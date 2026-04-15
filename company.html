@@ -8,16 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=5" />
+  <link rel="stylesheet" href="css/style.css?v=23" />
   <style>
     /* ── SUB HERO & HEADER TWEAKS ── */
-    #header { position: absolute; background: transparent; }
-    #header .logo-img { visibility: visible; pointer-events: auto; }
-    #header .logo-img img { filter: brightness(0) invert(1); } /* White Logo */
-    #header .gnb a { color: var(--white); text-shadow: 0 1px 4px rgba(0,0,0,0.1); }
-    #header .gnb a.active { color: var(--orange); font-weight: 700; }
-    #header .gnb a:hover { color: var(--teal); }
-    #header .btn-primary { background: transparent; border: 1.5px solid var(--white); color: var(--white); }
     #header .header-inner { justify-content: space-between; }
 
     .sub-hero {
@@ -118,62 +111,52 @@
   <header id="header">
     <div class="header-inner">
       <a href="index.html" class="logo-img">
-        <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 44px;">
+        <img src="images/main/logo.png" alt="BIOBIJOU">
       </a>
       <ul class="gnb">
-        <li><a href="company.html" class="en active">Company</a></li>
-        <li><a href="technology.html" class="en">Technology</a></li>
-        <li><a href="products.html" class="en">Products</a></li>
-        <li><a href="global.html" class="en">Global</a></li>
-        <li><a href="news.html" class="en">News</a></li>
+        <li>
+          <a href="company.html" class="en">Company</a>
+          <ul class="sub-menu">
+            <li><a href="company.html#ceo">인사말</a></li>
+            <li><a href="company.html#overview">기업개요</a></li>
+            <li><a href="company.html#history">연혁</a></li>
+            <li><a href="company.html#location">오시는길</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="technology.html" class="en">Technology</a>
+          <ul class="sub-menu">
+            <li><a href="technology.html#lnp">LNP 기술</a></li>
+            <li><a href="technology.html#hadm">hADM 기술</a></li>
+            <li><a href="technology.html#comparison">기술 비교</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="products.html" class="en">Products</a>
+          <ul class="sub-menu">
+            <li><a href="products.html">HA 필러</a></li>
+            <li><a href="products.html">스킨 부스터</a></li>
+            <li><a href="products.html">2026 신제품</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="global.html" class="en">Global</a>
+          <ul class="sub-menu">
+            <li><a href="global.html">글로벌 네트워크</a></li>
+            <li><a href="global.html">USA 지사</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="news.html" class="en">News</a>
+          <ul class="sub-menu">
+            <li><a href="news.html">보도자료</a></li>
+            <li><a href="news.html">공지사항</a></li>
+            <li><a href="contact.html">문의하기</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="header-right">
         <a href="contact.html" class="btn-primary en">Contact Us</a>
-      </div>
-    </div>
-    <div class="header-drop">
-      <div class="drop-inner">
-        <div class="drop-col">
-          <div class="drop-col-title">Company</div>
-          <div class="drop-list">
-            <a href="company.html#ceo" class="drop-link">인사말</a>
-            <a href="company.html#overview" class="drop-link">기업개요</a>
-            <a href="company.html#history" class="drop-link">연혁</a>
-            <a href="company.html#location" class="drop-link">오시는길</a>
-          </div>
-        </div>
-        <!-- (Rest of drop structure) -->
-        <div class="drop-col">
-          <div class="drop-col-title">Technology</div>
-          <div class="drop-list">
-            <a href="technology.html#lnp" class="drop-link">LNP 기술</a>
-            <a href="technology.html#hadm" class="drop-link">hADM 기술</a>
-            <a href="technology.html#comparison" class="drop-link">기술 비교</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Products</div>
-          <div class="drop-list">
-            <a href="products.html" class="drop-link">HA 필러</a>
-            <a href="products.html" class="drop-link">스킨 부스터</a>
-            <a href="products.html" class="drop-link">2026 신제품</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Global</div>
-          <div class="drop-list">
-            <a href="global.html" class="drop-link">글로벌 네트워크</a>
-            <a href="global.html" class="drop-link">USA 지사</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Media</div>
-          <div class="drop-list">
-            <a href="news.html" class="drop-link">보도자료</a>
-            <a href="news.html" class="drop-link">공지사항</a>
-            <a href="contact.html" class="drop-link">문의하기</a>
-          </div>
-        </div>
       </div>
     </div>
   </header>
@@ -362,38 +345,53 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo">
-            <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
-          </a>
-          <p class="f-desc">글로벌 에스테틱 이노베이터.<br/>LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
+          <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
+          <p class="f-desc">바이오비쥬는 독자적인 기술력을 바탕으로 전 세계인의 건강한 아름다움을 위해 혁신적인 에스테틱 솔루션을 지속적으로 공급합니다.</p>
         </div>
         <div>
           <div class="f-title">Company</div>
           <div class="f-links">
-            <a href="company.html">인사말</a>
-            <a href="company.html">기업개요</a>
+            <a href="company.html#ceo">인사말</a>
+            <a href="company.html#overview">기업개요</a>
             <a href="company.html#history">연혁</a>
+            <a href="company.html#location">오시는길</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Technology</div>
+          <div class="f-links">
+            <a href="technology.html#lnp">LNP 기술</a>
+            <a href="technology.html#hadm">hADM 기술</a>
+            <a href="technology.html#comparison">기술 비교</a>
           </div>
         </div>
         <div>
           <div class="f-title">Products</div>
           <div class="f-links">
-            <a href="products.html">HA Filler</a>
-            <a href="products.html">Skin Booster</a>
-            <a href="products.html">New Launch</a>
+            <a href="products.html">HA 필러</a>
+            <a href="products.html">스킨 부스터</a>
+            <a href="products.html">2026 신제품</a>
           </div>
         </div>
         <div>
-          <div class="f-title">Support</div>
+          <div class="f-title">Global</div>
           <div class="f-links">
-            <a href="contact.html">Contact Us</a>
-            <a href="news.html">News & Press</a>
+            <a href="global.html">글로벌 네트워크</a>
+            <a href="global.html">USA 지사</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Media</div>
+          <div class="f-links">
+            <a href="news.html">보도자료</a>
+            <a href="news.html">공지사항</a>
+            <a href="contact.html">문의하기</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div>대표 : 양준호 | 경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>© 2026 BIOBIJOU. All rights reserved.</div>
+        <div>경기도 하남시 하남대로 947 하남테크노밸리 U1 A동 1516호 | 02-6235-9696</div>
       </div>
     </div>
   </footer>
