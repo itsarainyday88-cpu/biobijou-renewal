@@ -1,117 +1,202 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BIOBIJOU — Aesthetic Innovator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nanum+Gothic:wght@400;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20" />
   <style>
-    /* Hero Video Specifics */
+
+    /* Hero Video */
     #hero {
       background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       height: 100vh;
       width: 100%;
       overflow: hidden;
+      display: flex;
+      align-items: center;
     }
-    .hero-slider {
+
+    .hero-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      overflow: hidden;
-      background: #fff;
-    }
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 2.5s ease-in-out; /* Slower, smoother fade */
-      will-change: transform, opacity;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
       z-index: 1;
     }
-    .slide.active {
-      opacity: 1;
-      z-index: 2; /* New slide comes on top */
-      animation: kenburns 12s linear forwards;
-    }
-    @keyframes kenburns {
-      0% { transform: scale(1.15); }
-      100% { transform: scale(1.02); }
-    }
+
     .hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent 40%, rgba(0,0,0,0.1)); 
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent 40%, rgba(0,0,0,0.2));
       z-index: 2;
     }
+
     .hero-content {
       position: absolute;
       top: 25%;
       left: 17%;
       z-index: 10;
       text-align: left;
-      color: var(--dark);
+      color: var(--white);
     }
-    .hero-content .label { color: var(--teal); margin-bottom: 20px; justify-content: flex-start; }
-    .hero-content .hero-title { color: var(--dark); text-shadow: 0 2px 20px rgba(255,255,255,0.9); margin-bottom: 40px; margin-top: 0; }
-    .hero-content .hero-desc { display: none; } /* Remove as requested */
 
-    /* ── BRAND INTRO ── */
-    #brand { padding: 120px 0 180px 0; background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('images/main/brand_bg.png') no-repeat center center / cover; min-height: 117vh; display: flex; align-items: center; scroll-snap-align: start; }
-    .brand-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; margin-top: -15vh; }
-    .brand-num { font-family: var(--font-en); font-size: 140px; font-weight: 900; color: rgba(17,176,184,0.06); -webkit-text-stroke: 2px rgba(17,176,184,0.3); line-height: 1; letter-spacing: -.05em; margin-bottom: -16px; user-select: none; }
-    .brand-headline { font-family: var(--font-en); font-size: clamp(32px,4vw,50px); font-weight: 800; line-height: 1.15; letter-spacing: -.03em; margin-bottom: 24px; color: var(--dark); }
-    .brand-headline em { color: var(--orange); font-style: normal; }
-    .brand-body { font-size: 16px; line-height: 1.9; color: var(--dark-2); margin-bottom: 36px; }
-    
-    /* Header State handled via global style.css */
-    
-    .brand-links { display: flex; gap: 16px; flex-wrap: wrap; }
-    #brand .btn-outline { background: var(--white); border-color: transparent; color: var(--teal-dk); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    #brand .btn-outline:hover { background: var(--teal-lt); color: var(--teal-dk); border-color: transparent; }
-    .brand-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .pillar { padding: 36px 30px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.8); transition: transform 0.4s ease, box-shadow 0.4s ease; }
-    .pillar:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(17,176,184,0.15); border-color: var(--teal-lt); }
-    .pillar-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--teal-lt); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-    .pillar-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .pillar-title { font-family: var(--font-en); font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 8px; white-space: nowrap; letter-spacing: -0.01em; }
-    .pillar-desc { font-size: 12.5px; line-height: 1.6; color: var(--dark-3); white-space: nowrap; letter-spacing: -0.02em; }
+    .hero-content .label {
+      color: var(--white);
+      margin-bottom: 20px;
+      justify-content: flex-start;
+    }
 
-    /* ── NEWS PREVIEW ── */
-    #news-preview { background: url('images/main/clean_bg.png') no-repeat center center / cover; border-top: 1px solid var(--border); }
-    .np-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
-    .np-more { font-family: var(--font-en); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 8px; transition: gap .2s; }
-    .np-more:hover { gap: 14px; }
-    .np-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .np-card { background: var(--white); overflow: hidden; cursor: pointer; border-radius: var(--radius); box-shadow: var(--shadow); transition: all 0.4s ease; border: 1px solid transparent; }
-    .np-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--teal-lt); }
-    .np-card-img { aspect-ratio: 16/10; background: var(--bg-light); overflow: hidden; border-radius: var(--radius-sm); margin: 24px 24px 0 24px; }
-    .np-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-    .np-card:hover .np-card-img img { transform: scale(1.05); }
-    .np-card-body { padding: 24px; }
-    .np-date { font-family: var(--font-en); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--text-muted); margin-bottom: 12px; }
-    .np-title { font-size: 18px; font-weight: 800; color: var(--text); line-height: 1.5; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .np-tag { display: inline-block; padding: 5px 12px; background: var(--teal-lt); border-radius: var(--radius-pill); font-family: var(--font-en); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal-dk); }
+    .hero-content .label::before {
+      background: var(--white);
+    }
+
+    .hero-content .hero-title {
+      color: var(--white);
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+      margin-bottom: 40px;
+      margin-top: 0;
+    }
+
+    .hero-content .hero-title span {
+      color: var(--white);
+    }
+
+    .hero-content .hero-desc {
+      display: none;
+    }
+
+    /* Remove as requested */
+
+/* ── NEWS PREVIEW ── */
+    #news-preview {
+      background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('images/main/brand_bg.png') no-repeat center center / cover;
+      border-top: 1px solid var(--border);
+    }
+
+    .np-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .np-more {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap .2s;
+    }
+
+    .np-more:hover {
+      gap: 14px;
+    }
+
+    .np-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .np-card {
+      background: var(--white);
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 2.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s ease,
+                  border-color 0.4s ease;
+      border: 1px solid transparent;
+    }
+
+    .np-card.is-visible:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal-lt);
+    }
+
+    .np-card-img {
+      aspect-ratio: 16/10;
+      background: var(--bg-light);
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      margin: 24px 24px 0 24px;
+    }
+
+    .np-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .np-card:hover .np-card-img img {
+      transform: scale(1.05);
+    }
+
+    .np-card-body {
+      padding: 24px;
+    }
+
+    .np-date {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .np-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .np-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: var(--teal-lt);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-en);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal-dk);
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -119,172 +204,90 @@
   <header id="header">
     <div class="header-inner">
       <a href="index.html" class="logo-img">
-        <img src="images/main/logo.png" alt="BIOBIJOU" style="filter: brightness(0) invert(1);">
+        <img src="images/main/logo.png" alt="BIOBIJOU">
       </a>
       <ul class="gnb">
-        <li><a href="company.html" class="en">Company</a></li>
-        <li><a href="technology.html" class="en">Technology</a></li>
-        <li><a href="products.html" class="en">Products</a></li>
-        <li><a href="global.html" class="en">Global</a></li>
-        <li><a href="news.html" class="en">News</a></li>
+        <li>
+          <a href="company.html" class="en">Company</a>
+          <ul class="sub-menu">
+            <li><a href="company.html#ceo">인사말</a></li>
+            <li><a href="company.html#overview">기업개요</a></li>
+            <li><a href="company.html#history">연혁</a></li>
+            <li><a href="company.html#location">오시는길</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="technology.html" class="en">Technology</a>
+          <ul class="sub-menu">
+            <li><a href="technology.html#lnp">LNP 기술</a></li>
+            <li><a href="technology.html#hadm">hADM 기술</a></li>
+            <li><a href="technology.html#comparison">기술 비교</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="products.html" class="en">Products</a>
+          <ul class="sub-menu">
+            <li><a href="products.html">HA 필러</a></li>
+            <li><a href="products.html">스킨 부스터</a></li>
+            <li><a href="products.html">2026 신제품</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="global.html" class="en">Global</a>
+          <ul class="sub-menu">
+            <li><a href="global.html">글로벌 네트워크</a></li>
+            <li><a href="global.html">USA 지사</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="news.html" class="en">News</a>
+          <ul class="sub-menu">
+            <li><a href="news.html">보도자료</a></li>
+            <li><a href="news.html">공지사항</a></li>
+            <li><a href="contact.html">문의하기</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="header-right">
         <a href="contact.html" class="btn-primary en">Contact Us</a>
       </div>
     </div>
-    
-    <!-- Mega Menu Panel -->
-    <div class="header-drop">
-      <div class="drop-inner">
-        <div class="drop-col">
-          <div class="drop-col-title">Company</div>
-          <div class="drop-list">
-            <a href="company.html#ceo" class="drop-link">인사말</a>
-            <a href="company.html#overview" class="drop-link">기업개요</a>
-            <a href="company.html#history" class="drop-link">연혁</a>
-            <a href="company.html#location" class="drop-link">오시는길</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Technology</div>
-          <div class="drop-list">
-            <a href="technology.html#lnp" class="drop-link">LNP 기술</a>
-            <a href="technology.html#hadm" class="drop-link">hADM 기술</a>
-            <a href="technology.html#comparison" class="drop-link">기술 비교</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Products</div>
-          <div class="drop-list">
-            <a href="products.html" class="drop-link">HA 필러</a>
-            <a href="products.html" class="drop-link">스킨 부스터</a>
-            <a href="products.html" class="drop-link">2026 신제품</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Global</div>
-          <div class="drop-list">
-            <a href="global.html" class="drop-link">글로벌 네트워크</a>
-            <a href="global.html" class="drop-link">USA 지사</a>
-          </div>
-        </div>
-        <div class="drop-col">
-          <div class="drop-col-title">Media</div>
-          <div class="drop-list">
-            <a href="news.html" class="drop-link">보도자료</a>
-            <a href="news.html" class="drop-link">공지사항</a>
-            <a href="contact.html" class="drop-link">문의하기</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </header>
 
-  <!-- HERO (Cinematic Slider) -->
+  <!-- HERO (Video BG) -->
   <section id="hero">
-    <div class="hero-slider">
-      <div class="slide active" style="background-image: url('images/main/hero_slide_01.png');"></div>
-      <div class="slide" style="background-image: url('images/main/hero_slide_03.png');"></div>
-      <div class="slide" style="background-image: url('images/main/hero_slide_04.png');"></div>
-      <div class="slide" style="background-image: url('images/main/hero_slide_05.png');"></div>
-    </div>
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/main/240111_Biobijou_intro.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="label" style="justify-content: flex-start;">Innovating Aesthetics</div>
-        <h1 class="hero-title en">Beyond the <span>Boundary.</span></h1>
-        <div class="hero-btns">
-          <a href="products.html" class="btn-primary en">Our Products</a>
-        </div>
-      </div>
-    </div>
-    <!-- TICKER -->
-    <div class="ticker-wrap" style="position: absolute; bottom: 0; left: 0; width: 100%; z-index: 20;">
-      <div class="ticker-track">
-        <span class="ticker-item">HA FILLER <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">LNP TECHNOLOGY <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">hADM <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">CELIVION <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">K-BEAUTY GLOBAL <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">SKIN BOOSTER <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">MEDICAL DEVICE <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">IPO 2025 <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">HA FILLER <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">LNP TECHNOLOGY <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">hADM <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">CELIVION <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">K-BEAUTY GLOBAL <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">SKIN BOOSTER <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">MEDICAL DEVICE <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">IPO 2025 <span class="ticker-sep">·</span></span>
-      </div>
-    </div>
   </section>
 
 
 
-  <!-- BRAND INTRO -->
-  <section id="brand">
-    <div class="container">
-      <div class="brand-inner">
-        <div>
-          <div class="brand-num en">BB</div>
-          <h2 class="brand-headline">Global Bio &amp;<br/><em>Aesthetic</em> Leader</h2>
-          <p class="brand-body">바이오비쥬는 2018년 설립 이래 HA 필러, 스킨 부스터, 코스메틱을 아우르는 통합 에스테틱 솔루션을 개발해왔습니다. 제조부터 판매까지 일원화된 가치사슬과 25여 개국 글로벌 유통망을 바탕으로 K-뷰티 혁신을 선도합니다.</p>
-          <div class="brand-links">
-            <a href="company.html" class="btn-primary en">About Us</a>
-            <a href="technology.html" class="btn-outline en">Our Technology</a>
-          </div>
-        </div>
-        <div class="brand-pillars">
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-            <div class="pillar-title en">Value Chain</div>
-            <div class="pillar-desc">제조~판매 수직 통합, 일원화된 운영</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="pillar-title en">R&amp;D First</div>
-            <div class="pillar-desc">LNP · hADM 적용 기술</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg></div>
-            <div class="pillar-title en">Global Network</div>
-            <div class="pillar-desc">25개국 수출, 미국 지사 운영</div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <div class="pillar-title en">IPO Listed</div>
-            <div class="pillar-desc">2025 코스닥 상장, 1,500억 밸류에이션</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- CORE VALUE -->
   <section class="section bg-science">
-    <div class="container shift-up-10">
+    <div class="container">
       <div class="tac mb64">
         <div class="label" style="justify-content: center;">Core Value</div>
         <h2 class="section-title">Science Meets <span>Beauty.</span></h2>
         <p class="section-sub mx-auto">가장 안전한 원료와 독자적인 정제 기술로 안심하고 사용할 수 있는 고기능성 에스테틱 솔루션을 제공합니다.</p>
       </div>
-      
+
       <div class="card-grid">
-        <div class="product-card">
+        <div class="product-card reveal reveal--delay-1">
           <div class="pc-label">LNP TECHNOLOGY</div>
           <h3 class="pc-name">Skin Delivery</h3>
           <p class="pc-desc">지질나노입자 캡슐화 기술로 유효성분의 피부 투과율과 유효성을 극대화합니다.</p>
           <a href="technology.html" class="en" style="color:var(--teal); font-weight:700;">Learn More →</a>
         </div>
-        <div class="product-card">
+        <div class="product-card reveal reveal--delay-2">
           <div class="pc-label">HIGH PURITY</div>
           <h3 class="pc-name">Safety First</h3>
           <p class="pc-desc">안면 주사용 수준의 엄격한 정제 공정을 통해 엔도톡신 및 불순물을 완벽하게 제어합니다.</p>
           <a href="technology.html" class="en" style="color:var(--teal); font-weight:700;">Learn More →</a>
         </div>
-        <div class="product-card">
+        <div class="product-card reveal reveal--delay-3">
           <div class="pc-label">GLOBAL NETWORK</div>
           <h3 class="pc-name">Worldwide</h3>
           <p class="pc-desc">미주, 동남아, CIS 등 전 세계 25개국 이상의 글로벌 유통망을 통해 K-뷰티를 선도합니다.</p>
@@ -296,33 +299,42 @@
 
   <!-- PRODUCT LINEUP PREVIEW -->
   <section class="section bg-wave">
-    <div class="container shift-up-10">
+    <div class="container">
       <div class="mb64">
-        <div class="label">Products</div>
-        <h2 class="section-title">Product <span>Line-up.</span></h2>
+        <div class="label reveal">Products</div>
+        <h2 class="section-title reveal reveal--delay-1">Product <span>Line-up.</span></h2>
       </div>
 
       <div class="card-grid">
-        <div class="product-card">
+        <div class="product-card reveal reveal--delay-1">
           <div class="pc-img"><img src="images/brand/Celivion.png" alt="Celivion" /></div>
           <div class="pc-label">2026 NEW LAUNCH</div>
-          <h3 class="pc-name">CELIVION</h3>
+          <h3 class="pc-name">CELIVION · LIN J</h3>
           <p class="pc-desc">hADM 기술 기반의 차세대 피부 재생 및 구조 복원 솔루션입니다.</p>
-          <a href="https://celivion-bijou.com/" target="_blank" class="btn-primary en" style="padding:12px 24px; font-size:11px;">Visit Website</a>
+          <a href="https://celivion-bijou.com/" target="_blank" class="btn-primary en"
+            style="padding:12px 24px; font-size:11px;">Visit Website</a>
         </div>
-        <div class="product-card">
+        <div class="product-card reveal reveal--delay-2">
           <div class="pc-img"><img src="images/brand/ha_fillers.png" alt="Filler" /></div>
           <div class="pc-label">HA FILLER</div>
-          <h3 class="pc-name">COLENA · REFILL</h3>
+          <h3 class="pc-name">COLENA</h3>
           <p class="pc-desc">우수한 점탄성과 검증된 안전성의 프리미엄 HA 필러 라인업입니다.</p>
           <a href="products.html" class="btn-primary en" style="padding:12px 24px; font-size:11px;">View Detail</a>
         </div>
-        <div class="product-card">
-          <div class="pc-img"><img src="images/brand/SPEETIQUEL_white.png" alt="Speetiquel" /></div>
+        <div class="product-card reveal reveal--delay-3">
+          <div class="pc-img"></div>
           <div class="pc-label">SKIN BOOSTER</div>
-          <h3 class="pc-name">ASCENART · SPEETIQUEL</h3>
+          <h3 class="pc-name">ASCENART</h3>
           <p class="pc-desc">LNP 기술이 적용된 고농축 유효성분의 집중 스킨 케어 솔루션입니다.</p>
-          <a href="https://speetiquelred-bijou.com/" target="_blank" class="btn-primary en" style="padding:12px 24px; font-size:11px;">Visit Website</a>
+          <a href="https://speetiquelred-bijou.com/" target="_blank" class="btn-primary en"
+            style="padding:12px 24px; font-size:11px;">Visit Website</a>
+        </div>
+        <div class="product-card reveal reveal--delay-4">
+          <div class="pc-img"><img src="images/brand/SPEETIQUEL_white.png" alt="Speetiquel" style="transform: scale(1.5);" /></div>
+          <div class="pc-label">COSMETICS</div>
+          <h3 class="pc-name">COSMETICS</h3>
+          <p class="pc-desc">바이오비쥬의 독자적인 기술력이 담긴 프리미엄 코스메틱 라인업입니다.</p>
+          <a href="products.html" class="btn-primary en" style="padding:12px 24px; font-size:11px;">View Detail</a>
         </div>
       </div>
     </div>
@@ -330,8 +342,8 @@
 
   <!-- NEWS PREVIEW -->
   <section id="news-preview" class="section">
-    <div class="container shift-up-10">
-      <div class="np-header">
+    <div class="container">
+      <div class="np-header reveal">
         <div>
           <div class="label mb16">Press &amp; Media</div>
           <h2 class="section-title">Latest News</h2>
@@ -339,24 +351,27 @@
         <a href="news.html" class="np-more en">All News →</a>
       </div>
       <div class="np-grid">
-        <div class="np-card" onclick="location.href='news.html'">
-          <div class="np-card-img"><img src="images/board/kosdaq_ipo.jpg" alt="KOSDAQ IPO" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="np-card reveal reveal--delay-1" onclick="location.href='news.html'">
+          <div class="np-card-img"><img src="images/board/kosdaq_ipo.jpg" alt="KOSDAQ IPO"
+              style="width:100%;height:100%;object-fit:cover;" /></div>
           <div class="np-card-body">
             <div class="np-date en">2025 · 05 · 22</div>
             <div class="np-title">바이오비쥬, 코스닥 상장 완료 — 에스테틱 바이오 기업으로서 새로운 도약</div>
             <span class="np-tag en">IPO</span>
           </div>
         </div>
-        <div class="np-card" onclick="location.href='news.html'">
-          <div class="np-card-img"><img src="images/board/investment.jpg" alt="Investment" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="np-card reveal reveal--delay-2" onclick="location.href='news.html'">
+          <div class="np-card-img"><img src="images/board/investment.jpg" alt="Investment"
+              style="width:100%;height:100%;object-fit:cover;" /></div>
           <div class="np-card-body">
             <div class="np-date en">2024 · 06 · 17</div>
             <div class="np-title">IPO 앞둔 바이오비쥬, 1,500억원 밸류로 투자유치 성공</div>
             <span class="np-tag en">Investment</span>
           </div>
         </div>
-        <div class="np-card" onclick="location.href='news.html'">
-          <div class="np-card-img"><img src="images/board/kimes.jpg" alt="KIMES" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="np-card reveal reveal--delay-3" onclick="location.href='news.html'">
+          <div class="np-card-img"><img src="images/board/kimes.jpg" alt="KIMES"
+              style="width:100%;height:100%;object-fit:cover;" /></div>
           <div class="np-card-body">
             <div class="np-date en">2024 · 06 · 17</div>
             <div class="np-title">KIMES 2024 — HA 필러·LNP 기술 공개로 업계 주목</div>
@@ -378,22 +393,40 @@
         <div>
           <div class="f-title">Company</div>
           <div class="f-links">
-            <a href="company.html">인사말</a>
-            <a href="company.html">기업개요</a>
-            <a href="company.html">연혁</a>
+            <a href="company.html#ceo">인사말</a>
+            <a href="company.html#overview">기업개요</a>
+            <a href="company.html#history">연혁</a>
+            <a href="company.html#location">오시는길</a>
           </div>
         </div>
         <div>
           <div class="f-title">Technology</div>
           <div class="f-links">
-            <a href="technology.html">LNP Technology</a>
-            <a href="technology.html">hADM Technology</a>
+            <a href="technology.html#lnp">LNP 기술</a>
+            <a href="technology.html#hadm">hADM 기술</a>
+            <a href="technology.html#comparison">기술 비교</a>
           </div>
         </div>
         <div>
-          <div class="f-title">Contact</div>
+          <div class="f-title">Products</div>
           <div class="f-links">
-            <a href="contact.html">오시는길</a>
+            <a href="products.html">HA 필러</a>
+            <a href="products.html">스킨 부스터</a>
+            <a href="products.html">2026 신제품</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Global</div>
+          <div class="f-links">
+            <a href="global.html">글로벌 네트워크</a>
+            <a href="global.html">USA 지사</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Media</div>
+          <div class="f-links">
+            <a href="news.html">보도자료</a>
+            <a href="news.html">공지사항</a>
             <a href="contact.html">문의하기</a>
           </div>
         </div>
@@ -410,7 +443,7 @@
     const header = document.getElementById('header');
 
     // Full-page scroll
-    const sections = Array.from(document.querySelectorAll('#hero, #brand, .section, #footer'));
+    const sections = Array.from(document.querySelectorAll('#hero, .section, #footer'));
     let current = 0;
     let animating = false;
 
@@ -422,7 +455,7 @@
       const target = sections[index].getBoundingClientRect().top + window.scrollY;
       const start = window.scrollY;
       const distance = target - start;
-      const duration = 800;
+      const duration = 600;
       let startTime = null;
 
       function easeInOutCubic(t) {
@@ -462,7 +495,7 @@
     // Keyboard
     window.addEventListener('keydown', (e) => {
       if (['ArrowDown', 'PageDown'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current + 1); } }
-      if (['ArrowUp', 'PageUp'].includes(e.key))   { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current - 1); } }
+      if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current - 1); } }
     });
 
     // Touch
@@ -481,24 +514,20 @@
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader(); // Initial check
 
-    // Cinematic Hero Slider Logic
-    const slides = document.querySelectorAll('.hero-slider .slide');
-    let currentSlide = 0;
-    const slideInterval = 6000; // 6 seconds per slide
-
-    function nextSlide() {
-      slides[currentSlide].classList.remove('active');
-      // Reset scale after fading out
-      setTimeout(() => {
-        if (!slides[currentSlide].classList.contains('active')) {
-          slides[currentSlide].style.transform = 'scale(1.1)';
+    // Scroll Reveal (Intersection Observer)
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
         }
-      }, 1500);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
 
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-    setInterval(nextSlide, slideInterval);
   </script>
 </body>
+
 </html>
