@@ -15,34 +15,48 @@
     /* ── SUB HERO (Products) ── */
     .sub-hero {
       position: relative;
-      min-height: 117vh;
-      background: linear-gradient(135deg, #f8fbfb 0%, #ffffff 100%);
+      height: 50vh;
+      min-height: 450px;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 100px;
       overflow: hidden;
     }
 
-    .hero-water {
+    /* Single transparent image - COVER to fill */
+    .sub-hero::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 70% 30%, rgba(242, 101, 34, 0.03) 0%, transparent 50%);
-      pointer-events: none;
+      background: url('images/main/product.jpg') no-repeat center center / cover;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .sub-hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .page-title {
+      font-family: var(--font-en);
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
     }
 
     #header {
       position: absolute;
       background: transparent;
-    }
-
-    #header .logo-img {
-      visibility: visible;
-      pointer-events: auto;
+      z-index: 1000;
     }
 
     #header .logo-img img {
@@ -66,14 +80,16 @@
     .sub-hero-content {
       position: relative;
       z-index: 10;
+      margin-top: -50px; /* Adjust to stay above product line */
     }
 
     .page-title {
       font-family: var(--font-en);
-      font-size: clamp(40px, 8vw, 72px);
+      font-size: clamp(48px, 10vw, 84px);
       font-weight: 900;
       color: var(--dark);
       letter-spacing: -0.04em;
+      text-transform: uppercase;
     }
 
     /* ── FILTER & CONTENT ── */
@@ -131,6 +147,25 @@
       gap: 40px;
     }
 
+    .product-group {
+      margin-bottom: 80px;
+    }
+    .group-title {
+      font-family: var(--font-en);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
     .product-card {
       background: var(--white);
       border-radius: 24px;
@@ -283,21 +318,58 @@
 
 <body class="sub-page">
 
-  <!-- HEADER -->
+  <!-- HEADER (Unified) -->
   <header id="header">
     <div class="header-inner">
       <a href="index.html" class="logo-img">
-        <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 44px;">
+        <img src="images/main/logo.png" alt="BIOBIJOU">
       </a>
-      <nav class="gnb">
-        <a href="company.html" class="en">Company</a>
-        <a href="technology.html" class="en">Technology</a>
-        <a href="products.html" class="en active">Products</a>
-        <a href="global.html" class="en">Global</a>
-        <a href="news.html" class="en">News</a>
-      </nav>
+      <ul class="gnb">
+        <li>
+          <a href="company.html" class="en">Company</a>
+          <ul class="sub-menu">
+            <li><a href="company.html#ceo">인사말</a></li>
+            <li><a href="company.html#history">연혁</a></li>
+            <li><a href="company.html#certs">인증 &amp; 특허</a></li>
+            <li><a href="company.html#location">오시는길</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="technology.html" class="en">Technology</a>
+          <ul class="sub-menu">
+            <li><a href="technology.html#lnp">LNP 기술</a></li>
+            <li><a href="technology.html#hadm">hADM 기술</a></li>
+            <li><a href="technology.html#comparison">기술 비교</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="products.html" class="en active">Products</a>
+          <ul class="sub-menu">
+            <li><a href="products.html?cat=new">2026 컬렉션</a></li>
+            <li><a href="products.html?cat=filler">HA 필러</a></li>
+            <li><a href="products.html?cat=booster">스킨 부스터</a></li>
+            <li><a href="products.html?cat=cosmetic">코스메틱</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="global.html" class="en">Global</a>
+          <ul class="sub-menu">
+            <li><a href="global.html">글로벌 네트워크</a></li>
+            <li><a href="global.html">USA 지사</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="news.html" class="en">News</a>
+          <ul class="sub-menu">
+            <li><a href="news.html">보도자료</a></li>
+            <li><a href="news.html">공지사항</a></li>
+            <li><a href="contact.html">문의하기</a></li>
+          </ul>
+        </li>
+      </ul>
       <div class="header-right">
         <a href="contact.html" class="btn-primary en">Contact Us</a>
+        <div class="lang-toggle en">KR / EN</div>
       </div>
     </div>
   </header>
@@ -315,364 +387,733 @@
   <div class="product-controls">
     <div class="filter-container">
       <button class="filter-btn active" data-filter="all">All Solutions</button>
+      <button class="filter-btn" data-filter="new">2026 Collection</button>
       <button class="filter-btn" data-filter="filler">HA Filler</button>
       <button class="filter-btn" data-filter="booster">Skin Booster</button>
-      <button class="filter-btn" data-filter="new">2026 Collection</button>
+      <button class="filter-btn" data-filter="cosmetic">Cosmetics</button>
     </div>
   </div>
 
   <!-- PRODUCT GRID -->
   <section class="products-section section">
     <div class="container">
-      <div class="product-grid" id="productGrid">
-
-        <!-- CELIVION -->
-        <div class="product-card" data-category="new" data-show>
-          <div class="pc-img-wrap">
-            <div class="pc-badge new">2026 NEW</div>
-            <img src="images/brand/lin_j_white.png" alt="CELIVION Lin J">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">hADM Matrix</div>
-            <h3 class="pc-title en">CELIVION Lin J</h3>
-            <div class="pc-sub">셀리비온 린제이</div>
-            <p class="pc-desc">입자형 무세포 동종 진피 매트릭스(hADM) 기술을 적용하여 피부 구조와 기능을 혁신적으로 복원합니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">인체 유래 동종 진피 매트릭스</div>
-              <div class="spec-item">탁월한 생체 적합성 및 안정성</div>
-              <div class="spec-item">피부 재생 및 볼륨 복원 솔루션</div>
+      <!-- 2026 COLLECTION -->
+      <div class="product-group" data-category-group="new">
+        <h2 class="group-title en">2026 Collection</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="new" data-show>
+            <div class="pc-img-wrap">
+              <div class="pc-badge new">2026 NEW</div>
+              <img src="images/brand/Celivion.png" alt="CELIVION Lin J">
             </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- SPEETIQUEL -->
-        <div class="product-card" data-category="new" data-show>
-          <div class="pc-img-wrap">
-            <div class="pc-badge new">2026 NEW</div>
-            <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">LNP Skin Action</div>
-            <h3 class="pc-title en">SPEETIQUEL</h3>
-            <div class="pc-sub">스피티클</div>
-            <p class="pc-desc">LNP 기술이 적용된 프리미엄 홈케어 및 클리닉 솔루션. 유효 성분을 세포 깊숙이 전달합니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">LNP (지질나노입자) 기술 적용</div>
-              <div class="spec-item">수분 공급 및 재생 복합 작용</div>
-              <div class="spec-item">글로벌 전략 리뉴얼 제품</div>
-            </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
+            <div class="pc-content">
+              <div class="pc-series">hADM Matrix</div>
+              <h3 class="pc-title en">CELIVION Lin J</h3>
+              <div class="pc-sub">셀리비온 린제이</div>
+              <p class="pc-desc">입자형 무세포 동종 진피 매트릭스(hADM) 기술을 적용하여 피부 구조와 기능을 혁신적으로 복원합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">인체 유래 동종 진피 매트릭스</div>
+                <div class="spec-item">탁월한 생체 적합성 및 안정성</div>
+                <div class="spec-item">피부 재생 및 볼륨 복원 솔루션</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- CADDORLOV -->
-        <div class="product-card" data-category="filler" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/candorlov.png" alt="CADDORLOV">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Professional Filler</div>
-            <h3 class="pc-title en">CADDORLOV</h3>
-            <div class="pc-sub">칸도럽 시리즈</div>
-            <p class="pc-desc">고순도 HA 교차결합 기술로 정밀한 볼륨 교정과 우수한 지속성을 제공하는 전문가용 필러입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">CE Certified & Premium Quality</div>
-              <div class="spec-item">안정적인 점탄성과 정밀 주입</div>
+          <div class="product-card" data-category="new" data-show>
+            <div class="pc-img-wrap">
+              <div class="pc-badge new">2026 NEW</div>
+              <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL">
             </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
+            <div class="pc-content">
+              <div class="pc-series">LNP Skin Action</div>
+              <h3 class="pc-title en">SPEETIQUEL</h3>
+              <div class="pc-sub">스피티클</div>
+              <p class="pc-desc">LNP 기술이 적용된 프리미엄 홈케어 및 클리닉 솔루션. 유효 성분을 세포 깊숙이 전달합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">LNP (지질나노입자) 기술 적용</div>
+                <div class="spec-item">수분 공급 및 재생 복합 작용</div>
+                <div class="spec-item">글로벌 전략 리뉴얼 제품</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- COLENA -->
-        <div class="product-card" data-category="filler" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/colena.jpg" alt="COLENA" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Professional Filler</div>
-            <h3 class="pc-title en">COLENA</h3>
-            <div class="pc-sub">코레나 시리즈</div>
-            <p class="pc-desc">얼굴 윤곽 개선 및 자연스러운 리프팅 효과에 특화된 프리미엄 HA 필러 라인업입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">멀티 레이어 볼륨 디자인</div>
-              <div class="spec-item">글로벌 베스트셀링 라인</div>
+          <div class="product-card" data-category="new" data-show>
+            <div class="pc-img-wrap">
+              <div class="pc-badge new">2026 NEW</div>
+              <img src="images/brand/candorlov.png" alt="CADDORLOV">
             </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
+            <div class="pc-content">
+              <div class="pc-series">Professional Filler</div>
+              <h3 class="pc-title en">CADDORLOV</h3>
+              <div class="pc-sub">칸도럽 시리즈</div>
+              <p class="pc-desc">고순도 HA 교차결합 기술로 정밀한 볼륨 교정과 우수한 지속성을 제공하는 전문가용 필러입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">CE Certified & Premium Quality</div>
+                <div class="spec-item">안정적인 점탄성과 정밀 주입</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- ASCENART AQUA -->
-        <div class="product-card" data-category="booster" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/ascenart_aqua.jpg" alt="ASCENART Aqua" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Skin Booster</div>
-            <h3 class="pc-title en">ASCENART Aqua</h3>
-            <div class="pc-sub">아세나르트 아쿠아</div>
-            <p class="pc-desc">피부 속부터 차오르는 강력한 수분 공급과 장벽 강화를 위한 LNP 기술 기반 부스터입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">수분 공급 & 피부 장벽 강화</div>
-              <div class="spec-item">클리닉 전용 LNP 포뮬러</div>
+      <!-- HA FILLER -->
+      <div class="product-group" data-category-group="filler">
+        <h2 class="group-title en">HA Filler</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="filler" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/candorlov.png" alt="CADDORLOV">
             </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
+            <div class="pc-content">
+              <div class="pc-series">Professional Filler</div>
+              <h3 class="pc-title en">CADDORLOV</h3>
+              <div class="pc-sub">칸도럽 시리즈</div>
+              <p class="pc-desc">고순도 HA 교차결합 기술로 정밀한 볼륨 교정과 우수한 지속성을 제공하는 전문가용 필러입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">CE Certified & Premium Quality</div>
+                <div class="spec-item">안정적인 점탄성과 정밀 주입</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card" data-category="filler" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/colena.jpg" alt="COLENA" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Professional Filler</div>
+              <h3 class="pc-title en">COLENA</h3>
+              <div class="pc-sub">코레나 시리즈</div>
+              <p class="pc-desc">얼굴 윤곽 개선 및 자연스러운 리프팅 효과에 특화된 프리미엄 HA 필러 라인업입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">멀티 레이어 볼륨 디자인</div>
+                <div class="spec-item">글로벌 베스트셀링 라인</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- ASCENART LUX -->
-        <div class="product-card" data-category="booster" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Skin Booster</div>
-            <h3 class="pc-title en">ASCENART Lux</h3>
-            <div class="pc-sub">아세나르트 럭스</div>
-            <p class="pc-desc">피부 광채와 안티에이징을 동시에 케어하는 고기능성 프리미엄 스킨 부스터입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">피부 광채 & 안티에이징</div>
-              <div class="spec-item">고기능성 프리미엄 포뮬러</div>
+      <!-- SKIN BOOSTER -->
+      <div class="product-group" data-category-group="booster">
+        <h2 class="group-title en">Skin Booster</h2>
+        <div class="product-grid">
+          <!-- Aqua -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/ascenart_aqua.jpg" alt="ASCENART Aqua" style="object-fit: cover;">
             </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
+            <div class="pc-content">
+              <div class="pc-series">Skin Booster</div>
+              <h3 class="pc-title en">ASCENART Aqua</h3>
+              <div class="pc-sub">아세나르트 아쿠아</div>
+              <p class="pc-desc">피부 속부터 차오르는 강력한 수분 공급과 장벽 강화를 위한 프리미엄 수분 부스터입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">수분 공급 & 피부 장벽 강화</div>
+                <div class="spec-item">클리닉 전용 고보습 포뮬러</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amber -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/ascenart_amber.jpg" alt="ASCENART Amber" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Skin Booster</div>
+              <h3 class="pc-title en">ASCENART Amber</h3>
+              <div class="pc-sub">아세나르트 앰버</div>
+              <p class="pc-desc">피부 광채와 생기를 배가시키는 성분 구성으로 건강하고 화사한 안색을 선사하는 프리미엄 부스터입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부 광채 및 생기 부여</div>
+                <div class="spec-item">프리미엄 안티에이징 액션</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nanofill -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Skin Booster</div>
+              <h3 class="pc-title en">ASCENART Nanofill</h3>
+              <div class="pc-sub">아세나르트 나노필</div>
+              <p class="pc-desc">LNP 나노 입자가 피부 깊숙이 침투하여 미세 주름 개선과 매끄러운 피부결을 완성합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">초미세 나노 입자 기술</div>
+                <div class="spec-item">미세 주름 및 조밀한 보습 케어</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Azure -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/ascenart_azure.jpg" alt="ASCENART Azure" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Skin Booster</div>
+              <h3 class="pc-title en">ASCENART Azure</h3>
+              <div class="pc-sub">아세나르트 아주르</div>
+              <p class="pc-desc">LNP 기술과 EGF 포뮬러를 결합하여 피부 수분 밸런스와 볼륨 디자인에 최적화된 솔루션입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">LNP 및 EGF 포뮬러 적용</div>
+                <div class="spec-item">볼륨 디자인 및 수분 공급</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lux -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Skin Booster</div>
+              <h3 class="pc-title en">ASCENART Lux</h3>
+              <div class="pc-sub">아세나르트 럭스</div>
+              <p class="pc-desc">피부 광채와 안티에이징을 동시에 케어하는 고기능성 프리미엄 스킨 부스터입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부 광채 & 안티에이징</div>
+                <div class="spec-item">고기능성 프리미엄 포뮬러</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fillmoa -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Hair Booster</div>
+              <h3 class="pc-title en">ASCENART Fillmoa</h3>
+              <div class="pc-sub">아세나르트 필모아</div>
+              <p class="pc-desc">두피 환경 개선 및 모근 강화 특화 줄기세포 인자 포뮬러를 적용한 프리미엄 헤어 부스터입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">Stem Cell Factor 포뮬러</div>
+                <div class="spec-item">두피 및 모근 집중 강화 솔루션</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SPEETIQUEL (Duplicated) -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <div class="pc-badge new">2026 NEW</div>
+              <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">LNP Skin Action</div>
+              <h3 class="pc-title en">SPEETIQUEL</h3>
+              <div class="pc-sub">스피티클</div>
+              <p class="pc-desc">LNP 기술이 적용된 프리미엄 홈케어 및 클리닉 솔루션. 유효 성분을 세포 깊숙이 전달합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">LNP (지질나노입자) 기술 적용</div>
+                <div class="spec-item">수분 공급 및 재생 복합 작용</div>
+                <div class="spec-item">글로벌 전략 리뉴얼 제품</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CELIVION Lin J (Duplicated) -->
+          <div class="product-card" data-category="booster" data-show>
+            <div class="pc-img-wrap">
+              <div class="pc-badge new">2026 NEW</div>
+              <img src="images/brand/Celivion.png" alt="CELIVION Lin J">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">hADM Matrix</div>
+              <h3 class="pc-title en">CELIVION Lin J</h3>
+              <div class="pc-sub">셀리비온 린제이</div>
+              <p class="pc-desc">입자형 무세포 동종 진피 매트릭스(hADM) 기술을 적용하여 피부 구조와 기능을 혁신적으로 복원합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">인체 유래 동종 진피 매트릭스</div>
+                <div class="spec-item">탁월한 생체 적합성 및 안정성</div>
+                <div class="spec-item">피부 재생 및 볼륨 복원 솔루션</div>
+              </div>
+              <div class="pc-footer">
+                <span class="btn-arrow">Learn More <span>→</span></span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- ASCENART AZURE -->
-        <div class="product-card" data-category="booster" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/ascenart_azure.jpg" alt="ASCENART Azure" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Skin Booster</div>
-            <h3 class="pc-title en">ASCENART Azure</h3>
-            <div class="pc-sub">아세나르트 아주르</div>
-            <p class="pc-desc">LNP 기술과 EGF 포뮬러를 결합하여 피부 수분 밸런스와 볼륨 디자인에 최적화된 솔루션입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">LNP 및 EGF 포뮬러 적용</div>
-              <div class="spec-item">볼륨 디자인 및 수분 공급</div>
+      <!-- COSMETIC -->
+      <div class="product-group" data-category-group="cosmetic">
+        <h2 class="group-title en">Cosmetic</h2>
+        <div class="product-grid">
+          
+          <!-- [13] Rose Mild Cleansing Milk -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_13.png" alt="Rose Mild Cleansing Milk" style="object-fit: cover;">
             </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
+            <div class="pc-content">
+              <div class="pc-series">Cleansing Solution</div>
+              <h3 class="pc-title en">Rose Mild Cleansing Milk</h3>
+              <div class="pc-sub">칸도럽 로즈 마일드 클렌징 밀크</div>
+              <p class="pc-desc">다마스크 장미꽃수 함유로 자극 없이 메이크업과 노폐물을 제거하며 세안 후에도 윤기를 유지해줍니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">저자극 밀크 타입 클렌징</div>
+                <div class="spec-item">수분 보충 및 진정 효과</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
             </div>
           </div>
+
+          <!-- [14] pH Balancing Oil-to-Foam -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_14.png" alt="pH Balancing Oil-to-Foam" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Cleansing Solution</div>
+              <h3 class="pc-title en">pH Balancing Oil-to-Foam</h3>
+              <div class="pc-sub">칸도럽 pH 밸런싱 오일 투 폼</div>
+              <p class="pc-desc">오일의 세정력과 폼의 산뜻함을 동시에. 약산성 포뮬러로 피부 장벽을 보호하는 원스텝 클렌저입니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">오일-폼 변환 제형</div>
+                <div class="spec-item">피부 pH 밸런스 케어</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [15] ONLINE CREAM -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_15.png" alt="ONLINE CREAM" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Skin Enhancement</div>
+              <h3 class="pc-title en">ONLINE CREAM</h3>
+              <div class="pc-sub">칸도럽 온라인 크림</div>
+              <p class="pc-desc">피부 손상 개선 및 재생 촉진. 외부 환경으로부터 피부를 보호하고 보습 장벽을 강화합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">고농축 보습 및 재생 케어</div>
+                <div class="spec-item">Centella Asiatica & Matrixyl 성분</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [16] ATOP MASTER CREAM -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_16.png" alt="ATOP MASTER CREAM" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Intensive Soothing</div>
+              <h3 class="pc-title en">ATOP MASTER CREAM</h3>
+              <div class="pc-sub">칸도럽 아토 마스터 크림</div>
+              <p class="pc-desc">건조하고 민감한 피부를 위한 고보습 장벽 크림. 가려움 완화 및 피부 보습력을 높여줍니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">악건성/민감성 집중 케어</div>
+                <div class="spec-item">피부 장벽 회복 솔루션</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [17] HYDRA-SOOTH MASK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_17.png" alt="HYDRA-SOOTH MASK" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Clinic Solution</div>
+              <h3 class="pc-title en">HYDRA-SOOTHE MASK</h3>
+              <div class="pc-sub">칸도럽 하이드라 수드 마스크</div>
+              <p class="pc-desc">시술 후 진정 및 수분 공급. 민감해진 피부를 시원하게 진정시키고 수분을 충전합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">3중 히알루론산 함유</div>
+                <div class="spec-item">탁월한 진정 및 보습 효과</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [18] VITA-SNOW TONE-UP SUN CREAM -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_18.png" alt="Tone-up Sun Cream" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Protection Solution</div>
+              <h3 class="pc-title en">VITA-SNOW TONE-UP SUN CREAM</h3>
+              <div class="pc-sub">칸도럽 비타 스노우 톤업 선크림</div>
+              <p class="pc-desc">자연스러운 톤업 효과와 자외선 차단을 동시에. 맑고 화사한 피부 표현을 도와줍니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">자외선 차단 + 미백 + 톤업</div>
+                <div class="spec-item">SPF50+ / PA++++</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [19] MOISTURE COOLING SUN CLEAN -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_19.png" alt="Cooling Sun Clean" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Protection Solution</div>
+              <h3 class="pc-title en">MOISTURE COOLING SUN CLEAN</h3>
+              <div class="pc-sub">칸도럽 모이스처 쿨링 선 클린</div>
+              <p class="pc-desc">백탁 현상 없이 산뜻한 쿨링감의 자외선 차단제. 수분 함량이 높아 로션처럼 가볍게 발립니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">수분 진정 및 쿨링 케어</div>
+                <div class="spec-item">논나노 무기자차 솔루션</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [20] COLLAGEN-MODE PDRN MASK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_20.png" alt="Collagen PDRN Mask" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Intensive Therapy</div>
+              <h3 class="pc-title en">COLLAGEN-MODE PDRN MASK</h3>
+              <div class="pc-sub">칸도럽 콜라겐 모드 PDRN 마스크</div>
+              <p class="pc-desc">콜라겐과 PDRN의 결합으로 탄력을 극대화. 건조한 피부에 깊은 영양을 전달합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">탄력 증진 및 수분 유지</div>
+                <div class="spec-item">PDRN 성분으로 피부 활력 공급</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [21] GLOW LIFTING MASK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_21.png" alt="Glow Lifting Mask" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Intensive Therapy</div>
+              <h3 class="pc-title en">GLOW LIFTING MASK</h3>
+              <div class="pc-sub">칸도럽 글로우 리프팅 마스크</div>
+              <p class="pc-desc">부드러운 밀착감으로 리프팅 효과 극대화. 광채 나는 피부와 탄력 있는 라인을 완성합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부 광채 및 탄력 강화</div>
+                <div class="spec-item">7중 콜라겐 콤플렉스 함유</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [22] RED PORE CLEAN CLAY MUD PACK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_22.png" alt="Red Pore Clay Pack" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Pore Care Solution</div>
+              <h3 class="pc-title en">RED PORE CLEAN CLAY MUD PACK</h3>
+              <div class="pc-sub">칸도럽 레드 포어 클린 클레이 머드 팩</div>
+              <p class="pc-desc">모공 노폐물 세정 및 피부 진정. 붉은 머드 성분으로 피부톤을 맑고 깨끗하게 관리합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">모공 수렴 및 각질 제거</div>
+                <div class="spec-item">클레이&머드의 강력 흡착</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [23] COMPACT BUBBLE SPARKLE MASK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_23.png" alt="Bubble Sparkle Mask" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Clear Skin Action</div>
+              <h3 class="pc-title en">COMPACT BUBBLE SPARKLE MASK</h3>
+              <div class="pc-sub">칸도럽 콤팩트 버블 스파클 마스크</div>
+              <p class="pc-desc">미세 산소 거품이 피부 깊숙이 정화. 모근 환경 개선과 수분 밸런스를 동시에 제공합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">산소 거품의 딥 클렌징 효과</div>
+                <div class="spec-item">브라이트닝 및 모공 정화</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [24] ICY PUFF SHEET MASK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_24.png" alt="Icy Puff Mask" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Extreme Cooling</div>
+              <h3 class="pc-title en">ICY PUFF SHEET MASK</h3>
+              <div class="pc-sub">칸도럽 아이시 퍼프 시트 마스크</div>
+              <p class="pc-desc">즉각적인 쿨링 효과로 피부 열감 진정. 자극 받은 피부를 빠르게 진정시키고 수분을 공급합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부 온도 저하 및 진정</div>
+                <div class="spec-item">붓기 완화 전문 마스크</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [25] ICY SPOTLIGHT SHEET MASK -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_25.png" alt="Icy Spotlight Mask" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Extreme Cooling</div>
+              <h3 class="pc-title en">ICY SPOTLIGHT SHEET MASK</h3>
+              <div class="pc-sub">칸도럽 아이시 스포트라이트 시트 마스크</div>
+              <p class="pc-desc">쿨링감과 브라이트닝을 동시에. 기미와 잡티를 완화하여 균일하고 맑은 피부톤을 만들어줍니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">미백 기능성 + 집중 진정</div>
+                <div class="spec-item">피부 온도 감소 및 멜라닌 케어</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [26] DEWY PDRN YOGA-PAD -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_26.png" alt="PDRN Yoga-Pad" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Daily Care</div>
+              <h3 class="pc-title en">DEWY PDRN YOGA-PAD</h3>
+              <div class="pc-sub">칸도럽 듀이 PDRN 요가 패드</div>
+              <p class="pc-desc">데일리 토너 대용 진정 패드. 각질을 부드럽게 정돈하고 PDRN 성분으로 피부 활력을 높여줍니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부결 정돈 및 수분 충전</div>
+                <div class="spec-item">PHA 함유로 저자극 각질 케어</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [27] BLOOMING COOL SHOT AMPOULE 2000 -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_27.png" alt="Cool Shot Ampoule" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">High-Performance</div>
+              <h3 class="pc-title en">BLOOMING COOL SHOT AMPOULE 2000</h3>
+              <div class="pc-sub">칸도럽 블루밍 쿨 샷 앰플 2000</div>
+              <p class="pc-desc">강력한 쿨링과 시카 성분의 진정 효과. 고밀도 진정 성분이 빠르게 피부 깊숙이 전달됩니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">집중 진정 앰플</div>
+                <div class="spec-item">LNP 기반 고농축 영양 액션</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [28] GOLDEN DROP OIL SERUM -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_28.png" alt="Golden Oil Serum" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Premium Revive</div>
+              <h3 class="pc-title en">GOLDEN DROP OIL SERUM</h3>
+              <div class="pc-sub">칸도럽 골든 드롭 오일 세럼</div>
+              <p class="pc-desc">비타민 오일 캡슐 함유로 고밀도 영양 공급. 피부 턴오버를 돕고 장벽을 보호합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부 광채 및 안티에이징</div>
+                <div class="spec-item">비타민 E 및 유산균 성분 함유</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [29] FIRMING PEPTIDE SERUM -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_29.png" alt="Peptide Serum" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Premium Revive</div>
+              <h3 class="pc-title en">FIRMING PEPTIDE SERUM</h3>
+              <div class="pc-sub">칸도럽 퍼밍 펩타이드 세럼</div>
+              <p class="pc-desc">항노화 전문 펩타이드 포뮬러. 얼굴 윤곽 리프팅과 피부 볼륨 충전에 탁월한 효과를 제공합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">주름 개선 및 탄력 강화</div>
+                <div class="spec-item">7가지 고기능성 펩타이드 함유</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
+          <!-- [30] SILK TANGLE CREAM -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_page_30.png" alt="Silk Tangle Cream" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <div class="pc-series">Daily Renewal</div>
+              <h3 class="pc-title en">SILK TANGLE CREAM</h3>
+              <div class="pc-sub">칸도럽 실크 탱글 크림</div>
+              <p class="pc-desc">실크 같은 부드러움과 탄력 밀착 케어. 캡슐 공법으로 유효 성분을 효과적으로 전달합니다.</p>
+              <div class="pc-specs">
+                <div class="spec-item">피부 밀도 개선 및 탄력 케어</div>
+                <div class="spec-item">마이크로 세럼 캡슐 기술</div>
+              </div>
+              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+            </div>
+          </div>
+
         </div>
-
-        <!-- ASCENART FILLMOA -->
-        <div class="product-card" data-category="booster" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Hair Booster</div>
-            <h3 class="pc-title en">ASCENART Fillmoa</h3>
-            <div class="pc-sub">아세나르트 필모아</div>
-            <p class="pc-desc">두피 환경 개선 및 모근 강화 특화 줄기세포 인자 포뮬러를 적용한 프리미엄 헤어 부스터입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">Stem Cell Factor 포뮬러</div>
-              <div class="spec-item">두피 및 모근 집중 강화 솔루션</div>
-            </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ASCENART NANOFILL -->
-        <div class="product-card" data-category="booster" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Skin Booster</div>
-            <h3 class="pc-title en">ASCENART Nanofill</h3>
-            <div class="pc-sub">아세나르트 나노필</div>
-            <p class="pc-desc">LNP 나노 입자가 피부 깊숙이 침투하여 미세 주름 개선과 매끄러운 피부결을 완성합니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">초미세 나노 입자 기술</div>
-              <div class="spec-item">미세 주름 및 조밀한 보습 케어</div>
-            </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ASCENART AMBER -->
-        <div class="product-card" data-category="booster" data-show>
-          <div class="pc-img-wrap">
-            <img src="images/brand/ascenart_amber.jpg" alt="ASCENART Amber" style="object-fit: cover;">
-          </div>
-          <div class="pc-content">
-            <div class="pc-series">Skin Booster</div>
-            <h3 class="pc-title en">ASCENART Amber</h3>
-            <div class="pc-sub">아세나르트 앰버</div>
-            <p class="pc-desc">피부 광채와 생기를 배가시키는 성분 구성으로 건강하고 화사한 안색을 선사하는 프리미엄 부스터입니다.</p>
-            <div class="pc-specs">
-              <div class="spec-item">피부 광채 및 생기 부여</div>
-              <div class="spec-item">LNP 기반 안티에이징 액션</div>
-            </div>
-            <div class="pc-footer">
-              <span class="btn-arrow">Learn More <span>→</span></span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (Unified) -->
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="logo-img footer-logo">
-            <img src="images/main/logo.png" alt="BIOBIJOU" style="height: 38px;">
-          </a>
-          <p class="f-desc">글로벌 에스테틱 이노베이터.<br />LNP & hADM 기술 기반 프리미엄 솔루션 전문기업.</p>
+          <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
+          <p class="f-desc">바이오비쥬는 독자적인 기술력을 바탕으로 전 세계인의 건강한 아름다움을 위해 혁신적인 에스테틱 솔루션을 지속적으로 공급합니다.</p>
         </div>
         <div>
           <div class="f-title">Company</div>
           <div class="f-links">
-            <a href="company.html">인사말</a>
-            <a href="company.html">기업개요</a>
+            <a href="company.html#ceo">인사말</a>
             <a href="company.html#history">연혁</a>
+            <a href="company.html#certs">인증 &amp; 특허</a>
+            <a href="company.html#location">오시는길</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Technology</div>
+          <div class="f-links">
+            <a href="technology.html#lnp">LNP 기술</a>
+            <a href="technology.html#hadm">hADM 기술</a>
+            <a href="technology.html#comparison">기술 비교</a>
           </div>
         </div>
         <div>
           <div class="f-title">Products</div>
           <div class="f-links">
-            <a href="products.html">HA Filler</a>
-            <a href="products.html">Skin Booster</a>
-            <a href="products.html">New Launch</a>
+            <a href="products.html?cat=new">2026 컬렉션</a>
+            <a href="products.html?cat=filler">HA 필러</a>
+            <a href="products.html?cat=booster">스킨 부스터</a>
+            <a href="products.html?cat=cosmetic">코스메틱</a>
           </div>
         </div>
         <div>
-          <div class="f-title">Support</div>
+          <div class="f-title">Global</div>
           <div class="f-links">
-            <a href="contact.html">Contact Us</a>
-            <a href="news.html">News & Press</a>
+            <a href="global.html">글로벌 네트워크</a>
+            <a href="global.html">USA 지사</a>
+          </div>
+        </div>
+        <div>
+          <div class="f-title">Media</div>
+          <div class="f-links">
+            <a href="news.html">보도자료</a>
+            <a href="news.html">공지사항</a>
+            <a href="contact.html">문의하기</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>©2026 BIOBIJOU CO., LTD. ALL RIGHTS RESERVED.</div>
-        <div>대표 : 양준호 | 경기도 하남시 하남대로 947 하남테크노밸리 U1CENTER A동 1516호</div>
+        <div>© 2026 BIOBIJOU. All rights reserved.</div>
+        <div>경기도 하남시 하남대로 947 하남테크노밸리 U1 A동 1516호 | 02-6235-9696</div>
       </div>
     </div>
   </footer>
 
   <script>
-    // Unified Full-Page Scroll Logic
-    const sections = Array.from(document.querySelectorAll('.sub-hero, .product-controls, .products-section, #footer'));
-    let current = 0;
-    let animating = false;
-
-    function goTo(index) {
-      if (index < 0 || index >= sections.length || animating) return;
-      animating = true;
-      current = index;
-
-      const target = sections[index].getBoundingClientRect().top + window.scrollY;
-      const start = window.scrollY;
-      const distance = target - start;
-      const duration = 800;
-      let startTime = null;
-
-      function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
-
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        window.scrollTo(0, start + distance * easeInOutCubic(progress));
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          animating = false;
-        }
-      }
-      requestAnimationFrame(step);
-    }
-
-    function updateCurrent() {
-      const scrollY = window.scrollY + window.innerHeight / 2;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i].offsetTop <= scrollY) { current = i; break; }
-      }
-    }
-
-    // Wheel
-    window.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      if (animating) return;
-      updateCurrent();
-      goTo(e.deltaY > 0 ? current + 1 : current - 1);
-    }, { passive: false });
-
-    // Keyboard
-    window.addEventListener('keydown', (e) => {
-      if (['ArrowDown', 'PageDown'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current + 1); } }
-      if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); if (!animating) { updateCurrent(); goTo(current - 1); } }
-    });
-
-    // Touch
-    let touchY = 0;
-    window.addEventListener('touchstart', (e) => { touchY = e.touches[0].clientY; }, { passive: true });
-    window.addEventListener('touchend', (e) => {
-      const diff = touchY - e.changedTouches[0].clientY;
-      if (Math.abs(diff) > 40 && !animating) { updateCurrent(); goTo(diff > 0 ? current + 1 : current - 1); }
-    });
-
     // Reveal Animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('[data-show]').forEach(el => observer.observe(el));
 
-    // Filter Logic (Keep original)
+    // Filter Logic
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
+    const groupTitles = document.querySelectorAll('.group-title');
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const filter = btn.dataset.filter;
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+
+        // Toggle Group Titles
+        groupTitles.forEach(title => {
+          title.style.display = (filter === 'all') ? 'flex' : 'none';
+        });
+
         productCards.forEach(card => {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            if (filter === 'all' || card.dataset.category === filter) {
-              card.style.display = 'flex';
-              setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'scale(1)';
-              }, 50);
-            } else {
-              card.style.display = 'none';
-            }
-          }, 300);
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
         });
       });
+    });
+
+    // Handle URL parameters for direct category filtering
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cat = urlParams.get('cat');
+      if (cat) {
+        const targetBtn = document.querySelector(`.filter-btn[data-filter="${cat}"]`);
+        if (targetBtn) {
+          targetBtn.click();
+          // Optional: Scroll to results
+          window.scrollTo({ top: document.querySelector('.product-controls').offsetTop - 100, behavior: 'smooth' });
+        }
+      }
     });
   </script>
 </body>
