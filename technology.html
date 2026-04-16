@@ -87,28 +87,40 @@
 
     /* ── SECTIONS ── */
     .section {
-      padding: 120px 0;
+      padding: 140px 0;
     }
 
     .section-header {
-      margin-bottom: 80px;
+      margin-bottom: 100px;
       text-align: center;
     }
 
     .section-label {
       color: var(--teal);
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-weight: 800;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 16px;
-      display: block;
-      font-size: 11px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .section-label::before, .section-label::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--teal);
+      opacity: 0.4;
     }
 
     .section-title {
-      font-size: 42px;
-      font-weight: 800;
+      font-size: 56px;
+      font-weight: 900;
       color: var(--dark);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
     }
 
     .bg-dark .section-title {
@@ -119,28 +131,24 @@
       color: var(--orange);
     }
 
+    .bg-white {
+      background: var(--white);
+    }
+    
     .bg-light {
       background: var(--bg-light);
     }
 
-    .bg-dark {
-      background: var(--dark);
-      color: var(--white);
-    }
-
-    /* ── LNP 섹션 오버라이드 ── */
+    /* ── LNP 섹션 ── */
     #lnp {
-      background: #f0f8f9 url('images/main/lnp_tech.png') no-repeat center center / cover;
+      background: var(--white);
       color: var(--dark);
       position: relative;
     }
 
+    /* Overlay removed to maintain white bg, image preserved via background property if needed but here we use white */
     #lnp::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(240, 248, 249, 0.88);
-      /* 좀 더 밝게 조정 */
+      display: none;
     }
 
     #lnp .tech-desc {
@@ -247,37 +255,33 @@
     }
 
     .tech-text .label {
-      color: var(--orange);
+      color: var(--teal);
       margin-bottom: 24px;
+      font-weight: 800;
+      font-size: 13px;
     }
 
     .tech-title {
-      font-size: 48px;
+      font-size: clamp(40px, 5vw, 64px);
       font-weight: 900;
-      margin-bottom: 24px;
-      line-height: 1.1;
-      color: var(--white);
-    }
-
-    .bg-light .tech-title {
+      margin-bottom: 32px;
+      line-height: 1.05;
       color: var(--dark);
+      letter-spacing: -0.04em;
     }
 
     .tech-desc {
-      font-size: 17px;
+      font-size: 19px;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 40px;
-    }
-
-    .bg-light .tech-desc {
       color: var(--text-sub);
+      margin-bottom: 48px;
+      word-break: keep-all;
     }
 
     .tech-features {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
     }
 
     .feature-item {
@@ -304,20 +308,14 @@
       color: var(--dark);
     }
 
-    /* ── hADM 섹션 오버라이드 ── */
     #hadm {
+      background: var(--bg-light);
       position: relative;
       overflow: hidden;
     }
 
     #hadm::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('images/main/hadm_bg.png') no-repeat center center / cover;
-      opacity: 0.12;
-      /* 은은한 투명도 적용 */
-      z-index: 0;
+      display: none;
     }
 
     #hadm .container {
@@ -338,7 +336,7 @@
       overflow: visible; 
     }
     #hadm .tech-visual img {
-      transform: scale(1.2); 
+      transform: scale(1.44); 
       transition: transform 0.4s ease;
     }
     #hadm .tech-title {
@@ -395,9 +393,73 @@
       color: var(--orange);
       font-weight: 800;
     }
+    .compare-table td.rating {
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-    .compare-table tr:last-child td {
-      border-bottom: none;
+    /* ── CORE STATS ── */
+    .tech-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+      padding: 60px 48px;
+      border-radius: 20px;
+      background: rgba(242, 101, 34, 0.03); /* Subtle tint */
+      border: 1px solid rgba(242, 101, 34, 0.08);
+      position: relative;
+      z-index: 2;
+    }
+    .stat-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stat-icon-box {
+      width: 44px;
+      height: 44px;
+      background: var(--white);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      color: var(--teal);
+    }
+    .stat-value {
+      display: block;
+      font-family: var(--font-kr);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
+    .stat-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--teal);
+      letter-spacing: -0.01em;
+    }
+
+    /* ── WATERMARKS ── */
+    .section-watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 300px;
+      font-family: var(--font-en);
+      font-weight: 900;
+      color: var(--dark);
+      opacity: 0.02;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: -0.05em;
     }
 
     /* ── REVEAL ── */
@@ -488,7 +550,8 @@
   </nav>
 
   <!-- LNP -->
-  <section id="lnp" class="section bg-dark">
+  <section id="lnp" class="section bg-white" style="position:relative; overflow:hidden;">
+    <div class="section-watermark">LNP</div>
     <div class="container">
       <div class="tech-block">
         <div class="tech-visual" data-show>
@@ -507,28 +570,57 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Nano-Encapsulation</div>
+              <div class="feature-name">나노 캡슐화 기술</div>
             </div>
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">High Skin Penetration</div>
+              <div class="feature-name">높은 피부 투과율</div>
             </div>
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Enhanced Stability</div>
+              <div class="feature-name">강화된 성분 안정성</div>
             </div>
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Long-lasting Effects</div>
+              <div class="feature-name">장기 지속 효과</div>
+            </div>
+          </div>
+          <div class="tech-stats">
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              </div>
+              <span class="stat-value">안정성</span>
+              <span class="stat-label">유효성분 보호</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                </svg>
+              </div>
+              <span class="stat-value">초미세</span>
+              <span class="stat-label">나노 입자 기술</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <span class="stat-value">고흡수</span>
+              <span class="stat-label">리포좀 대비 우위</span>
             </div>
           </div>
         </div>
@@ -537,7 +629,8 @@
   </section>
 
   <!-- hADM -->
-  <section id="hadm" class="section bg-light">
+  <section id="hadm" class="section bg-light" style="position:relative; overflow:hidden;">
+    <div class="section-watermark">hADM</div>
     <div class="container">
       <div class="tech-block reverse">
         <div class="tech-visual" data-show>
@@ -547,35 +640,64 @@
           <div class="label">Advanced Regenerative Matrix</div>
           <h2 class="tech-title en">hADM Matrix</h2>
           <p class="tech-desc">human Allogeneic Dermal Matrix(hADM)은 인체 유래 동종 진피를 무세포화하여 가공한 혁신적인 매트릭스입니다. 피부 조직의 구조를
-            복원하고 자가 재생을 유도하여 에스테틱 치료의 한계를 뛰어넘는 결과를 제공합니다.</p>
+            복원하고 자가 재생을 유도하여 기존의 한계를 뛰어넘는 결과를 제공합니다.</p>
           <div class="tech-features">
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Biocompatibility</div>
+              <div class="feature-name">생체 적합성 우수</div>
             </div>
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Tissue Restoration</div>
+              <div class="feature-name">피부 조직 복원</div>
             </div>
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Natural Integration</div>
+              <div class="feature-name">자연스러운 흡수</div>
             </div>
             <div class="feature-item">
               <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <div class="feature-name">Premium Material</div>
+              <div class="feature-name">프리미엄 인체 유래 소재</div>
+            </div>
+          </div>
+          <div class="tech-stats">
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <span class="stat-value">생체 적합성</span>
+              <span class="stat-label">무세포화 공법</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.503 1.508a2 2 0 01-1.185 1.184l-1.508.503a2 2 0 00-1.414 1.96l.477 2.387c.056.28.18.546.363.771M6.74 19.503a2 2 0 01-1.184-1.185l-.503-1.508a2 2 0 00-1.96-1.414l-2.387.477a2 2 0 00-1.57 2.11l.477 2.387a2 2 0 002.387 1.961l2.387-.477a2 2 0 001.961-2.387l-.477-2.387zM12 21V3"/>
+                </svg>
+              </div>
+              <span class="stat-value">고순도 정제</span>
+              <span class="stat-label">인체 유래 성분</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon-box">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <span class="stat-value">안전성 강화</span>
+              <span class="stat-label">면역 반응 최소화</span>
             </div>
           </div>
         </div>
@@ -589,7 +711,7 @@
       <div class="compare-card" data-show>
         <div class="section-header" style="margin-bottom:0;">
           <span class="section-label">Performance Check</span>
-          <h2 class="section-title">Technology Comparison</h2>
+          <h2 class="section-title">주요 기술 비교</h2>
         </div>
         <table class="compare-table">
           <thead>
@@ -603,27 +725,27 @@
           <tbody>
             <tr>
               <td>성분 전달 효율</td>
-              <td class="highlight rating">●●●●○</td>
-              <td class="rating dim">●●●●○</td>
-              <td class="rating dim">●●○</td>
+              <td class="highlight rating">우수</td>
+              <td class="rating dim">우수</td>
+              <td class="rating dim">보통</td>
             </tr>
             <tr>
               <td>유효 성분 안정성</td>
-              <td class="highlight rating">●●●●●</td>
-              <td class="rating dim">●○○</td>
-              <td class="rating dim">●●○</td>
+              <td class="highlight rating">매우 우수</td>
+              <td class="rating dim">낮음</td>
+              <td class="rating dim">보통</td>
             </tr>
             <tr>
               <td>피부 침투 및 흡수율</td>
-              <td class="highlight rating">●●●●●</td>
-              <td class="rating dim">●●●●○</td>
-              <td class="rating dim">●●●</td>
+              <td class="highlight rating">매우 우수</td>
+              <td class="rating dim">우수</td>
+              <td class="rating dim">보통</td>
             </tr>
             <tr>
-              <td>보관 및 대량 생산성</td>
-              <td class="highlight rating">●●●●○</td>
-              <td class="rating dim">●○○</td>
-              <td class="rating dim">●●●○</td>
+              <td>효과 유지 및 지속성</td>
+              <td class="highlight rating">우수</td>
+              <td class="rating dim">보통</td>
+              <td class="rating dim">보통</td>
             </tr>
           </tbody>
         </table>

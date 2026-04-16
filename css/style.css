@@ -54,7 +54,7 @@
 
   /* Fonts */
   --font-en: 'Montserrat', sans-serif;
-  --font-kr: 'Nanum Gothic', sans-serif;
+  --font-kr: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
 }
 
 /* ─── BASE ─── */
@@ -63,11 +63,12 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', 'Nanum Gothic', sans-serif;
+  font-family: var(--font-kr);
   color: var(--text);
   background: var(--white);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
