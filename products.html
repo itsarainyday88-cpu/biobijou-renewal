@@ -80,7 +80,8 @@
     .sub-hero-content {
       position: relative;
       z-index: 10;
-      margin-top: -50px; /* Adjust to stay above product line */
+      margin-top: -50px;
+      /* Adjust to stay above product line */
     }
 
     .page-title {
@@ -150,6 +151,7 @@
     .product-group {
       margin-bottom: 80px;
     }
+
     .group-title {
       font-family: var(--font-en);
       font-size: 28px;
@@ -160,12 +162,14 @@
       align-items: center;
       gap: 16px;
     }
+
     .group-title::after {
       content: '';
       flex: 1;
       height: 1px;
       background: var(--border);
     }
+
     .product-card {
       background: var(--white);
       border-radius: 24px;
@@ -276,7 +280,8 @@
 
     .pc-info-list li:nth-last-child(-n+2) .pc-info-label {
       width: 100%;
-      color: var(--primary); /* subtle highlight for the major sections */
+      color: var(--primary);
+      /* subtle highlight for the major sections */
       margin-bottom: 2px;
     }
 
@@ -306,6 +311,63 @@
 
     .product-card:hover .btn-arrow span {
       transform: translateX(5px);
+    }
+
+    /* ── MOBILE OPTIMIZATION ── */
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sub-hero {
+        height: 40vh;
+        min-height: 350px;
+      }
+
+      .page-title {
+        font-size: 48px;
+      }
+
+      .filter-container {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 20px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .filter-btn {
+        flex-shrink: 0;
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .pc-content {
+        padding: 24px;
+      }
+
+      .pc-title {
+        font-size: 22px;
+      }
+
+      .pc-info-label {
+        width: 120px;
+      }
+
+      .product-group {
+        margin-bottom: 60px;
+      }
+
+      .group-title {
+        font-size: 22px;
+      }
     }
 
     /* Reveal Animation */
@@ -429,11 +491,12 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Facial folds, Deep volumization</span>
+                  <span class="pc-info-value">Facial folds</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Innovatively restores skin structure and function by applying hADM technology.</span>
+                  <span class="pc-info-value">Innovatively restores skin structure and function by applying hADM
+                    technology.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -469,7 +532,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Premium home care and clinic solution with LNP technology for deep cell delivery.</span>
+                  <span class="pc-info-value">Premium home care and clinic solution with LNP technology for deep cell
+                    delivery.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -505,7 +569,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Professional HA filler providing precise volume correction and long-lasting effects.</span>
+                  <span class="pc-info-value">Professional HA filler providing precise volume correction and
+                    long-lasting effects.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -547,7 +612,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Professional HA filler series providing precise volume correction and long-lasting effects.</span>
+                  <span class="pc-info-value">Professional HA filler series providing precise volume correction and
+                    long-lasting effects.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -582,7 +648,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Premium HA filler lineup specialized for facial contour improvement and natural lifting effects.</span>
+                  <span class="pc-info-value">Premium HA filler lineup specialized for facial contour improvement and
+                    natural lifting effects.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -625,7 +692,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Premium moisture booster for intensive hydration and barrier strengthening from within.</span>
+                  <span class="pc-info-value">Premium moisture booster for intensive hydration and barrier strengthening
+                    from within.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -662,7 +730,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Premium booster that provides a healthy and bright complexion with radiance enhancing ingredients.</span>
+                  <span class="pc-info-value">Premium booster that provides a healthy and bright complexion with
+                    radiance enhancing ingredients.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -699,7 +768,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">LNP nanoparticles penetrate deep into the skin to improve fine lines and perfect skin texture.</span>
+                  <span class="pc-info-value">LNP nanoparticles penetrate deep into the skin to improve fine lines and
+                    perfect skin texture.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -736,7 +806,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Optimal solution for moisture balance and volume design, combining LNP tech with EGF.</span>
+                  <span class="pc-info-value">Optimal solution for moisture balance and volume design, combining LNP
+                    tech with EGF.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -773,7 +844,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">High-performance premium skin booster that simultaneously cares for radiance and aging.</span>
+                  <span class="pc-info-value">High-performance premium skin booster that simultaneously cares for
+                    radiance and aging.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -810,7 +882,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Premium hair booster specialized for scalp environment improvement and root strengthening.</span>
+                  <span class="pc-info-value">Premium hair booster specialized for scalp environment improvement and
+                    root strengthening.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -848,7 +921,8 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Premium home care and clinic solution with LNP technology for deep cell delivery.</span>
+                  <span class="pc-info-value">Premium home care and clinic solution with LNP technology for deep cell
+                    delivery.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -882,11 +956,12 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Facial folds, Deep volumization</span>
+                  <span class="pc-info-value">Facial folds</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Innovatively restores skin structure and function by applying hADM technology.</span>
+                  <span class="pc-info-value">Innovatively restores skin structure and function by applying hADM
+                    technology.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
@@ -903,22 +978,21 @@
       <div class="product-group" data-category-group="cosmetic">
         <h2 class="group-title en">Cosmetic</h2>
         <div class="product-grid">
-          
-          <!-- [13] Rose Mild Cleansing Milk -->
+          <!-- [1] Candorlov Online Cream -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_13.png" alt="Rose Mild Cleansing Milk" style="object-fit: cover;">
+              <img src="images/brand/cos_item_3.png" alt="Candorlov Online Cream" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">Rose Mild Cleansing Milk</h3>
+              <h3 class="pc-title en">Candorlov Online Cream</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Damask Rose Water, Gentle Cleansing Complex</span>
+                  <span class="pc-info-value">Dragon's Blood Extract, Ceramide NP, Allantoin</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">200ml / Low-irritation Milk</span>
+                  <span class="pc-info-value">30ml / Recovery Cream</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -926,36 +1000,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Makeup removal)</span>
+                  <span class="pc-info-value">Face (Damaged/Sensitive Skin)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Removes makeup and impurities without irritation while maintaining skin radiance.</span>
+                  <span class="pc-info-value">Intensive recovery cream that calms irritated skin and restores health
+                    through patented encapsulation technology.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Hydrating Cleansing, Soothing Effect, Low-irritation Solution</span>
+                  <span class="pc-info-value">Skin Elasticity Recovery, Barrier Strengthening, Soothing Effect</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [14] pH Balancing Oil-to-Foam -->
+          <!-- [2] Candorlov Relaxing Mist -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_14.png" alt="pH Balancing Oil-to-Foam" style="object-fit: cover;">
+              <img src="images/brand/cos_item_4.png" alt="Candorlov Relaxing Mist" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">pH Balancing Oil-to-Foam</h3>
+              <h3 class="pc-title en">Candorlov Relaxing Mist</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">pH Balancing Agents, Oil-to-Foam Polymers</span>
+                  <span class="pc-info-value">Centella Asiatica, Pink Vitamin, Rose Hip Oil</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">150ml / Mild Acidic Form</span>
+                  <span class="pc-info-value">50ml / Oil-Layer Mist</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -963,147 +1038,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Daily Cleansing)</span>
+                  <span class="pc-info-value">Face (Dry/Sensitive Skin)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">One-step cleanser combining oil's cleaning power with foam's freshness.</span>
+                  <span class="pc-info-value">Daily mist ampoule providing rapid moisture and nutrition to tired skin
+                    with a pink vitamin and rose oil layer.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">pH Balance Care, Barrier Protection, One-step Cleansing</span>
+                  <span class="pc-info-value">Immediate Hydration, Skin Soothing, Oil-moisture Balance</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [15] ONLINE CREAM -->
+          <!-- [3] Candorlov Online Serum -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_15.png" alt="ONLINE CREAM" style="object-fit: cover;">
+              <img src="images/brand/cos_item_5.png" alt="Candorlov Online Serum" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">ONLINE CREAM</h3>
+              <h3 class="pc-title en">Candorlov Online Serum</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Centella Asiatica, Matrixyl, Repair Peptides</span>
+                  <span class="pc-info-value">Ceramide Capsules, Glutathione, Botanical Extracts</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">50ml / Regeneration Cream</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Manufacturing Country</span>
-                  <span class="pc-info-value">South Korea</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Damaged or Sensitive skin)</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Improves skin damage and promotes regeneration while strengthening the barrier.</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Regenerative Care, Moisture Barrier Reinforcement</span>
-                </li>
-              </ul>
-              <div class="pc-footer"></div>
-            </div>
-          </div>
-
-          <!-- [16] ATOP MASTER CREAM -->
-          <div class="product-card" data-category="cosmetic" data-show>
-            <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_16.png" alt="ATOP MASTER CREAM" style="object-fit: cover;">
-            </div>
-            <div class="pc-content">
-              <h3 class="pc-title en">ATOP MASTER CREAM</h3>
-              <ul class="pc-info-list">
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Barrier Ceramide Complex, Soothing Natural Oils</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">100ml / Barrier Care Cream</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Manufacturing Country</span>
-                  <span class="pc-info-value">South Korea</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face and Body (Dry/Sensitive skin)</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">High-moisturizing barrier cream for dry and sensitive skin. Relieves itching and increases hydration.</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Intensive Care for Extremely Dry Skin, Barrier Recovery</span>
-                </li>
-              </ul>
-              <div class="pc-footer"></div>
-            </div>
-          </div>
-
-          <!-- [17] HYDRA-SOOTH MASK -->
-          <div class="product-card" data-category="cosmetic" data-show>
-            <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_17.png" alt="HYDRA-SOOTH MASK" style="object-fit: cover;">
-            </div>
-            <div class="pc-content">
-              <h3 class="pc-title en">HYDRA-SOOTHE MASK</h3>
-              <ul class="pc-info-list">
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Triple Hyaluronic Acid, Cooling Agents</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">10 sheets / Post-procedure Mask</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Manufacturing Country</span>
-                  <span class="pc-info-value">South Korea</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Post-clinic care)</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Professional soothing mask for immediate post-procedure hydration and cooling.</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Excellent Soothing & Moisturizing, Temperature Reduction</span>
-                </li>
-              </ul>
-              <div class="pc-footer"></div>
-            </div>
-          </div>
-
-          <!-- [18] VITA-SNOW TONE-UP SUN CREAM -->
-          <div class="product-card" data-category="cosmetic" data-show>
-            <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_18.png" alt="Tone-up Sun Cream" style="object-fit: cover;">
-            </div>
-            <div class="pc-content">
-              <h3 class="pc-title en">VITA-SNOW TONE-UP SUN CREAM</h3>
-              <ul class="pc-info-list">
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Vitamin Complex, Niacinamide, UV Filters</span>
-                </li>
-                <li class="pc-info-item">
-                  <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">50ml / Tone-up Sun Protection</span>
+                  <span class="pc-info-value">30ml / Barrier Serum</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1115,32 +1080,33 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Combines natural tone-up effects with strong UV protection for a clear complexion.</span>
+                  <span class="pc-info-value">High-nutrition ampoule that supplies moisture deep into the skin and forms
+                    a ceramide capsule barrier.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">UV Protection (SPF50+/PA++++), Brightening Tone-up</span>
+                  <span class="pc-info-value">Deep Moisturizing, Skin Barrier Protection, Texture Refinement</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [19] MOISTURE COOLING SUN CLEAN -->
+          <!-- [4] Candorlov Relax Sheet Mask -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_19.png" alt="Cooling Sun Clean" style="object-fit: cover;">
+              <img src="images/brand/cos_item_6.png" alt="Candorlov Relax Sheet Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">MOISTURE COOLING SUN CLEAN</h3>
+              <h3 class="pc-title en">Candorlov Relax Sheet Mask</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Non-nano Mineral UV Filters, Cooling Botani-complex</span>
+                  <span class="pc-info-value">Centella Asiatica, Glyceryl Glucoside, Pumpkin Extract</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">50ml / Refreshing Cooling Sunblock</span>
+                  <span class="pc-info-value">25ml x 5 sheets</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1148,36 +1114,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face, Body</span>
+                  <span class="pc-info-value">Face (After Procedure/Swelling)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Refreshing cooling sunblock with no white cast, applies lightly like a lotion.</span>
+                  <span class="pc-info-value">Recovery mask tailored for rapid soothing and reducing swelling while
+                    restoring skin condition.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Moisture Cooling (SPF50+/PA++++), Mineral UV Blocking</span>
+                  <span class="pc-info-value">Swelling Relief, Intensive Soothing, Skin Recovery</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [20] COLLAGEN-MODE PDRN MASK -->
+          <!-- [5] Candorlov Low Molecular Collagen Lifting Mask -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_20.png" alt="Collagen PDRN Mask" style="object-fit: cover;">
+              <img src="images/brand/cos_item_7.png" alt="Candorlov Collagen Lifting Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">COLLAGEN-MODE PDRN MASK</h3>
+              <h3 class="pc-title en">Candorlov Low Molecular Collagen Lifting Mask</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Low-molecular Collagen, PDRN (Salmon DNA)</span>
+                  <span class="pc-info-value">840,000ppm Collagen, Lotus PDRN, Bio-LNP</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">10 sheets / Intensive Therapy Mask</span>
+                  <span class="pc-info-value">30g x 5 sheets / Hydrogel</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1189,32 +1156,71 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Combination of Collagen and PDRN to maximize elasticity and deep nutrition.</span>
+                  <span class="pc-info-value">Hydrogel mask with ultra-high content collagen and Lotus PDRN for
+                    intensive elasticity care.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Elasticity Enhancement, Moisture Retention, Skin Vitality</span>
+                  <span class="pc-info-value">Elasticity Improvement, Radiance Care, Facial Tightening</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [21] GLOW LIFTING MASK -->
+          <!-- [6] Candorlov Collagen Boosting Glass Cream -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_21.png" alt="Glow Lifting Mask" style="object-fit: cover;">
+              <img src="images/brand/cos_item_8.png" alt="Candorlov Glass Cream" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">GLOW LIFTING MASK</h3>
+              <h3 class="pc-title en">Candorlov Collagen Boosting Glass Cream</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">7-fold Collagen Complex, Lifting Peptides</span>
+                  <span class="pc-info-value">6-fold Collagen, Lotus PDRN, Bio-LNP</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">10 sheets / Radiance Lifting Mask</span>
+                  <span class="pc-info-value">50ml / Glass Glow Cream</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">72-hour moisture glowing cream that boosts elasticity and volume with its
+                    high-refractive formula.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">72h Deep Hydration, Elasticity Boosting, Glass Skin Radiance</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
+            </div>
+          </div>
+
+          <!-- [7] Candorlov Glow Lifting Mask -->
+          <div class="product-card" data-category="cosmetic" data-show>
+            <div class="pc-img-wrap">
+              <img src="images/brand/cos_item_9.png" alt="Candorlov Glow Lifting Mask" style="object-fit: cover;">
+            </div>
+            <div class="pc-content">
+              <h3 class="pc-title en">Candorlov Glow Lifting Mask</h3>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">7-fold Collagen Complex, Flavonoid Liposome</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">70ml / Peel-off Mask</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1226,32 +1232,33 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Maximizes lifting effect with a soft fit, completing radiant and elastic contours.</span>
+                  <span class="pc-info-value">Peel-off mask for instant radiance and lifting. Creates firm, glowing
+                    contours and smooth texture.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Skin Glow, Elasticity Reinforcement, Visible Lifting</span>
+                  <span class="pc-info-value">Instant Glow, Visible Lifting, Texture Refinement</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [22] RED PORE CLEAN CLAY MUD PACK -->
+          <!-- [8] Candorlov Red Pore Clean Clay Mud Pack -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_22.png" alt="Red Pore Clay Pack" style="object-fit: cover;">
+              <img src="images/brand/cos_item_10.png" alt="Candorlov Red Mud Pack" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">RED PORE CLEAN CLAY MUD PACK</h3>
+              <h3 class="pc-title en">Candorlov Red Pore Clean Clay Mud Pack</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Red Mud, Amazonian White Clay, Cica</span>
+                  <span class="pc-info-value">Kaolin, Bentonite, Gluconolactone, Red Mud</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">100g / Wash-off Pack</span>
+                  <span class="pc-info-value">80ml / Wash-off Pack</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1263,32 +1270,33 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Deep pore impurity cleansing and skin soothing with high-adsorption red mud.</span>
+                  <span class="pc-info-value">Creamy red mud pack that adsorbs impurities and sebum from pores while
+                    delivering nutrients.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Pore Contraction, Exfoliation, Tone Management</span>
+                  <span class="pc-info-value">Pore Purification, Sebum Control, Dead Skin Cell Care</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [23] COMPACT BUBBLE SPARKLE MASK -->
+          <!-- [9] Candorlov Compact Bubble Sparkle Mask -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_23.png" alt="Bubble Sparkle Mask" style="object-fit: cover;">
+              <img src="images/brand/cos_item_11.png" alt="Candorlov Bubble Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">COMPACT BUBBLE SPARKLE MASK</h3>
+              <h3 class="pc-title en">Candorlov Compact Bubble Sparkle Mask</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Oxygen Bubbles, Carbonated Mineral Extract</span>
+                  <span class="pc-info-value">Oxygen Bubbles, 5-fold Peptides, Phytosqualane</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">10 sheets / Sparkle Bubble Mask</span>
+                  <span class="pc-info-value">100g / Self-bubbling Mask</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1300,32 +1308,33 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Micro oxygen bubbles purify deep into the skin and maintain moisture balance.</span>
+                  <span class="pc-info-value">Innovative mask with micro-oxygen bubbles that purify pores without
+                    irritation.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Deep Cleansing of Bubbles, Brightening, Pore Purification</span>
+                  <span class="pc-info-value">Pore Tightening, Skin Brightening, Deep Oxygen Cleansing</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [24] ICY PUFF SHEET MASK -->
+          <!-- [10] Candorlov ICY Puff Sheet Mask -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_24.png" alt="Icy Puff Mask" style="object-fit: cover;">
+              <img src="images/brand/cos_item_12.png" alt="Candorlov ICY Puff Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">ICY PUFF SHEET MASK</h3>
+              <h3 class="pc-title en">Candorlov ICY Puff Sheet Mask</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Icy Cooling Complex, Panthenol</span>
+                  <span class="pc-info-value">Glacial Water, Niacinamide, ICESCREEN™</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">10 sheets / Cooling Puff Mask</span>
+                  <span class="pc-info-value">25ml x 10 sheets</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1333,36 +1342,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (After waking or procedures)</span>
+                  <span class="pc-info-value">Face (Soothing/Swelling)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Instant cooling effect that quickly calms skin heat and reduces swelling.</span>
+                  <span class="pc-info-value">Immediate cooling mask that quickly calms skin heat and reduces swelling
+                    with ICESCREEN™ tech.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Skin Temperature Reduction, Swelling Relief, Soothing</span>
+                  <span class="pc-info-value">-11°C Immediate Cooling, Swelling Relief, Soothing</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [25] ICY SPOTLIGHT SHEET MASK -->
+          <!-- [11] Candorlov ICY Spotlight Sheet Mask -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_25.png" alt="Icy Spotlight Mask" style="object-fit: cover;">
+              <img src="images/brand/cos_item_13.png" alt="Candorlov Spotlight Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">ICY SPOTLIGHT SHEET MASK</h3>
+              <h3 class="pc-title en">Candorlov ICY Spotlight Sheet Mask</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Glutathione, Vitamin C, Cooling Complex</span>
+                  <span class="pc-info-value">Glutathione, Vitamin C, Glacial Water</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">10 sheets / Brightening Cooling Mask</span>
+                  <span class="pc-info-value">25ml x 10 sheets</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1370,36 +1380,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Blemishes, Dull skin)</span>
+                  <span class="pc-info-value">Face (Dull Skin/Blemishes)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Simultaneous cooling and brightening. Relieves spots and creates a clear skin tone.</span>
+                  <span class="pc-info-value">Dual-action cooling and brightening mask that targets long-term blemishes
+                    and dullness.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Brightening Functional, Melanin Care, Temperature Reduction</span>
+                  <span class="pc-info-value">Melanin Care (-8.7°C), Blemish Reduction, Whitening</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [26] DEWY PDRN YOGA-PAD -->
+          <!-- [12] Candorlov Dewy PDRN Yoga-Pad -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_26.png" alt="PDRN Yoga-Pad" style="object-fit: cover;">
+              <img src="images/brand/cos_item_14.png" alt="Candorlov Yoga-Pad" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">DEWY PDRN YOGA-PAD</h3>
+              <h3 class="pc-title en">Candorlov Dewy PDRN Yoga-Pad</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">PDRN, PHA (Poly Hydroxy Acid), Hyaluronic Acid</span>
+                  <span class="pc-info-value">Salmon PDRN, PHA, Multi-Peptides</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">60 pads / Daily Soothing Pad</span>
+                  <span class="pc-info-value">160ml (60 pads) / Daily Pad</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1411,32 +1422,33 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Soothing pad used as a daily toner substitute. Gently removes dead skin and enhances vitality.</span>
+                  <span class="pc-info-value">Daily serum pad restoring elasticity and hydration while gently refining
+                    skin texture.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Skin Texture Refinement, Hydration, Low-irritation Exfoliation</span>
+                  <span class="pc-info-value">Skin Texture Refinement, Elasticity Care, Soothing Hydration</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [27] BLOOMING COOL SHOT AMPOULE 2000 -->
+          <!-- [13] Candorlov Blooming Cool Shot Ampoule 2000 -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_27.png" alt="Cool Shot Ampoule" style="object-fit: cover;">
+              <img src="images/brand/cos_item_15.png" alt="Candorlov Cool Shot Ampoule" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">BLOOMING COOL SHOT AMPOULE 2000</h3>
+              <h3 class="pc-title en">Candorlov Blooming Cool Shot Ampoule 2000</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">High-dose Cica Extract, LNP Soothing Liposomes</span>
+                  <span class="pc-info-value">Ice Spicule, Lavender PDRN, Soothing Cooler</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">30ml / High-performance Ampoule</span>
+                  <span class="pc-info-value">30ml / Intensive Ampoule</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1444,36 +1456,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Irritated or flushed areas)</span>
+                  <span class="pc-info-value">Face (Irritated skin/Blemishes)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Strong cooling and soothing effect with high-density nutrients delivered via LNP.</span>
+                  <span class="pc-info-value">Ampoule with cooling-coated spicules that rapidly soothe and recover
+                    damaged skin.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Intensive Soothing, Fever Relief, Nutrient Action</span>
+                  <span class="pc-info-value">Thermal Protection, Blemish Relief, Intensive Recovery</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [28] GOLDEN DROP OIL SERUM -->
+          <!-- [14] Candorlov Golden Drop Oil Serum -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_28.png" alt="Golden Oil Serum" style="object-fit: cover;">
+              <img src="images/brand/cos_item_16.png" alt="Candorlov Oil Serum" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">GOLDEN DROP OIL SERUM</h3>
+              <h3 class="pc-title en">Candorlov Golden Drop Oil Serum</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Vitamin Oil Capsules, Lactobacillus, Vitamin E</span>
+                  <span class="pc-info-value">Propolis, Vitamin Oil Balls, Vitamin E</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">30ml / Nutrition Serum</span>
+                  <span class="pc-info-value">30ml / High-nutrition Serum</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1481,36 +1494,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Dull or aging skin)</span>
+                  <span class="pc-info-value">Face (Damaged/Dull skin)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">High-density nutrition supply with vitamin capsules to help skin turnover and barrier protection.</span>
+                  <span class="pc-info-value">Nutrition-rich ampoule with vitamin balls that induce skin turnover and
+                    barrier health.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Skin Radiance, Anti-aging, Barrier Strengthening</span>
+                  <span class="pc-info-value">Double Density Improvement, Barrier Health, Layered Glow</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [29] FIRMING PEPTIDE SERUM -->
+          <!-- [15] Candorlov Firming Peptide Serum -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_29.png" alt="Peptide Serum" style="object-fit: cover;">
+              <img src="images/brand/cos_item_17.png" alt="Candorlov Peptide Serum" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">FIRMING PEPTIDE SERUM</h3>
+              <h3 class="pc-title en">Candorlov Firming Peptide Serum</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">7 High-performance Peptides, Bio-matrixyl</span>
+                  <span class="pc-info-value">Argireline™ Peptide, Aqualicia Bio, Dermabiotics</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">35ml / Lifting Serum</span>
+                  <span class="pc-info-value">35ml / Silk Lifting Serum</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1518,36 +1532,37 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Treatment Area</span>
-                  <span class="pc-info-value">Face (Lifting zones)</span>
+                  <span class="pc-info-value">Face (Elasticity/Volume Loss areas)</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Anti-aging specialized peptide formula for facial contour lifting and volume replenishment.</span>
+                  <span class="pc-info-value">Serum with botox-like peptides that fills volume and moisture for firm,
+                    youthful skin.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Wrinkle Improvement, Elasticity Reinforcement, Volume Care</span>
+                  <span class="pc-info-value">Facial Lifting, Eye-bag Toning, Intense Elasticity</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
           </div>
 
-          <!-- [30] SILK TANGLE CREAM -->
+          <!-- [16] Candorlov Silk Tangle Cream -->
           <div class="product-card" data-category="cosmetic" data-show>
             <div class="pc-img-wrap">
-              <img src="images/brand/cos_page_30.png" alt="Silk Tangle Cream" style="object-fit: cover;">
+              <img src="images/brand/cos_item_18.png" alt="Candorlov Silk Cream" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <h3 class="pc-title en">SILK TANGLE CREAM</h3>
+              <h3 class="pc-title en">Candorlov Silk Tangle Cream</h3>
               <ul class="pc-info-list">
                 <li class="pc-info-item">
                   <span class="pc-info-label">Key Ingredients</span>
-                  <span class="pc-info-value">Silk Encapsulated Peptides, Micro Serum Capsules</span>
+                  <span class="pc-info-value">Low Molecular Collagen, Ceramide, Silk Capsules</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Specifications</span>
-                  <span class="pc-info-value">50ml / Daily Renewal Cream</span>
+                  <span class="pc-info-value">50ml / Intensive Nutrition Cream</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Manufacturing Country</span>
@@ -1559,20 +1574,21 @@
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Introduction</span>
-                  <span class="pc-info-value">Silk-like softness and elastic adherence care through advanced encapsulation technology.</span>
+                  <span class="pc-info-value">Patented capsule cream that forms a lifting film and fills volume between
+                    wrinkles.</span>
                 </li>
                 <li class="pc-info-item">
                   <span class="pc-info-label">Effect</span>
-                  <span class="pc-info-value">Skin Density Improvement, Elasticity Care, Rapid Absorption</span>
+                  <span class="pc-info-value">Pore Care, Jawline Lifting, 15-layer Deep Moisturizing</span>
                 </li>
               </ul>
               <div class="pc-footer"></div>
             </div>
-          </div>
+          </div> <!-- 16번째 제품 카드 닫기 -->
+        </div> <!-- product-grid 닫기 -->
+      </div> <!-- product-group(cosmetic) 닫기 -->
+    </div> <!-- container 닫기 -->
 
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- FOOTER (Unified) -->
@@ -1581,7 +1597,8 @@
       <div class="footer-top">
         <div>
           <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
-          <p class="f-desc">BIOBIJOU continuously supplies innovative aesthetic solutions for the healthy beauty of people around the world based on its proprietary technology.</p>
+          <p class="f-desc">BIOBIJOU continuously supplies innovative aesthetic solutions for the healthy beauty of
+            people around the world based on its proprietary technology.</p>
         </div>
         <div>
           <div class="f-title">Company</div>
@@ -1627,7 +1644,8 @@
       </div>
       <div class="footer-bottom">
         <div>© 2026 BIOBIJOU. All rights reserved.</div>
-        <div>#1516, Building A, Hanam Techno Valley U1, 947 Hanam-daero, Hanam-si, Gyeonggi-do, Korea | 02-6235-9696</div>
+        <div>#1516, Building A, Hanam Techno Valley U1, 947 Hanam-daero, Hanam-si, Gyeonggi-do, Korea | 02-6235-9696
+        </div>
       </div>
     </div>
   </footer>
