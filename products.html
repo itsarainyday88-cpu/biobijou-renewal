@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -228,61 +228,67 @@
       flex-direction: column;
     }
 
-    .pc-series {
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--teal);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
     .pc-title {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 900;
       color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .pc-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .pc-desc {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--dark-3);
       margin-bottom: 24px;
+      line-height: 1.2;
     }
 
-    .pc-specs {
-      margin-bottom: 24px;
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
+    .pc-info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .spec-item {
-      font-size: 13px;
-      color: var(--text-sub);
-      margin-bottom: 8px;
+    .pc-info-item {
       display: flex;
-      gap: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #f5f5f5;
+      padding-bottom: 10px;
     }
 
-    .spec-item::before {
-      content: '•';
-      color: var(--orange);
+    /* Stack last two items (Introduction & Effect) for better readability */
+    .pc-info-list li:nth-last-child(-n+2) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding-bottom: 18px;
+    }
+
+    .pc-info-item:last-child {
+      border-bottom: none;
+    }
+
+    .pc-info-label {
+      width: 140px;
+      font-weight: 800;
+      color: var(--dark);
+      flex-shrink: 0;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      padding-top: 2px;
+    }
+
+    .pc-info-list li:nth-last-child(-n+2) .pc-info-label {
+      width: 100%;
+      color: var(--primary); /* subtle highlight for the major sections */
+      margin-bottom: 2px;
+    }
+
+    .pc-info-value {
+      color: var(--dark-3);
+      flex-grow: 1;
     }
 
     .pc-footer {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: none;
     }
+
 
     .btn-arrow {
       font-family: var(--font-en);
@@ -328,42 +334,42 @@
         <li>
           <a href="company.html" class="en">Company</a>
           <ul class="sub-menu">
-            <li><a href="company.html#ceo">인사말</a></li>
-            <li><a href="company.html#history">연혁</a></li>
-            <li><a href="company.html#certs">인증 &amp; 특허</a></li>
-            <li><a href="company.html#location">오시는길</a></li>
+            <li><a href="company.html#ceo">CEO Message</a></li>
+            <li><a href="company.html#history">History</a></li>
+            <li><a href="company.html#certs">Certificates & Patents</a></li>
+            <li><a href="company.html#location">Location</a></li>
           </ul>
         </li>
         <li>
           <a href="technology.html" class="en">Technology</a>
           <ul class="sub-menu">
-            <li><a href="technology.html#lnp">LNP 기술</a></li>
-            <li><a href="technology.html#hadm">hADM 기술</a></li>
-            <li><a href="technology.html#comparison">기술 비교</a></li>
+            <li><a href="technology.html#lnp">LNP Technology</a></li>
+            <li><a href="technology.html#hadm">hADM Technology</a></li>
+            <li><a href="technology.html#comparison">Comparison</a></li>
           </ul>
         </li>
         <li>
           <a href="products.html" class="en active">Products</a>
           <ul class="sub-menu">
-            <li><a href="products.html?cat=new">2026 컬렉션</a></li>
-            <li><a href="products.html?cat=filler">HA 필러</a></li>
-            <li><a href="products.html?cat=booster">스킨 부스터</a></li>
-            <li><a href="products.html?cat=cosmetic">코스메틱</a></li>
+            <li><a href="products.html?cat=new">2026 Collection</a></li>
+            <li><a href="products.html?cat=filler">HA Filler</a></li>
+            <li><a href="products.html?cat=booster">Skin Booster</a></li>
+            <li><a href="products.html?cat=cosmetic">Cosmetics</a></li>
           </ul>
         </li>
         <li>
           <a href="global.html" class="en">Global</a>
           <ul class="sub-menu">
-            <li><a href="global.html">글로벌 네트워크</a></li>
-            <li><a href="global.html">USA 지사</a></li>
+            <li><a href="global.html">Global Network</a></li>
+            <li><a href="global.html">USA Branch</a></li>
           </ul>
         </li>
         <li>
           <a href="news.html" class="en">News</a>
           <ul class="sub-menu">
-            <li><a href="news.html">보도자료</a></li>
-            <li><a href="news.html">공지사항</a></li>
-            <li><a href="contact.html">문의하기</a></li>
+            <li><a href="news.html">Press Release</a></li>
+            <li><a href="news.html">Notice</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </li>
       </ul>
@@ -407,18 +413,34 @@
               <img src="images/brand/Celivion.png" alt="CELIVION Lin J">
             </div>
             <div class="pc-content">
-              <div class="pc-series">hADM Matrix</div>
               <h3 class="pc-title en">CELIVION Lin J</h3>
-              <div class="pc-sub">셀리비온 린제이</div>
-              <p class="pc-desc">입자형 무세포 동종 진피 매트릭스(hADM) 기술을 적용하여 피부 구조와 기능을 혁신적으로 복원합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">인체 유래 동종 진피 매트릭스</div>
-                <div class="spec-item">탁월한 생체 적합성 및 안정성</div>
-                <div class="spec-item">피부 재생 및 볼륨 복원 솔루션</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Particulate Human Acellular Dermal Matrix (hADM)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">1.0ml / 2.0ml</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Facial folds, Deep volumization</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Innovatively restores skin structure and function by applying hADM technology.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Regeneration, Volume Restoration, Excellent Stability</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
           <div class="product-card" data-category="new" data-show>
@@ -427,18 +449,34 @@
               <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL">
             </div>
             <div class="pc-content">
-              <div class="pc-series">LNP Skin Action</div>
               <h3 class="pc-title en">SPEETIQUEL</h3>
-              <div class="pc-sub">스피티클</div>
-              <p class="pc-desc">LNP 기술이 적용된 프리미엄 홈케어 및 클리닉 솔루션. 유효 성분을 세포 깊숙이 전달합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">LNP (지질나노입자) 기술 적용</div>
-                <div class="spec-item">수분 공급 및 재생 복합 작용</div>
-                <div class="spec-item">글로벌 전략 리뉴얼 제품</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Lipid Nanoparticles (LNP), Combined Peptides</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5ml x 5 vials / Clinic Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face, Neck, Specialized clinic areas</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Premium home care and clinic solution with LNP technology for deep cell delivery.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Combined Hydration & Regeneration, Cellular Vitality</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
           <div class="product-card" data-category="new" data-show>
@@ -447,17 +485,34 @@
               <img src="images/brand/candorlov.png" alt="CADDORLOV">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Professional Filler</div>
               <h3 class="pc-title en">CADDORLOV</h3>
-              <div class="pc-sub">칸도럽 시리즈</div>
-              <p class="pc-desc">고순도 HA 교차결합 기술로 정밀한 볼륨 교정과 우수한 지속성을 제공하는 전문가용 필러입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">CE Certified & Premium Quality</div>
-                <div class="spec-item">안정적인 점탄성과 정밀 주입</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">High-purity Cross-linked Hyaluronic Acid</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">1.1ml / Syringe</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Nose, Chin, Forehead, Nasolabial folds</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Professional HA filler providing precise volume correction and long-lasting effects.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Stable Viscoelasticity, Precise Injection, Premium Volume</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
         </div>
@@ -472,17 +527,34 @@
               <img src="images/brand/candorlov.png" alt="CADDORLOV">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Professional Filler</div>
               <h3 class="pc-title en">CADDORLOV</h3>
-              <div class="pc-sub">칸도럽 시리즈</div>
-              <p class="pc-desc">고순도 HA 교차결합 기술로 정밀한 볼륨 교정과 우수한 지속성을 제공하는 전문가용 필러입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">CE Certified & Premium Quality</div>
-                <div class="spec-item">안정적인 점탄성과 정밀 주입</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">High-purity Cross-linked Hyaluronic Acid</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">1.1ml / Mono, Deep, Shape</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Facial folds, Nasolabial folds, Volumization</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Professional HA filler series providing precise volume correction and long-lasting effects.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">CE Certified, Stable Viscoelasticity, Precise Injection</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
           <div class="product-card" data-category="filler" data-show>
@@ -490,17 +562,34 @@
               <img src="images/brand/colena.jpg" alt="COLENA" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Professional Filler</div>
               <h3 class="pc-title en">COLENA</h3>
-              <div class="pc-sub">코레나 시리즈</div>
-              <p class="pc-desc">얼굴 윤곽 개선 및 자연스러운 리프팅 효과에 특화된 프리미엄 HA 필러 라인업입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">멀티 레이어 볼륨 디자인</div>
-                <div class="spec-item">글로벌 베스트셀링 라인</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Cross-linked Hyaluronic Acid (Stabilized)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">1.1ml / Mono, Deep, Shape options</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Lip volume, Chin contour, Facial lifting</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Premium HA filler lineup specialized for facial contour improvement and natural lifting effects.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Multi-layer Volume Design, Natural Lifting Effect</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
         </div>
@@ -516,17 +605,34 @@
               <img src="images/brand/ascenart_aqua.jpg" alt="ASCENART Aqua" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Skin Booster</div>
               <h3 class="pc-title en">ASCENART Aqua</h3>
-              <div class="pc-sub">아세나르트 아쿠아</div>
-              <p class="pc-desc">피부 속부터 차오르는 강력한 수분 공급과 장벽 강화를 위한 프리미엄 수분 부스터입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">수분 공급 & 피부 장벽 강화</div>
-                <div class="spec-item">클리닉 전용 고보습 포뮬러</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Hyaluronic Acid, Vital Mineral Complex</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5.0ml / Clinic Booster</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face, Dry skin areas</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Premium moisture booster for intensive hydration and barrier strengthening from within.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Hydration, Skin Barrier Reinforcement, High-moisturizing Action</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -536,17 +642,34 @@
               <img src="images/brand/ascenart_amber.jpg" alt="ASCENART Amber" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Skin Booster</div>
               <h3 class="pc-title en">ASCENART Amber</h3>
-              <div class="pc-sub">아세나르트 앰버</div>
-              <p class="pc-desc">피부 광채와 생기를 배가시키는 성분 구성으로 건강하고 화사한 안색을 선사하는 프리미엄 부스터입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부 광채 및 생기 부여</div>
-                <div class="spec-item">프리미엄 안티에이징 액션</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">PDRN, Radiance Vitality Complex</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5.0ml / Glow Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face, Dull complexion areas</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Premium booster that provides a healthy and bright complexion with radiance enhancing ingredients.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Glow & Vitality Enhancement, Premium Anti-aging Action</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -556,17 +679,34 @@
               <img src="images/brand/ascenart_nanofill.jpg" alt="ASCENART Nanofill" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Skin Booster</div>
               <h3 class="pc-title en">ASCENART Nanofill</h3>
-              <div class="pc-sub">아세나르트 나노필</div>
-              <p class="pc-desc">LNP 나노 입자가 피부 깊숙이 침투하여 미세 주름 개선과 매끄러운 피부결을 완성합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">초미세 나노 입자 기술</div>
-                <div class="spec-item">미세 주름 및 조밀한 보습 케어</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">LNP (Lipid Nanoparticles), Micro-filler components</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5.0ml / Ultra-fine Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Fine wrinkles, Textural improvement</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">LNP nanoparticles penetrate deep into the skin to improve fine lines and perfect skin texture.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Ultra-fine Nanoparticle Delivery, Fine Line Care</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -576,17 +716,34 @@
               <img src="images/brand/ascenart_azure.jpg" alt="ASCENART Azure" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Skin Booster</div>
               <h3 class="pc-title en">ASCENART Azure</h3>
-              <div class="pc-sub">아세나르트 아주르</div>
-              <p class="pc-desc">LNP 기술과 EGF 포뮬러를 결합하여 피부 수분 밸런스와 볼륨 디자인에 최적화된 솔루션입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">LNP 및 EGF 포뮬러 적용</div>
-                <div class="spec-item">볼륨 디자인 및 수분 공급</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">LNP, EGF (Epidermal Growth Factor)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5.0ml / Design Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Volume zones, Moisture deficit areas</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Optimal solution for moisture balance and volume design, combining LNP tech with EGF.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">LNP & EGF Formula Action, Volume Design, Hydration</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -596,17 +753,34 @@
               <img src="images/brand/ascenart_lux.jpg" alt="ASCENART Lux" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Skin Booster</div>
               <h3 class="pc-title en">ASCENART Lux</h3>
-              <div class="pc-sub">아세나르트 럭스</div>
-              <p class="pc-desc">피부 광채와 안티에이징을 동시에 케어하는 고기능성 프리미엄 스킨 부스터입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부 광채 & 안티에이징</div>
-                <div class="spec-item">고기능성 프리미엄 포뮬러</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Advanced PDRN, High-performance Radiance Complex</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5.0ml / Luxury Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Full face, Premium anti-aging zones</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">High-performance premium skin booster that simultaneously cares for radiance and aging.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Radiance & Anti-aging, High-performance Formula</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -616,17 +790,34 @@
               <img src="images/brand/ascenart_fillmoa.jpg" alt="ASCENART Fillmoa" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Hair Booster</div>
               <h3 class="pc-title en">ASCENART Fillmoa</h3>
-              <div class="pc-sub">아세나르트 필모아</div>
-              <p class="pc-desc">두피 환경 개선 및 모근 강화 특화 줄기세포 인자 포뮬러를 적용한 프리미엄 헤어 부스터입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">Stem Cell Factor 포뮬러</div>
-                <div class="spec-item">두피 및 모근 집중 강화 솔루션</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Stem Cell Factor Formula, Scalp Revitalizers</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5.0ml / Hair & Scalp Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Scalp, Hair roots</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Premium hair booster specialized for scalp environment improvement and root strengthening.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Stem Cell Factor Support, Intensive Scalp & Hair Root Strengthening</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -637,18 +828,34 @@
               <img src="images/brand/SPEETIQUEL_white.png" alt="SPEETIQUEL">
             </div>
             <div class="pc-content">
-              <div class="pc-series">LNP Skin Action</div>
               <h3 class="pc-title en">SPEETIQUEL</h3>
-              <div class="pc-sub">스피티클</div>
-              <p class="pc-desc">LNP 기술이 적용된 프리미엄 홈케어 및 클리닉 솔루션. 유효 성분을 세포 깊숙이 전달합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">LNP (지질나노입자) 기술 적용</div>
-                <div class="spec-item">수분 공급 및 재생 복합 작용</div>
-                <div class="spec-item">글로벌 전략 리뉴얼 제품</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Lipid Nanoparticles (LNP), Combined Peptides</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">5ml x 5 vials / Clinic Solution</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face, Neck, Specialized clinic areas</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Premium home care and clinic solution with LNP technology for deep cell delivery.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Combined Hydration & Regeneration, Cellular Vitality</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -659,18 +866,34 @@
               <img src="images/brand/Celivion.png" alt="CELIVION Lin J">
             </div>
             <div class="pc-content">
-              <div class="pc-series">hADM Matrix</div>
               <h3 class="pc-title en">CELIVION Lin J</h3>
-              <div class="pc-sub">셀리비온 린제이</div>
-              <p class="pc-desc">입자형 무세포 동종 진피 매트릭스(hADM) 기술을 적용하여 피부 구조와 기능을 혁신적으로 복원합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">인체 유래 동종 진피 매트릭스</div>
-                <div class="spec-item">탁월한 생체 적합성 및 안정성</div>
-                <div class="spec-item">피부 재생 및 볼륨 복원 솔루션</div>
-              </div>
-              <div class="pc-footer">
-                <span class="btn-arrow">Learn More <span>→</span></span>
-              </div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Particulate Human Acellular Dermal Matrix (hADM)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">1.0ml / 2.0ml</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Facial folds, Deep volumization</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Innovatively restores skin structure and function by applying hADM technology.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Regeneration, Volume Restoration, Excellent Stability</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
         </div>
@@ -687,15 +910,34 @@
               <img src="images/brand/cos_page_13.png" alt="Rose Mild Cleansing Milk" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Cleansing Solution</div>
               <h3 class="pc-title en">Rose Mild Cleansing Milk</h3>
-              <div class="pc-sub">칸도럽 로즈 마일드 클렌징 밀크</div>
-              <p class="pc-desc">다마스크 장미꽃수 함유로 자극 없이 메이크업과 노폐물을 제거하며 세안 후에도 윤기를 유지해줍니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">저자극 밀크 타입 클렌징</div>
-                <div class="spec-item">수분 보충 및 진정 효과</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Damask Rose Water, Gentle Cleansing Complex</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">200ml / Low-irritation Milk</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Makeup removal)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Removes makeup and impurities without irritation while maintaining skin radiance.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Hydrating Cleansing, Soothing Effect, Low-irritation Solution</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -705,15 +947,34 @@
               <img src="images/brand/cos_page_14.png" alt="pH Balancing Oil-to-Foam" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Cleansing Solution</div>
               <h3 class="pc-title en">pH Balancing Oil-to-Foam</h3>
-              <div class="pc-sub">칸도럽 pH 밸런싱 오일 투 폼</div>
-              <p class="pc-desc">오일의 세정력과 폼의 산뜻함을 동시에. 약산성 포뮬러로 피부 장벽을 보호하는 원스텝 클렌저입니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">오일-폼 변환 제형</div>
-                <div class="spec-item">피부 pH 밸런스 케어</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">pH Balancing Agents, Oil-to-Foam Polymers</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">150ml / Mild Acidic Form</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Daily Cleansing)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">One-step cleanser combining oil's cleaning power with foam's freshness.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">pH Balance Care, Barrier Protection, One-step Cleansing</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -723,15 +984,34 @@
               <img src="images/brand/cos_page_15.png" alt="ONLINE CREAM" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Skin Enhancement</div>
               <h3 class="pc-title en">ONLINE CREAM</h3>
-              <div class="pc-sub">칸도럽 온라인 크림</div>
-              <p class="pc-desc">피부 손상 개선 및 재생 촉진. 외부 환경으로부터 피부를 보호하고 보습 장벽을 강화합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">고농축 보습 및 재생 케어</div>
-                <div class="spec-item">Centella Asiatica & Matrixyl 성분</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Centella Asiatica, Matrixyl, Repair Peptides</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">50ml / Regeneration Cream</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Damaged or Sensitive skin)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Improves skin damage and promotes regeneration while strengthening the barrier.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Regenerative Care, Moisture Barrier Reinforcement</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -741,15 +1021,34 @@
               <img src="images/brand/cos_page_16.png" alt="ATOP MASTER CREAM" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Intensive Soothing</div>
               <h3 class="pc-title en">ATOP MASTER CREAM</h3>
-              <div class="pc-sub">칸도럽 아토 마스터 크림</div>
-              <p class="pc-desc">건조하고 민감한 피부를 위한 고보습 장벽 크림. 가려움 완화 및 피부 보습력을 높여줍니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">악건성/민감성 집중 케어</div>
-                <div class="spec-item">피부 장벽 회복 솔루션</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Barrier Ceramide Complex, Soothing Natural Oils</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">100ml / Barrier Care Cream</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face and Body (Dry/Sensitive skin)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">High-moisturizing barrier cream for dry and sensitive skin. Relieves itching and increases hydration.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Intensive Care for Extremely Dry Skin, Barrier Recovery</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -759,15 +1058,34 @@
               <img src="images/brand/cos_page_17.png" alt="HYDRA-SOOTH MASK" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Clinic Solution</div>
               <h3 class="pc-title en">HYDRA-SOOTHE MASK</h3>
-              <div class="pc-sub">칸도럽 하이드라 수드 마스크</div>
-              <p class="pc-desc">시술 후 진정 및 수분 공급. 민감해진 피부를 시원하게 진정시키고 수분을 충전합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">3중 히알루론산 함유</div>
-                <div class="spec-item">탁월한 진정 및 보습 효과</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Triple Hyaluronic Acid, Cooling Agents</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">10 sheets / Post-procedure Mask</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Post-clinic care)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Professional soothing mask for immediate post-procedure hydration and cooling.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Excellent Soothing & Moisturizing, Temperature Reduction</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -777,15 +1095,34 @@
               <img src="images/brand/cos_page_18.png" alt="Tone-up Sun Cream" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Protection Solution</div>
               <h3 class="pc-title en">VITA-SNOW TONE-UP SUN CREAM</h3>
-              <div class="pc-sub">칸도럽 비타 스노우 톤업 선크림</div>
-              <p class="pc-desc">자연스러운 톤업 효과와 자외선 차단을 동시에. 맑고 화사한 피부 표현을 도와줍니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">자외선 차단 + 미백 + 톤업</div>
-                <div class="spec-item">SPF50+ / PA++++</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Vitamin Complex, Niacinamide, UV Filters</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">50ml / Tone-up Sun Protection</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Combines natural tone-up effects with strong UV protection for a clear complexion.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">UV Protection (SPF50+/PA++++), Brightening Tone-up</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -795,15 +1132,34 @@
               <img src="images/brand/cos_page_19.png" alt="Cooling Sun Clean" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Protection Solution</div>
               <h3 class="pc-title en">MOISTURE COOLING SUN CLEAN</h3>
-              <div class="pc-sub">칸도럽 모이스처 쿨링 선 클린</div>
-              <p class="pc-desc">백탁 현상 없이 산뜻한 쿨링감의 자외선 차단제. 수분 함량이 높아 로션처럼 가볍게 발립니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">수분 진정 및 쿨링 케어</div>
-                <div class="spec-item">논나노 무기자차 솔루션</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Non-nano Mineral UV Filters, Cooling Botani-complex</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">50ml / Refreshing Cooling Sunblock</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face, Body</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Refreshing cooling sunblock with no white cast, applies lightly like a lotion.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Moisture Cooling (SPF50+/PA++++), Mineral UV Blocking</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -813,15 +1169,34 @@
               <img src="images/brand/cos_page_20.png" alt="Collagen PDRN Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Intensive Therapy</div>
               <h3 class="pc-title en">COLLAGEN-MODE PDRN MASK</h3>
-              <div class="pc-sub">칸도럽 콜라겐 모드 PDRN 마스크</div>
-              <p class="pc-desc">콜라겐과 PDRN의 결합으로 탄력을 극대화. 건조한 피부에 깊은 영양을 전달합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">탄력 증진 및 수분 유지</div>
-                <div class="spec-item">PDRN 성분으로 피부 활력 공급</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Low-molecular Collagen, PDRN (Salmon DNA)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">10 sheets / Intensive Therapy Mask</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Combination of Collagen and PDRN to maximize elasticity and deep nutrition.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Elasticity Enhancement, Moisture Retention, Skin Vitality</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -831,15 +1206,34 @@
               <img src="images/brand/cos_page_21.png" alt="Glow Lifting Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Intensive Therapy</div>
               <h3 class="pc-title en">GLOW LIFTING MASK</h3>
-              <div class="pc-sub">칸도럽 글로우 리프팅 마스크</div>
-              <p class="pc-desc">부드러운 밀착감으로 리프팅 효과 극대화. 광채 나는 피부와 탄력 있는 라인을 완성합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부 광채 및 탄력 강화</div>
-                <div class="spec-item">7중 콜라겐 콤플렉스 함유</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">7-fold Collagen Complex, Lifting Peptides</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">10 sheets / Radiance Lifting Mask</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face, Jawline</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Maximizes lifting effect with a soft fit, completing radiant and elastic contours.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Glow, Elasticity Reinforcement, Visible Lifting</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -849,15 +1243,34 @@
               <img src="images/brand/cos_page_22.png" alt="Red Pore Clay Pack" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Pore Care Solution</div>
               <h3 class="pc-title en">RED PORE CLEAN CLAY MUD PACK</h3>
-              <div class="pc-sub">칸도럽 레드 포어 클린 클레이 머드 팩</div>
-              <p class="pc-desc">모공 노폐물 세정 및 피부 진정. 붉은 머드 성분으로 피부톤을 맑고 깨끗하게 관리합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">모공 수렴 및 각질 제거</div>
-                <div class="spec-item">클레이&머드의 강력 흡착</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Red Mud, Amazonian White Clay, Cica</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">100g / Wash-off Pack</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (T-zone, Pore area)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Deep pore impurity cleansing and skin soothing with high-adsorption red mud.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Pore Contraction, Exfoliation, Tone Management</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -867,15 +1280,34 @@
               <img src="images/brand/cos_page_23.png" alt="Bubble Sparkle Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Clear Skin Action</div>
               <h3 class="pc-title en">COMPACT BUBBLE SPARKLE MASK</h3>
-              <div class="pc-sub">칸도럽 콤팩트 버블 스파클 마스크</div>
-              <p class="pc-desc">미세 산소 거품이 피부 깊숙이 정화. 모근 환경 개선과 수분 밸런스를 동시에 제공합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">산소 거품의 딥 클렌징 효과</div>
-                <div class="spec-item">브라이트닝 및 모공 정화</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Oxygen Bubbles, Carbonated Mineral Extract</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">10 sheets / Sparkle Bubble Mask</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Micro oxygen bubbles purify deep into the skin and maintain moisture balance.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Deep Cleansing of Bubbles, Brightening, Pore Purification</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -885,15 +1317,34 @@
               <img src="images/brand/cos_page_24.png" alt="Icy Puff Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Extreme Cooling</div>
               <h3 class="pc-title en">ICY PUFF SHEET MASK</h3>
-              <div class="pc-sub">칸도럽 아이시 퍼프 시트 마스크</div>
-              <p class="pc-desc">즉각적인 쿨링 효과로 피부 열감 진정. 자극 받은 피부를 빠르게 진정시키고 수분을 공급합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부 온도 저하 및 진정</div>
-                <div class="spec-item">붓기 완화 전문 마스크</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Icy Cooling Complex, Panthenol</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">10 sheets / Cooling Puff Mask</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (After waking or procedures)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Instant cooling effect that quickly calms skin heat and reduces swelling.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Temperature Reduction, Swelling Relief, Soothing</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -903,15 +1354,34 @@
               <img src="images/brand/cos_page_25.png" alt="Icy Spotlight Mask" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Extreme Cooling</div>
               <h3 class="pc-title en">ICY SPOTLIGHT SHEET MASK</h3>
-              <div class="pc-sub">칸도럽 아이시 스포트라이트 시트 마스크</div>
-              <p class="pc-desc">쿨링감과 브라이트닝을 동시에. 기미와 잡티를 완화하여 균일하고 맑은 피부톤을 만들어줍니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">미백 기능성 + 집중 진정</div>
-                <div class="spec-item">피부 온도 감소 및 멜라닌 케어</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Glutathione, Vitamin C, Cooling Complex</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">10 sheets / Brightening Cooling Mask</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Blemishes, Dull skin)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Simultaneous cooling and brightening. Relieves spots and creates a clear skin tone.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Brightening Functional, Melanin Care, Temperature Reduction</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -921,15 +1391,34 @@
               <img src="images/brand/cos_page_26.png" alt="PDRN Yoga-Pad" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Daily Care</div>
               <h3 class="pc-title en">DEWY PDRN YOGA-PAD</h3>
-              <div class="pc-sub">칸도럽 듀이 PDRN 요가 패드</div>
-              <p class="pc-desc">데일리 토너 대용 진정 패드. 각질을 부드럽게 정돈하고 PDRN 성분으로 피부 활력을 높여줍니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부결 정돈 및 수분 충전</div>
-                <div class="spec-item">PHA 함유로 저자극 각질 케어</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">PDRN, PHA (Poly Hydroxy Acid), Hyaluronic Acid</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">60 pads / Daily Soothing Pad</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Daily texture refinement)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Soothing pad used as a daily toner substitute. Gently removes dead skin and enhances vitality.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Texture Refinement, Hydration, Low-irritation Exfoliation</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -939,15 +1428,34 @@
               <img src="images/brand/cos_page_27.png" alt="Cool Shot Ampoule" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">High-Performance</div>
               <h3 class="pc-title en">BLOOMING COOL SHOT AMPOULE 2000</h3>
-              <div class="pc-sub">칸도럽 블루밍 쿨 샷 앰플 2000</div>
-              <p class="pc-desc">강력한 쿨링과 시카 성분의 진정 효과. 고밀도 진정 성분이 빠르게 피부 깊숙이 전달됩니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">집중 진정 앰플</div>
-                <div class="spec-item">LNP 기반 고농축 영양 액션</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">High-dose Cica Extract, LNP Soothing Liposomes</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">30ml / High-performance Ampoule</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Irritated or flushed areas)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Strong cooling and soothing effect with high-density nutrients delivered via LNP.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Intensive Soothing, Fever Relief, Nutrient Action</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -957,15 +1465,34 @@
               <img src="images/brand/cos_page_28.png" alt="Golden Oil Serum" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Premium Revive</div>
               <h3 class="pc-title en">GOLDEN DROP OIL SERUM</h3>
-              <div class="pc-sub">칸도럽 골든 드롭 오일 세럼</div>
-              <p class="pc-desc">비타민 오일 캡슐 함유로 고밀도 영양 공급. 피부 턴오버를 돕고 장벽을 보호합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부 광채 및 안티에이징</div>
-                <div class="spec-item">비타민 E 및 유산균 성분 함유</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Vitamin Oil Capsules, Lactobacillus, Vitamin E</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">30ml / Nutrition Serum</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Dull or aging skin)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">High-density nutrition supply with vitamin capsules to help skin turnover and barrier protection.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Radiance, Anti-aging, Barrier Strengthening</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -975,15 +1502,34 @@
               <img src="images/brand/cos_page_29.png" alt="Peptide Serum" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Premium Revive</div>
               <h3 class="pc-title en">FIRMING PEPTIDE SERUM</h3>
-              <div class="pc-sub">칸도럽 퍼밍 펩타이드 세럼</div>
-              <p class="pc-desc">항노화 전문 펩타이드 포뮬러. 얼굴 윤곽 리프팅과 피부 볼륨 충전에 탁월한 효과를 제공합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">주름 개선 및 탄력 강화</div>
-                <div class="spec-item">7가지 고기능성 펩타이드 함유</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">7 High-performance Peptides, Bio-matrixyl</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">35ml / Lifting Serum</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face (Lifting zones)</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Anti-aging specialized peptide formula for facial contour lifting and volume replenishment.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Wrinkle Improvement, Elasticity Reinforcement, Volume Care</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -993,15 +1539,34 @@
               <img src="images/brand/cos_page_30.png" alt="Silk Tangle Cream" style="object-fit: cover;">
             </div>
             <div class="pc-content">
-              <div class="pc-series">Daily Renewal</div>
               <h3 class="pc-title en">SILK TANGLE CREAM</h3>
-              <div class="pc-sub">칸도럽 실크 탱글 크림</div>
-              <p class="pc-desc">실크 같은 부드러움과 탄력 밀착 케어. 캡슐 공법으로 유효 성분을 효과적으로 전달합니다.</p>
-              <div class="pc-specs">
-                <div class="spec-item">피부 밀도 개선 및 탄력 케어</div>
-                <div class="spec-item">마이크로 세럼 캡슐 기술</div>
-              </div>
-              <div class="pc-footer"><span class="btn-arrow">Learn More <span>→</span></span></div>
+              <ul class="pc-info-list">
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Key Ingredients</span>
+                  <span class="pc-info-value">Silk Encapsulated Peptides, Micro Serum Capsules</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Specifications</span>
+                  <span class="pc-info-value">50ml / Daily Renewal Cream</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Manufacturing Country</span>
+                  <span class="pc-info-value">South Korea</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Treatment Area</span>
+                  <span class="pc-info-value">Face</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Introduction</span>
+                  <span class="pc-info-value">Silk-like softness and elastic adherence care through advanced encapsulation technology.</span>
+                </li>
+                <li class="pc-info-item">
+                  <span class="pc-info-label">Effect</span>
+                  <span class="pc-info-value">Skin Density Improvement, Elasticity Care, Rapid Absorption</span>
+                </li>
+              </ul>
+              <div class="pc-footer"></div>
             </div>
           </div>
 
@@ -1016,53 +1581,53 @@
       <div class="footer-top">
         <div>
           <img src="images/main/logo.png" alt="BIOBIJOU" class="f-logo" />
-          <p class="f-desc">바이오비쥬는 독자적인 기술력을 바탕으로 전 세계인의 건강한 아름다움을 위해 혁신적인 에스테틱 솔루션을 지속적으로 공급합니다.</p>
+          <p class="f-desc">BIOBIJOU continuously supplies innovative aesthetic solutions for the healthy beauty of people around the world based on its proprietary technology.</p>
         </div>
         <div>
           <div class="f-title">Company</div>
           <div class="f-links">
-            <a href="company.html#ceo">인사말</a>
-            <a href="company.html#history">연혁</a>
-            <a href="company.html#certs">인증 &amp; 특허</a>
-            <a href="company.html#location">오시는길</a>
+            <a href="company.html#ceo">Message</a>
+            <a href="company.html#history">History</a>
+            <a href="company.html#certs">Certificates</a>
+            <a href="company.html#location">Location</a>
           </div>
         </div>
         <div>
           <div class="f-title">Technology</div>
           <div class="f-links">
-            <a href="technology.html#lnp">LNP 기술</a>
-            <a href="technology.html#hadm">hADM 기술</a>
-            <a href="technology.html#comparison">기술 비교</a>
+            <a href="technology.html#lnp">LNP Tech</a>
+            <a href="technology.html#hadm">hADM Tech</a>
+            <a href="technology.html#comparison">Comparison</a>
           </div>
         </div>
         <div>
           <div class="f-title">Products</div>
           <div class="f-links">
-            <a href="products.html?cat=new">2026 컬렉션</a>
-            <a href="products.html?cat=filler">HA 필러</a>
-            <a href="products.html?cat=booster">스킨 부스터</a>
-            <a href="products.html?cat=cosmetic">코스메틱</a>
+            <a href="products.html?cat=new">2026 Collection</a>
+            <a href="products.html?cat=filler">HA Filler</a>
+            <a href="products.html?cat=booster">Skin Booster</a>
+            <a href="products.html?cat=cosmetic">Cosmetics</a>
           </div>
         </div>
         <div>
           <div class="f-title">Global</div>
           <div class="f-links">
-            <a href="global.html">글로벌 네트워크</a>
-            <a href="global.html">USA 지사</a>
+            <a href="global.html">Global Network</a>
+            <a href="global.html">USA Office</a>
           </div>
         </div>
         <div>
           <div class="f-title">Media</div>
           <div class="f-links">
-            <a href="news.html">보도자료</a>
-            <a href="news.html">공지사항</a>
-            <a href="contact.html">문의하기</a>
+            <a href="news.html">News & Press</a>
+            <a href="news.html">Notice</a>
+            <a href="contact.html">Contact Us</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <div>© 2026 BIOBIJOU. All rights reserved.</div>
-        <div>경기도 하남시 하남대로 947 하남테크노밸리 U1 A동 1516호 | 02-6235-9696</div>
+        <div>#1516, Building A, Hanam Techno Valley U1, 947 Hanam-daero, Hanam-si, Gyeonggi-do, Korea | 02-6235-9696</div>
       </div>
     </div>
   </footer>
